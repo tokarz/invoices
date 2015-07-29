@@ -1,0 +1,6 @@
+<div>
+	<div id="loginWrapper" style="width:80%;height:80%">
+		<input type="text" placeholder="Nazwa Uzytkownika"/>
+	
+	</div>
+</div>

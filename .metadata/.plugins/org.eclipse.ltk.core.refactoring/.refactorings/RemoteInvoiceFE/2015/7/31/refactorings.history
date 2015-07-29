@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;RemoteInvoiceFE/resources/scripts/jquery.js&apos; to &apos;jquery-1.11.3.min.js&apos;" description="Rename resource &apos;jquery.js&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="resources/scripts/jquery.js" name="jquery-1.11.3.min.js" stamp="1438195860709" updateReferences="true"/>
+</session>

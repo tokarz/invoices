@@ -1,0 +1,12 @@
+'use strict';
+app.controller('loginController', ['$scope', function($scope){
+	
+	
+	$scope.username = "Nazwa Uzytkownika";
+	<input id="username" type="text" placeholder="Nazwa Uzytkownika"/>
+	<label for="password">{{password}}</label>
+	<input id="password" type="password" placeholder="Haslo"/>
+	<button>{{logIn}}</button>
+	
+	
+}]);
