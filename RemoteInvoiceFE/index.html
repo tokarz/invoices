@@ -6,16 +6,19 @@
 
 <link rel="stylesheet" type="text/css" href="app/styles/appStyles.css"></link>
 <link rel="stylesheet" type="text/css" href="resources/scripts/jquery-ui-1.11.4.custom/jquery-ui.css"></link>
+<link rel="stylesheet" type="text/css" href="resources/scripts/DataTables-1.10.7/media/css/jquery.dataTables.css"></link>
 
 </head>
 <body ng-app='InvoiceFE'>
 
 
 	<div ng-controller='mainController'>
-		<div id='header' ng-if='isLoggedIn'></div>
+		<div id='header' ng-if='isLoggedIn' class="ui-widget-header"></div>
 		<login-screen ng-if='!isLoggedIn'></login-screen>
-		<div id='content' ng-if='isLoggedIn'></div>
-		<div id='footer' ng-if='isLoggedIn'></div>
+		<div id='content' ng-if='isLoggedIn'>
+			<div ng-include="'app/views/salary.html'"></div>
+		</div>
+		<div id='footer' ng-if='isLoggedIn' class="ui-widget-header"></div>
 	</div>
 
 
@@ -27,6 +30,9 @@
 	<script src="resources/scripts/angular-1.4.3/angular.js" type="text/javascript"></script>
 	<script src="resources/scripts/angular-1.4.3/angular-route.js" type="text/javascript"></script>
 	<script src="resources/scripts/angular-1.4.3/angular-resource.js" type="text/javascript"></script>
+	
+	<!-- DataTables -->
+	<script type="text/javascript" src="resources/scripts/DataTables-1.10.7/media/js/jquery.dataTables.min.js"></script>
 	
 	
 	
@@ -41,5 +47,6 @@
 	
 	<!-- directives -->
 	<script src="app/directives/loginScreenDirective.js"></script>
+	<script type="text/javascript" src="app/directives/dataTableDirective.js"></script>
 </body>
 </html>
