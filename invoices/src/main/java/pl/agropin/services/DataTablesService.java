@@ -10,9 +10,12 @@ public class DataTablesService {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public String getTableData() {
+	public String getTableData(String sessionId, String userName, String password) {
 
 //		String jsonBig = "{ \"data\": [ [ \"Tiger Nixon\",\"System Architect\", \"Edinburgh\", \"5421\", \"2011/04/25\", \"$320,800\"],[ \"Garrett Winters\", \"Accountant\", \"Tokyo\", \"8422\", \"2011/07/25\", \"$170,750\"]]}";
+		//dbConnect
+		//dbSelect
+		//dbParseToJSON
 		
 		String jsonBig = "{\"data\": ["
 				  +       "{"
@@ -22,7 +25,7 @@ public class DataTablesService {
 			  +         "\"start_date\": \"2011/04/25\","
 			  +         "\"office\": \"Edinburgh\","
 			  +         "\"extn\": \"5421\""
-			  +       "},"
+			  +       "},"                          
 			  +       "{"
 			  +         "\"name\": \"Garrett Winters\","
 			  +         "\"position\": \"Accountant\","
