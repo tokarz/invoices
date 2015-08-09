@@ -1,0 +1,6 @@
+package pl.agropin.services;
+
+@PATH("rest/authenticate")
+public class AuthenticationService {
+
+}

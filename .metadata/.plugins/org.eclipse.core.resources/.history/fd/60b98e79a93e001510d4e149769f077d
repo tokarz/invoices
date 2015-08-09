@@ -1,0 +1,23 @@
+package daos;
+
+import database.DatabaseService;
+import entities.User;
+
+public class UserDAO {
+	private DatabaseService databaseService;
+
+	public UserDAO(DatabaseService databaseService) {
+		this.databaseService = databaseService;
+	}
+	
+	public User getUserByNameAndPassword(String name, String password)
+	{
+		databaseService.createSessionFactory();
+		
+		
+	}
+	
+	
+	
+	
+}

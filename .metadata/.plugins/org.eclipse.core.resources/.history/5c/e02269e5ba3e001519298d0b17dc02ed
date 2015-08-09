@@ -1,0 +1,21 @@
+package daos;
+
+import org.junit.Before;
+
+import database.DatabaseService;
+
+public class UserDAOTest {
+	private UserDAO sut;
+	
+	@Before
+	public void setUp() throws Exception {
+		sut = new UserDAO(new DatabaseService());
+	}
+	
+	@Test
+	public void setUp() 
+	{
+		
+	}
+
+}

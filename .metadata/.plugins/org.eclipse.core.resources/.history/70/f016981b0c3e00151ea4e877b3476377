@@ -1,0 +1,5 @@
+'use strict';
+app.factory('databaseService', ['$q', '$http', function($q, $http) {
+	return 
+	
+}]);

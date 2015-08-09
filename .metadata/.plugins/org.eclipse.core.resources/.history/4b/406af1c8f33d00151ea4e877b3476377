@@ -1,0 +1,32 @@
+package daos;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class InvoicesDAO {
+	
+	@Id
+	@GeneratedValue()
+	private long id;
+	
+	private String name;
+	private String income;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getIncome() {
+		return income;
+	}
+
+	public void setIncome(String income) {
+		this.income = income;
+	}
+}

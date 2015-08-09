@@ -14,8 +14,13 @@
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<!-- >mapping resource="employee.hbm.xml"/ -->
 
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+
 		<!-- mappings for annotated classes -->
 		<mapping class="entities.DatabaseVersion" />
+		<mapping class="entities.Invoices" />
+		<mapping class="entities.User" />
 
 	</session-factory>
 

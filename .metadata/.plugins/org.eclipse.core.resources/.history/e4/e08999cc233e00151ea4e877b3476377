@@ -1,0 +1,42 @@
+package pl.agropin.services;
+
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import daos.InvoicesDAO;
+import database.DatabaseService;
+import entities.Invoices;
+
+@Path("/tableData")
+public class DataTablesService {
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getTableData(String sessionId, String userName, String password) {
+		String jsonBig = "{\"data\": ["
+				  +       "{";
+		InvoicesDAO invoices = new InvoicesDAO(new DatabaseService());
+		List<Invoices> invoicesByName = invoices.getInvoicesByName("Tokarz");
+		for (Invoices currentInvoice : invoicesByName) {
+			
+		}
+		
+		
+			+         	"\"select\": \"" + "false" + "\","
+			  +         	"\"date\": \"" + invoicesByName.getRokpod() + "\","
+			  +        		 "\"fname\": \"" + invoicesByName.getImieprac() + "\","
+			  +       		  "\"lname\": \"" + invoicesByName.getNazwiskoprac() + "\","
+			  +     		    "\"salary\": \"" + invoicesByName.getKwota() + "\""
+			  +     	  "}"
+			  +    	   "]}";
+
+		return jsonBig;
+	}
+
+}
+
+

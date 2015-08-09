@@ -1,0 +1,12 @@
+'use strict';
+
+app.controller('mainController', ['$scope', 'testService', function($scope) {
+	$scope.isLoggedIn = false;
+	
+	$scope.$on('loginSuccessfull', function() {
+		$scope.isLoggedIn = true;
+	});
+	
+	$scope.connectionStatus = testService.pokeServer();
+	
+}]);

@@ -1,0 +1,13 @@
+app.factory('testService', [ '$q', '$http', function($q, $http) {
+	return {
+
+		pokeServer : function() {
+			var deferred = $q.defer();
+
+			return deferred.promise;
+
+		}
+
+	}
+
+} ]);

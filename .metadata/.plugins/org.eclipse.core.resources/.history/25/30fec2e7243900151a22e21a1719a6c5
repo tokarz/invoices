@@ -1,0 +1,36 @@
+<div id="contentWrapper">
+	<h3>{{connectionStatus}}</h3>
+	<div class="ui-widget-header mmt-buttonset" style="width: 80%;margin: auto">
+		<input type="radio" id="radio1" name="radio"><label for="radio1">Choice 1</label>
+    <input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">Choice 2</label>
+    <input type="radio" id="radio3" name="radio"><label for="radio3">Choice 3</label>
+	</div>
+	<div id="dataTableWrapper">
+		<div
+			style="width: 80%; height:80%; padding-top:30px; margin: auto; box-shadow: 1px 1px 19px 1px black">
+			<table mmt-data-table style='width:100%'>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Position</th>
+						<th>Office</th>
+						<th>Age</th>
+						<th>Date</th>
+						<th>Salary</th>
+					</tr>
+				</thead>
+
+				<tfoot>
+					<tr>
+						<th>Name</th>
+						<th>Position</th>
+						<th>Office</th>
+						<th>Age</th>
+						<th>Date</th>
+						<th>Salary</th>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,8 +1,0 @@
-'use strict';
-app.directive('loginScreen', function() {
-	return {
-		restrict: 'E',
-		templateUrl: 'app/views/login.html'
-	}
-	
-});

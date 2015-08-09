@@ -22,14 +22,13 @@ public class UserDAO {
 		if (sessionFactory != null) {
 
 			Session session = sessionFactory.openSession();
-			Transaction tx = null;
 			try {
-				tx = session.beginTransaction();
-				result = (User)session.createSQLQuery("Select * from users where username = \"" + name + "\" and password = \"" + password + "\";").uniqueResult();
+				String query = "Select * from users where username = \"" + name + "\" and password = \"" + password + "\";";
+				
+				
+				Object resultObj = session.createSQLQuery(query).uniqueResult();
+				result = (User)resultObj;
 			} catch (HibernateException e) {
-				if (tx != null) {
-					tx.rollback();
-				}
 				e.printStackTrace();
 			} finally {
 				session.close();

@@ -1,0 +1,2 @@
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\n<messages>\n<message>Added new Database project for Invoices and DatabaseVersion DB Info</message>\n<message>added FE fetching of data tables data</message>\n<message>Added missing directives</message>\n<message>added first draft of a dummy buttonset for a table header (just in case&\#x0A;if it&apos;s needed)</message>\n<message>Added first draft of a datatable </message>\n</messages>
+eclipse.preferences.version=1

@@ -1,0 +1,31 @@
+package pl.agropin.services;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+
+@Path("tableData")
+public class DataTablesService {
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getTableData() 
+	{
+		
+		/*
+		 * <th>Name</th>
+						<th>Position</th>
+						<th>Office</th>
+						<th>Age</th>
+						<th>Date</th>
+						<th>Salary</th>
+		 * 
+		 * */
+		
+		
+		return "{\"Name\" : \"jName\", \"Office\": \"jOffice\", \"Age\": \"jAge\", \"Date\" : \"jDate\", \"Salary\" : \"jSalary\"}";
+	}
+	
+}

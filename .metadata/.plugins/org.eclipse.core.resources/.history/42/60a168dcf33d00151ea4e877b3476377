@@ -1,0 +1,57 @@
+package database;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.AnnotationConfiguration;
+
+import entities.Invoices;
+
+public class DatabaseService {
+	private SessionFactory sessionFactory;
+
+	public DatabaseService(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
+	public Invoices getInvoice(String name) {
+		Invoices invoicesDAO = null;
+		if (createSessionFactory()) {
+
+			Session session = this.sessionFactory.openSession();
+			Transaction tx = null;
+			try {
+				tx = session.beginTransaction();
+
+				invoicesDAO = session.get(Invoices.class, name);
+
+				tx.commit();
+			} catch (HibernateException e) {
+				if (tx != null) {
+					tx.rollback();
+				}
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
+
+		}
+		return invoicesDAO;
+
+	}
+
+	private boolean createSessionFactory() {
+		boolean created = false;
+		try {
+			sessionFactory = new AnnotationConfiguration().configure()
+					.addAnnotatedClass(Invoices.class).buildSessionFactory();
+			created = true;
+		} catch (Throwable ex) {
+			System.err.println("Failed to create sessionFactory object." + ex);
+			throw new ExceptionInInitializerError(ex);
+		}
+		return created;
+
+	}
+}

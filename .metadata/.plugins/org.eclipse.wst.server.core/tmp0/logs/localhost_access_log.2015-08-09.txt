@@ -1,0 +1,7 @@
+127.0.0.1 - - [09/Aug/2015:18:46:48 +0200] "GET / HTTP/1.1" 404 994
+127.0.0.1 - - [09/Aug/2015:18:46:58 +0200] "GET /invoices/WEB-INF/classes/pl/agropin/services/AuthenticationService.java HTTP/1.1" 404 992
+127.0.0.1 - - [09/Aug/2015:18:46:59 +0200] "GET /favicon.ico HTTP/1.1" 404 1016
+127.0.0.1 - - [09/Aug/2015:18:47:00 +0200] "GET /favicon.ico HTTP/1.1" 404 1016
+127.0.0.1 - - [09/Aug/2015:18:48:21 +0200] "GET /invoices/rest/authenticate?username=toki;password=toki HTTP/1.1" 200 15
+127.0.0.1 - - [09/Aug/2015:18:48:44 +0200] "GET /invoices/rest/authenticate?username=toki&password=toki HTTP/1.1" 500 3358
+127.0.0.1 - - [09/Aug/2015:18:49:33 +0200] "GET /invoices/rest/authenticate?username=toki&password=toki HTTP/1.1" 500 3358

@@ -1,0 +1,43 @@
+CREATE TABLE lcZbiorCel (rokobr C(4),mcobr C(2), ; 
+
+rokpod C(4), mcpod C(2), termin C(1), nrprac C(5), ; 
+
+nazwiskoprac C(30), imieprac C(15), ; 
+
+angazplaca N(16,2),angazcrypt C(4),lenangaz N(3,0), ; 
+
+skladnik C(4),kl3_sk C(1), ; 
+
+symb_sk C(3), nazp_sk C(30), nazs_sk C(10), ; 
+
+wsk_odc C(1), ilo_godz N(5,0), procent N(6,2), ; 
+
+kwota N(16,2),kwotacrypt C(4), lenkwota N(3,0),; 
+
+ldod C(1), nr_listy C(5), ; 
+
+zaklad C(2), wydzial C(3), podwydzial C(3), konto5 C(20), ; 
+
+zakladprac C(2), wydzialprac C(3), podwydzialprac C(3), ; 
+
+konto5prac C(20), ;oddzialnfz C(35), przelewror N(16,2), ; 
+
+rorcrypt C(4), lenror N(3,0),; 
+
+przelewror2 N(16,2),ror2crypt C(4), lenror2 N(3,0), ; 
+
+wyplatakasa N(16,2), kasacrypt C(4),lenkasa N(3,0), wyslany C(1) ) 
+
+SELECT paskicrypt   
+
+USE 
+
+ADD TABLE paskicrypt      
+
+ENDIF 
+
+USE paskicrypt ALIAS paskicrypt IN 0 EXCLUSIVE 
+
+SELECT paskicrypt 
+
+ALTER TABLE paskicrypt ADD COLUMN sumaktrl N(12,2)

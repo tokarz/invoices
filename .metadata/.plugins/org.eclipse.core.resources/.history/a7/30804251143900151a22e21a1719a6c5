@@ -1,0 +1,24 @@
+app.factory('testService', [ '$q', '$http', function($q, $http) {
+	return {
+
+		pokeServer : function() {
+			var deferred = $q.defer();
+			
+			
+			$http.get('http://localhost:9090/rest/invoice').success(function(data) {
+				deferred.resolve(data);
+				
+				
+			}).error(function(ex) {
+				alert('Serwis danych niedostepny!');
+				
+				
+			});
+
+			return deferred.promise;
+
+		}
+
+	}
+
+} ]);

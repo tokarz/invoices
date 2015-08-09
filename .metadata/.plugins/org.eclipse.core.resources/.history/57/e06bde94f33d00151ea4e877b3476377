@@ -1,0 +1,25 @@
+package entities;
+
+import javax.persistence.Entity;
+
+@Entity
+public class DatabaseVersion {
+
+	private long id;
+	private String version;
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getVersion() {
+		return version;
+	}
+	public void setVersion(String version) {
+		this.version = version;
+	}
+	
+	
+	
+}

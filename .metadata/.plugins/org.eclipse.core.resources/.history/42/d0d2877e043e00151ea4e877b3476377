@@ -1,0 +1,79 @@
+package entities;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "lcZbiorCel")
+public class Invoices {
+	private String rokobr;
+	private String mcobr;
+	private String rokpod;
+	private String mcpod;
+	private String termin;
+	private String nrprac;
+	private String nazwiskoprac;
+	private String imieprac;
+	private Double angazplaca;
+	private String angazcrypt;
+	private Double lenangaz;
+	private String rokobr;
+	private String rokobr;
+	private String rokobr;
+	private String rokobr;
+	private String rokobr;
+	private String rokobr;
+	
+	private String rokobr;
+}
+
+
+/*
+ | rokobr         | varchar(4)    | YES  |     | NULL    |       |
+| mcobr          | varchar(2)    | YES  |     | NULL    |       |
+| rokpod         | varchar(4)    | YES  |     | NULL    |       |
+| mcpod          | varchar(2)    | YES  |     | NULL    |       |
+| termin         | varchar(1)    | YES  |     | NULL    |       |
+| nrprac         | varchar(5)    | YES  |     | NULL    |       |
+| nazwiskoprac   | varchar(30)   | YES  |     | NULL    |       |
+| imieprac       | varchar(15)   | YES  |     | NULL    |       |
+| angazplaca     | decimal(16,2) | YES  |     | NULL    |       |
+| angazcrypt     | varchar(4)    | YES  |     | NULL    |       |
+| lenangaz       | decimal(3,0)  | YES  |     | NULL    |       |
+| skladnik       | varchar(4)    | YES  |     | NULL    |       |
+| kl3_sk         | varchar(1)    | YES  |     | NULL    |       |
+| symb_sk        | varchar(3)    | YES  |     | NULL    |       |
+| nazp_sk        | varchar(30)   | YES  |     | NULL    |       |
+| nazs_sk        | varchar(10)   | YES  |     | NULL    |       |
+| wsk_odc        | varchar(1)    | YES  |     | NULL    |       |
+| ilo_godz       | decimal(5,0)  | YES  |     | NULL    |       |
+| procent        | decimal(6,2)  | YES  |     | NULL    |       |
+| kwota          | decimal(16,2) | YES  |     | NULL    |       |
+| kwotacrypt     | varchar(4)    | YES  |     | NULL    |       |
+| lenkwota       | decimal(3,0)  | YES  |     | NULL    |       |
+| ldod           | varchar(1)    | YES  |     | NULL    |       |
+| nr_listy       | varchar(5)    | YES  |     | NULL    |       |
+| zaklad         | varchar(2)    | YES  |     | NULL    |       |
+| wydzial        | varchar(3)    | YES  |     | NULL    |       |
+| podwydzial     | varchar(3)    | YES  |     | NULL    |       |
+| konto5         | varchar(20)   | YES  |     | NULL    |       |
+| zakladprac     | varchar(2)    | YES  |     | NULL    |       |
+| wydzialprac    | varchar(3)    | YES  |     | NULL    |       |
+| podwydzialprac | varchar(3)    | YES  |     | NULL    |       |
+| konto5prac     | varchar(20)   | YES  |     | NULL    |       |
+| oddzialnfz     | varchar(35)   | YES  |     | NULL    |       |
+| przelewror     | decimal(16,2) | YES  |     | NULL    |       |
+| rorcrypt       | varchar(4)    | YES  |     | NULL    |       |
+| lenror         | decimal(3,0)  | YES  |     | NULL    |       |
+| przelewror2    | decimal(16,2) | YES  |     | NULL    |       |
+| ror2crypt      | varchar(4)    | YES  |     | NULL    |       |
+| lenror2        | decimal(3,0)  | YES  |     | NULL    |       |
+| wyplatakasa    | decimal(16,2) | YES  |     | NULL    |       |
+| kasacrypt      | varchar(4)    | YES  |     | NULL    |       |
+| lenkasa        | decimal(3,0)  | YES  |     | NULL    |       |
+| wyslany        | varchar(1)    | YES  |     | NULL    |  
+ 
+  
+  
+ * */
+ 

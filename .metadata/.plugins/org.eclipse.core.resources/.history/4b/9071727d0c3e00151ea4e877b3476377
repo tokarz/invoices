@@ -1,0 +1,5 @@
+package pl.agropin.services;
+
+public class DatabaseVersionService {
+
+}

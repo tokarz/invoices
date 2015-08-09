@@ -1,0 +1,22 @@
+package daos;
+
+import org.junit.Before;
+
+import database.DatabaseService;
+
+public class InvoicesDAOTest {
+
+	private InvoicesDAO sut;
+	
+	@Before
+	public void setUp() throws Exception {
+		sut = new InvoicesDAO(new DatabaseService());
+	}
+
+	
+	@Test
+	public void testSetInvoices()
+	{
+		
+	}
+}

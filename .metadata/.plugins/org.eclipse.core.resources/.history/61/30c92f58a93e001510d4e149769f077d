@@ -1,0 +1,16 @@
+package daos;
+
+import database.DatabaseService;
+
+public class UserDAO {
+	private DatabaseService databaseService;
+
+	public UserDAO(DatabaseService databaseService) {
+		this.databaseService = databaseService;
+	};
+	
+	
+	
+	
+	
+}

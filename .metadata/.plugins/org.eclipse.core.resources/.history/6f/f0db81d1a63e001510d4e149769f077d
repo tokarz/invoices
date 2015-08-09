@@ -1,0 +1,21 @@
+<div style="width: 600px;height: 400px;margin: 20vh auto auto;">
+	<div id="loginWrapperHeader" class="ui-widget-header">
+		<div style="width: 80%;margin: auto;color:#3383bb"><h1>{{loginText}}</h1></div>
+	</div>
+	<div id="loginWrapper">
+		
+		<div class="loginPartForm">
+			<label for="username" style="float:left;width:100%">{{username}}</label> 
+			<input style="width:50%" id="username" type="text" placeholder="Nazwa Uzytkownika" ng-model='inputUsername'/>
+		</div>
+		<div class="loginPartForm">
+			<label style="width:100%;float:left" for="password" >{{password}}</label> <input style="width:50%" id="password"
+				type="password" placeholder="Haslo" ng-model='inputPassword'/>
+		</div>
+		<div id="loginButton">
+			<button ng-click='logInWithCredentials()'>{{logIn}}</button>
+		</div>
+		<div class='loginPartForm' ng-if='loginError'>Error while login! </div>
+	</div>
+	<div id="loginFooter"></div>
+</div>

@@ -1,0 +1,18 @@
+package daos;
+
+import entities.DatabaseVersion;
+
+public class DatabaseVersionDAO {
+
+	
+	public DatabaseVersion getDatabaseVersionByName(String name)
+	{
+		DatabaseVersion result = null;
+		
+		
+		
+		return result;
+		
+	}
+	
+}

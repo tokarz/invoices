@@ -1,0 +1,18 @@
+package daos;
+
+import database.DatabaseService;
+
+public class InvoicesDAO {
+	private DatabaseService service;
+
+	public InvoicesDAO(DatabaseService service) {
+		this.service = service;
+	}
+
+	public Invoces getInvoicesByName(String name)
+	{
+		
+	}
+	
+	
+}

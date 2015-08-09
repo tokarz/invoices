@@ -1,0 +1,25 @@
+package pl.agropin.services;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+@Path("/invoice")
+public class InvoiceTableService {
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getDefaultUserInJSON() {
+		return "{'status' : 'Connected'}";
+	}
+
+	@Path("/msg")
+    public Response getMsg(@PathParam("param") String msg) {
+        String output = "Jersey say : " + msg;
+        return Response.status(200).entity(output).build();
+   }
+	
+}

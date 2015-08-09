@@ -1,0 +1,14 @@
+package daos;
+
+import org.junit.Before;
+
+
+public class DatabaseVersionDAOTest {
+
+	private DatabaseVersionDAO sut;
+	
+	@Before
+	public void setUp() throws Exception {
+	}
+
+}

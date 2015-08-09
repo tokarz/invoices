@@ -1,0 +1,42 @@
+package daos;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import database.DatabaseService;
+import entities.Invoices;
+import entities.User;
+
+public class UserDAO {
+	private DatabaseService databaseService;
+
+	public UserDAO(DatabaseService databaseService) {
+		this.databaseService = databaseService;
+	}
+	
+	public User getUserByNameAndPassword(String name, String password)
+	{
+		List<Invoices> result = new ArrayList<Invoices>();
+		SessionFactory sessionFactory = databaseService.createSessionFactory();
+		if (sessionFactory != null) {
+
+			Session session = sessionFactory.openSession();
+			Transaction tx = null;
+			try {
+				tx = session.beginTransaction();
+			} finally {
+				
+			}
+		}
+		
+		
+	}
+	
+	
+	
+	
+}

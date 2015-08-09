@@ -1,0 +1,5 @@
+package pl.agropin.database.DAO;
+
+public class InvoicesDAO {
+
+}

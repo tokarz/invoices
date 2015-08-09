@@ -1,0 +1,13 @@
+package daos;
+
+import org.junit.Before;
+
+public class InvoicesDAOTest {
+
+	private InvoicesDAO sut;
+	
+	@Before
+	public void setUp() throws Exception {
+	}
+
+}

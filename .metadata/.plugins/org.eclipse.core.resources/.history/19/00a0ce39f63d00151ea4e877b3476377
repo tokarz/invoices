@@ -1,0 +1,24 @@
+package database;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+
+import entities.Invoices;
+
+public class DatabaseService {
+
+	public SessionFactory createSessionFactory() {
+		SessionFactory sessionFactory = null;
+		
+		try {
+			AnnotationCOnfiguration annotationConfiguration = new AnnotationConfiguration();
+			sessionFactory = annotationConfiguration.configure()
+					.addAnnotatedClass(Invoices.class).buildSessionFactory();
+		} catch (Throwable ex) {
+			System.err.println("Failed to create sessionFactory object." + ex);
+			throw new ExceptionInInitializerError(ex);
+		}
+		return sessionFactory;
+
+	}
+}

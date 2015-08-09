@@ -1,0 +1,35 @@
+'use strict';
+app.directive('mmtTable', function($timeout) {
+	return {
+		restrict : 'A',
+		link : function(scope, element, attribute) {
+			$timeout(function() {
+
+				scope.table = $(element).DataTable({
+					"ajax" : {
+						"url" : "rest/tableData",
+						"type" : "POST"
+					},
+					"columns" : [ {
+						"data" : "name"
+					}, {
+						"data" : "position"
+					}, {
+						"data" : "office"
+					}, {
+						"data" : "extn"
+					}, {
+						"data" : "start_date"
+					}, {
+						"data" : "salary"
+					} ]
+				});
+				//scope.table.columns.adjust().draw();
+
+			});
+
+		}
+
+	}
+
+});

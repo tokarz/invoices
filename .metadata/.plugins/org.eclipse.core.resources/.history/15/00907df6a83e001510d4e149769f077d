@@ -1,0 +1,14 @@
+package pl.agropin.services;
+
+import javax.ws.rs.Path;
+
+@Path("rest/authenticate")
+public class AuthenticationService {
+
+	
+	public boolean authenticate(String username, String password)
+	{
+		
+	}
+	
+}

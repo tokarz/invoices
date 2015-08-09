@@ -1,7 +1,0 @@
-<div>
-	<div id="loginWrapper" style="width:80%;height:80%">
-		<label for="username">{{username}}</label>
-		<input id="username" type="text" placeholder="Nazwa Uzytkownika"/>
-	
-	</div>
-</div>

@@ -1,0 +1,49 @@
+package daos;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import database.DatabaseService;
+import entities.DatabaseVersion;
+import entities.Invoices;
+
+public class DatabaseVersionDAO {
+	
+	private DatabaseService service;
+	
+	public DatabaseVersionDAO(DatabaseService service) {
+		this.service = service;
+	}
+
+	public DatabaseVersion getDatabaseVersionByName(String name)
+	{
+		DatabaseVersion result = null;
+		SessionFactory sessionFactory = service.createSessionFactory();
+		if (sessionFactory != null) {
+
+			Session session = sessionFactory.openSession();
+			Transaction tx = null;
+			try {
+				tx = session.beginTransaction();
+
+				invoicesDAO = session.get(Invoices.class, name);
+
+				tx.commit();
+			} catch (HibernateException e) {
+				if (tx != null) {
+					tx.rollback();
+				}
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
+
+		
+		
+		return result;
+		
+	}
+	
+}

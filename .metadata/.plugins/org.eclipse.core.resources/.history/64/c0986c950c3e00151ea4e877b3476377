@@ -1,0 +1,9 @@
+package pl.agropin.services;
+
+import javax.ws.rs.Path;
+
+
+@Path("/dbVersion")
+public class DatabaseVersionService {
+
+}

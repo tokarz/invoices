@@ -1,0 +1,13 @@
+package daos;
+
+import javax.persistence.Entity;
+
+
+@Entity
+public class InvoicesDAO {
+
+	private String name;
+	private String income;
+	
+	
+}

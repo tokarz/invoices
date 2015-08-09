@@ -1,0 +1,20 @@
+package pl.agropin.services;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("rest/authenticate")
+public class AuthenticationService {
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public boolean authenticate(String username, String password)
+	{
+		boolean isAuthenticated = false;
+		
+		return isAuthenticated;
+	}
+	
+}

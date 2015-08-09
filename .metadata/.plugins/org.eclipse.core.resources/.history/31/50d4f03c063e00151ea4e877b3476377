@@ -1,0 +1,14 @@
+package daos;
+
+import database.DatabaseService;
+
+public class InvoicesDAO {
+	private DatabaseService service;
+
+	public DatabaseVersionDAO(DatabaseService service) {
+		this.service = service;
+	}
+
+	
+	
+}

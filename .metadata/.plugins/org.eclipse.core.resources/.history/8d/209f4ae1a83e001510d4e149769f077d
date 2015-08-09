@@ -1,0 +1,8 @@
+package pl.agropin.services;
+
+import javax.ws.rs.Path;
+
+@Path("rest/authenticate")
+public class AuthenticationService {
+
+}
