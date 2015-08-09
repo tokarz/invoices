@@ -26,9 +26,6 @@ public class DatabaseVersionDAO {
 			try {
 				tx = session.beginTransaction();
 
-				// result = (DatabaseVersion) session.get(DatabaseVersion.class,
-				// 1L);
-
 				result = (DatabaseVersion) session
 						.createSQLQuery("SELECT  * FROM  databaseVersion")
 						.addEntity(DatabaseVersion.class).uniqueResult();

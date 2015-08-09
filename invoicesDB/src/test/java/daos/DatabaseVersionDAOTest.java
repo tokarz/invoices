@@ -24,7 +24,7 @@ public class DatabaseVersionDAOTest {
 	{
 		DatabaseVersion databaseVersionByName = sut.getDatabaseVersion();
 		Assert.assertEquals(databaseVersionByName.getId(), 1);
-		Assert.assertEquals(databaseVersionByName.getVersion(), "0.1");
+		Assert.assertEquals(databaseVersionByName.getVersion(), "0.2");
 	}
 	
 	@Test

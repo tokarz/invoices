@@ -5,6 +5,9 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="invoicesDB-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/invoicesDB/invoicesDB">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="invoices"/>
         <property name="java-output-path" value="/invoices/target/classes"/>
     </wb-module>

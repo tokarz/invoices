@@ -4,7 +4,8 @@ app.factory('testService', [ '$q', '$http', function($q, $http) {
 		pokeServer : function() {
 			var deferred = $q.defer();
 			
-			$http.get('rest/invoice').success(function(data) {
+			$http.get('rest/invoice')
+			.success(function(data) {
 				deferred.resolve(data.status);
 				
 				

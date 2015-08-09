@@ -54,3 +54,14 @@ body {
 	position: static;
 	overflow-y: scroll;
 }
+
+#pdfPrint {
+	background: #eee url("../../resources/images/icons/page_white_acrobat.png");
+	height: 32px;
+	width: 32px;
+	float: right;
+	margin-top: 8px;
+	margin-right: 10px;
+	background-repeat: no-repeat;
+	
+}

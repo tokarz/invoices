@@ -1,5 +1,8 @@
 package daos;
 
+import java.util.List;
+
+import org.eclipse.jface.text.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,5 +30,13 @@ public class InvoicesDAOTest {
 		invoice.setRokobr("2015");
 		
 		sut.setInvoicesByName(invoice);
+	}
+	
+	@Test
+	public void testGetInvoices()
+	{
+		List<Invoices> invoicesByName = sut.getInvoicesByName("Tokarz");
+		Assert.isNotNull(invoicesByName);
+		
 	}
 }

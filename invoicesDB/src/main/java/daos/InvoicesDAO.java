@@ -1,5 +1,8 @@
 package daos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,8 +19,9 @@ public class InvoicesDAO {
 		this.service = service;
 	}
 
-	public Invoices getInvoicesByName(String name) {
-		Invoices result = null;
+	@SuppressWarnings("unchecked")
+	public List<Invoices> getInvoicesByName(String name) {
+		List<Invoices> result = new ArrayList<Invoices>();
 		SessionFactory sessionFactory = service.createSessionFactory();
 		if (sessionFactory != null) {
 
@@ -26,11 +30,11 @@ public class InvoicesDAO {
 			try {
 				tx = session.beginTransaction();
 
-				result = (Invoices) session
+				result = (List<Invoices>) session
 						.createSQLQuery(
-								"SELECT  * FROM  lcZbiorCel where nazwiskoprac = "
-										+ name).addEntity(Invoices.class)
-						.uniqueResult();
+								"SELECT  * FROM  lcZbiorCel where nazwiskoprac = \""+ name +"\""
+										).addEntity(Invoices.class)
+						.list();
 
 				tx.commit();
 			} catch (HibernateException e) {
