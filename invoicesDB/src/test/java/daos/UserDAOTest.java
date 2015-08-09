@@ -22,5 +22,15 @@ public class UserDAOTest {
 		User userByNameAndPassword = sut.getUserByNameAndPassword("toki", "toki");
 		Assert.assertNotNull(userByNameAndPassword);
 	}
+	
+	@Test
+	public void testSetUser() 
+	{
+		User user = new User();
+		user.setId(3);
+		user.setPassword("test");
+		user.setUsername("test");
+		sut.setUser(user);
+	}
 
 }

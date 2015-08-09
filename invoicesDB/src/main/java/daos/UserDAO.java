@@ -4,6 +4,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import database.DatabaseService;
 import entities.User;
@@ -23,11 +24,7 @@ public class UserDAO {
 
 			Session session = sessionFactory.openSession();
 			try {
-				String query = "Select * from users where username = \"" + name + "\" and password = \"" + password + "\";";
-				
-				
-				Object resultObj = session.createSQLQuery(query).uniqueResult();
-				result = (User)resultObj;
+				result = (User) session.createCriteria(User.class).add( Restrictions.eq("username", name)).add(Restrictions.eq("password", password)).uniqueResult();
 			} catch (HibernateException e) {
 				e.printStackTrace();
 			} finally {
@@ -47,12 +44,14 @@ public class UserDAO {
 			try {
 				tx = session.beginTransaction();
 				session.save(user);
+				tx.commit();
 			} catch (HibernateException e) {
 				if (tx != null) {
 					tx.rollback();
 				}
 				e.printStackTrace();
 			} finally {
+				session.flush();
 				session.close();
 			}
 		}
