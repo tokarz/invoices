@@ -1,60 +1,40 @@
 package daos;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
+import java.util.List;
 
-import database.DatabaseService;
+import database.DbfService;
+import entities.DbfColumnValue;
+import entities.DbfData;
 import entities.User;
 
 public class UserDAO {
-	private DatabaseService databaseService;
+	private DbfService service;
 
-	public UserDAO(DatabaseService databaseService) {
-		this.databaseService = databaseService;
+	public UserDAO(DbfService service) {
+		this.service = service;
 	}
 	
 	public User getUserByNameAndPassword(String name, String password)
 	{
 		User result = null;
-		SessionFactory sessionFactory = databaseService.createSessionFactory();
-		if (sessionFactory != null) {
-
-			Session session = sessionFactory.openSession();
-			try {
-				result = (User) session.createCriteria(User.class).add( Restrictions.eq("username", name)).add(Restrictions.eq("password", password)).uniqueResult();
-			} catch (HibernateException e) {
-				e.printStackTrace();
-			} finally {
-				session.close();
+		DbfData dbfData = service.getDbfDataByNameCloseStream("paskicrypt.dbf", "NRPRAC", name);
+		if (dbfData != null) {
+			List<List<DbfColumnValue>> userData= dbfData.getValues();
+			if(userData.size() > 0) 
+			{
+				List<DbfColumnValue> userDataRow = userData.get(0);
+				for (DbfColumnValue dbfColumnValue : userDataRow) {
+					if(dbfColumnValue.field.getName().equals("NAZWISKOPR")) 
+					{
+						if(dbfColumnValue.value.equals(password)) 
+						{
+							result = new User(name, "");
+						}
+					}
+				}
 			}
 		}
 		return result;
-	}
-	
-	public void setUser(User user)
-	{
-		SessionFactory sessionFactory = databaseService.createSessionFactory();
-		if (sessionFactory != null) {
-
-			Session session = sessionFactory.openSession();
-			Transaction tx = null;
-			try {
-				tx = session.beginTransaction();
-				session.save(user);
-				tx.commit();
-			} catch (HibernateException e) {
-				if (tx != null) {
-					tx.rollback();
-				}
-				e.printStackTrace();
-			} finally {
-				session.flush();
-				session.close();
-			}
-		}
 	}
 	
 }

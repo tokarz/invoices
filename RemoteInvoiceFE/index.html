@@ -14,8 +14,8 @@
 
 	<div ng-controller='mainController'>
 		<div id='header' ng-if='isLoggedIn' class="ui-widget-header"></div>
-		<!-- login-screen ng-if='!isLoggedIn'></login-screen-->
-		<div id='content'>
+		<login-screen ng-if='!isLoggedIn'></login-screen>
+		<div id='content' ng-if='isLoggedIn'>
 			<div ng-include="'app/views/salary.html'"></div>
 		</div>
 		<div id='footer' ng-if='isLoggedIn' class="ui-widget-header"></div>

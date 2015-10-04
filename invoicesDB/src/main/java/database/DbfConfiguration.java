@@ -10,7 +10,7 @@ public class DbfConfiguration {
 		Properties dbInfo = new Properties();
 
 		ClassLoader cl = Thread.currentThread().getContextClassLoader();
-		dbInfo.load(cl.getResourceAsStream("/db.properties"));
+		dbInfo.load(cl.getResourceAsStream("db.properties"));
 		
 		String folder = (String) dbInfo.get("dbfolder");
 		String charset = (String) dbInfo.get("charset");

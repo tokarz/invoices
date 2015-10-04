@@ -22,13 +22,9 @@ public class InvoicesDAO {
 
 	public List<Invoices> getInvoicesByName(String name) throws IOException, JDBFException {
 		List<Invoices> result = new ArrayList<Invoices>();
-		//memory consumption too high!!
-		DbfData allMessagesByName = service.getDbfDataByNameCloseStream("paskicrypt.dbf", "NRPRAC",name);
+		DbfData messagesByName = service.getDbfDataByNameCloseStream("paskicrypt.dbf", "NRPRAC",name);
 		
-		result = invoicesMapper.mapDbfData(allMessagesByName);
-		
-		
-		
+		result = invoicesMapper.mapDbfData(messagesByName);
 		
 		return result;
 	}
