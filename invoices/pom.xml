@@ -32,9 +32,6 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.12</version>
 		</dependency>
-
-
-
 		<dependency>
 			<groupId>pl.agropin</groupId>
 			<artifactId>invoicesDB</artifactId>
@@ -56,8 +53,8 @@
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 

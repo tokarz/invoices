@@ -5,10 +5,11 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+import entities.DatabaseVersion;
 import entities.Invoices;
+import entities.User;
 
 public class DatabaseService {
-
 	public SessionFactory createSessionFactory() {
 		SessionFactory sessionFactory = null;
 
@@ -16,6 +17,8 @@ public class DatabaseService {
 			Configuration configuration = new Configuration();
 			configuration.configure();
 			configuration.addAnnotatedClass(Invoices.class);
+			configuration.addAnnotatedClass(DatabaseVersion.class);
+			configuration.addAnnotatedClass(User.class);
 
 			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 					.applySettings(configuration.getProperties()).build();
@@ -26,6 +29,5 @@ public class DatabaseService {
 			throw new ExceptionInInitializerError(ex);
 		}
 		return sessionFactory;
-
 	}
 }

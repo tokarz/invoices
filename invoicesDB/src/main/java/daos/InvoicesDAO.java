@@ -1,75 +1,38 @@
 package daos;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import com.hexiong.jdbf.JDBFException;
 
-import database.DatabaseService;
-import entities.DatabaseVersion;
+import database.DbfService;
+import entities.DbfData;
 import entities.Invoices;
+import mappers.InvoicesMapper;
 
 public class InvoicesDAO {
-	private DatabaseService service;
-
-	public InvoicesDAO(DatabaseService service) {
+	private final DbfService service;
+	private final InvoicesMapper invoicesMapper;
+	
+	public InvoicesDAO(DbfService service, InvoicesMapper invoicesMapper) {
 		this.service = service;
+		this.invoicesMapper = invoicesMapper;
 	}
 
-	@SuppressWarnings("unchecked")
-	public List<Invoices> getInvoicesByName(String name) {
+	public List<Invoices> getInvoicesByName(String name) throws IOException, JDBFException {
 		List<Invoices> result = new ArrayList<Invoices>();
-		SessionFactory sessionFactory = service.createSessionFactory();
-		if (sessionFactory != null) {
-
-			Session session = sessionFactory.openSession();
-			Transaction tx = null;
-			try {
-				tx = session.beginTransaction();
-
-				result = (List<Invoices>) session
-						.createSQLQuery(
-								"SELECT  * FROM  lcZbiorCel where nazwiskoprac = \""+ name +"\""
-										).addEntity(Invoices.class)
-						.list();
-
-				tx.commit();
-			} catch (HibernateException e) {
-				if (tx != null) {
-					tx.rollback();
-				}
-				e.printStackTrace();
-			} finally {
-				session.close();
-			}
-		}
+		//memory consumption too high!!
+		DbfData allMessagesByName = service.getDbfDataByNameCloseStream("paskicrypt.dbf", "NRPRAC",name);
+		
+		result = invoicesMapper.mapDbfData(allMessagesByName);
+		
+		
+		
+		
 		return result;
 	}
 	
-	public void setInvoicesByName(Invoices invoice) {
-		SessionFactory sessionFactory = service.createSessionFactory();
-		if (sessionFactory != null) {
-
-			Session session = sessionFactory.openSession();
-			Transaction tx = null;
-			try {
-				tx = session.beginTransaction();
-
-				session.save(invoice);
-
-				tx.commit();
-			} catch (HibernateException e) {
-				if (tx != null) {
-					tx.rollback();
-				}
-				e.printStackTrace();
-			} finally {
-				session.close();
-			}
-		}
-	}
+	
 
 }
