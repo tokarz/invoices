@@ -1,11 +1,11 @@
-<div id="contentWrapper">
-	<div class="ui-widget-header" style="width: 80%; margin: auto">
+<div id="contentWrapper" ng-controller="SalaryController">
+	<div class="ui-widget-header" style="width: 80%; margin: auto;cursor:pointer">
 		<div id="pdfPrint" ng-click="exportPdf()"></div>
 	</div>
 	<div id="dataTableWrapper">
 		<div
 			style="width: 80%; height: 80%; padding-top: 30px; margin: auto; box-shadow: 1px 1px 19px 1px black">
-			<table mmt-table style='width: 100%'>
+			<table salary-table style='width: 100%'>
 				<thead>
 					<tr>
 						<th>Select</th>

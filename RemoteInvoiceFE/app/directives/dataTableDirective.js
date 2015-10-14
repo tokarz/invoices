@@ -1,7 +1,7 @@
 'use strict';
 app
 		.directive(
-				'mmtTable',
+				'salaryTable',
 				function($timeout, $rootScope) {
 					return {
 						restrict : 'AC',

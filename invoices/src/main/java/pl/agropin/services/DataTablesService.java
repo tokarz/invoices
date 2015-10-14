@@ -15,26 +15,34 @@ import daos.InvoicesDAO;
 import database.DbfService;
 import entities.Invoices;
 import mappers.InvoicesMapper;
+import pl.agropin.mappers.PrintViewMapper;
+import pl.agropin.views.PrintView;
 
 @Path("/tableData")
 public class DataTablesService {
 	private InvoicesDAO invoices;
+	private PrintViewMapper printViewMapper;
 
 	public DataTablesService() {
 		this.invoices = new InvoicesDAO(new DbfService(), new InvoicesMapper());
+		this.printViewMapper = new PrintViewMapper();
 	}
 
-	public DataTablesService(InvoicesDAO invoices) {
+	public DataTablesService(InvoicesDAO invoices, PrintViewMapper printViewMapper) {
 		this.invoices = invoices;
+		this.printViewMapper = printViewMapper;
 	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getTableData(@QueryParam("sessionId") String sessionId, @QueryParam("username") String userName)
 			throws IOException, JDBFException {
+		
+		
 		String jsonBig = "{\"data\": [";
 
 		List<Invoices> currentInvoices = invoices.getInvoicesByName(userName);
+		List<PrintView> printView = printViewMapper.mapInvoicesToPrintViews(currentInvoices);
 
 		int currentLoopIndex = 0;
 		for (Invoices currentInvoice : currentInvoices) {

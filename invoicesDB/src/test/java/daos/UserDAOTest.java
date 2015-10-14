@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import database.DatabaseService;
+import database.DbfService;
 import entities.User;
 
 
@@ -13,7 +13,7 @@ public class UserDAOTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		sut = new UserDAO(new DatabaseService());
+		sut = new UserDAO(new DbfService());
 	}
 	
 	@Test
@@ -23,14 +23,6 @@ public class UserDAOTest {
 		Assert.assertNotNull(userByNameAndPassword);
 	}
 	
-	@Test
-	public void testSetUser() 
-	{
-		User user = new User();
-		user.setId(3);
-		user.setPassword("test");
-		user.setUsername("test");
-		sut.setUser(user);
-	}
+	
 
 }
