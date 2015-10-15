@@ -9,8 +9,7 @@ app.controller('SalaryController', function($scope, dbService) {
 	      ],
 	      // optional space between columns
 	      columnGap: 10
-	    },
-	    'This paragraph goes below all columns and has full width'
+	    }
 	  ]
 	};
 	

@@ -1,33 +1,43 @@
 package pl.agropin.mappers;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import com.sun.xml.bind.v2.runtime.unmarshaller.InterningXmlVisitor;
 
 import entities.Invoices;
 import pl.agropin.views.PrintView;
+import pl.agropin.views.SalaryView;
 
 public class PrintViewMapper {
 
-	public List<PrintView> mapInvoicesToPrintViews(List<Invoices> currentInvoices) {
-		List<PrintView> results = new ArrayList<PrintView>();
-		PrintView printView = new PrintView();
+	public Map<String, SalaryView> mapInvoicesToPrintViews(List<Invoices> currentInvoices) {
+		Map<String, SalaryView> results = new HashMap<String, SalaryView>();
+		
+		SalaryView salaryView = null;
 		for (Invoices invoices : currentInvoices) {
+			String currentDate = invoices.getRokobr() + "." + invoices.getMcobr();
+			if(results.containsKey(currentDate)) 
+			{
+				salaryView = results.get(currentDate);
+			}
+			else {
+				salaryView = new SalaryView();
+			}
+			
 			if (invoices.getSymb_sk().equals("001")) {
-				printView.setKodPlacaZasadnicza("001");
-				printView.setPlacaZasadnicza(invoices.getIlo_godz().toString());
+				salaryView.setHours(invoices.getIlo_godz().toString());
+				salaryView.setMoneyNetto(invoices.getKwota().toString());
 			}
-			if (invoices.getSymb_sk().equals("109")) {
-				printView.setKodDSzkod10Procens("109");
-				printView.setKodDSzkod10Procens(invoices.getIlo_godz().toString());
+			if (invoices.getSymb_sk().equals("{A1")) {
+				salaryView.setMoneyBrutto(invoices.getKwota().toString());
 			}
-
-			if (invoices.getSymb_sk().equals("128")) {
-				printView.setKodNdg1000kr("128");
-				printView.setNdg1000kr(invoices.getIlo_godz().toString());
-			}
+			salaryView.setDate(currentDate);
+			
+			results.put(currentDate, salaryView);
 		}
 
-		results.add(printView);
 		return results;
 	}
 

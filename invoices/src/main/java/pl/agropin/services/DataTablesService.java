@@ -2,6 +2,7 @@ package pl.agropin.services;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -16,7 +17,7 @@ import database.DbfService;
 import entities.Invoices;
 import mappers.InvoicesMapper;
 import pl.agropin.mappers.PrintViewMapper;
-import pl.agropin.views.PrintView;
+import pl.agropin.views.SalaryView;
 
 @Path("/tableData")
 public class DataTablesService {
@@ -37,24 +38,23 @@ public class DataTablesService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getTableData(@QueryParam("sessionId") String sessionId, @QueryParam("username") String userName)
 			throws IOException, JDBFException {
-		
-		
-		String jsonBig = "{\"data\": [";
 
 		List<Invoices> currentInvoices = invoices.getInvoicesByName(userName);
-		List<PrintView> printView = printViewMapper.mapInvoicesToPrintViews(currentInvoices);
+		Map<String, SalaryView> salaryPerDate = printViewMapper.mapInvoicesToPrintViews(currentInvoices);
 
 		int currentLoopIndex = 0;
-		for (Invoices currentInvoice : currentInvoices) {
-			String currentRow = "{\"select\": \"" + "false" + "\"," + "\"date\": \"" + currentInvoice.getRokpod()
-					+ "\"," + "\"fname\": \"" + currentInvoice.getImieprac() + "\"," + "\"lname\": \""
-					+ currentInvoice.getNazwiskoprac() + "\"," + "\"salary\": \"" + currentInvoice.getAngazplaca()
-					+ "\"}";
-			if (currentLoopIndex != currentInvoices.size() - 1) {
+		String jsonBig = "{\"data\": [";
+		for (String currentDate : salaryPerDate.keySet()) {
+			SalaryView currentSalaryRow = salaryPerDate.get(currentDate);
+			String currentRow = "{\"select\": \"" + "false" + "\"," + "\"date\": \"" + currentSalaryRow.getDate()
+					+ "\"," + "\"netto\": \"" + currentSalaryRow.getMoneyNetto() + "\"," + "\"brutto\": \""
+					+ currentSalaryRow.getMoneyBrutto() + "\"," + "\"hours\": \"" + currentSalaryRow.getHours() + "\"}";
+			if (currentLoopIndex != salaryPerDate.size() - 1) {
 				currentRow += ",";
 			}
 			jsonBig += currentRow;
 			currentLoopIndex++;
+
 		}
 
 		jsonBig += "]}";

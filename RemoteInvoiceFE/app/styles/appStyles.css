@@ -21,7 +21,7 @@ body {
 
 #loginButton {
 	float:left;
-	height: 100px;
+	height: 150px;
 	text-align: center;
 	width: 100%;
 }
@@ -29,7 +29,7 @@ body {
 #loginWrapperHeader {
 	border-radius: 6px;
 	box-shadow: 1px 1px 19px 1px black;
-	height: 17%;
+	height: 6%;
 	margin: auto;
 	width: 80%;
 }
@@ -72,4 +72,11 @@ body {
 	margin: auto;
 	border-radius: 6px;
 	box-shadow: 1px 1px 19px 1px black;
+}
+
+.loginInput {
+	border: 1px solid black;
+	border-radius: 5px;
+	height: 50px;
+	width: 50%;
 }

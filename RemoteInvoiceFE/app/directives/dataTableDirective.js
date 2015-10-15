@@ -37,13 +37,13 @@ app
 																"data" : "date"
 															},
 															{
-																"data" : "fname"
+																"data" : "netto"
 															},
 															{
-																"data" : "lname"
+																"data" : "brutto"
 															},
 															{
-																"data" : "salary"
+																"data" : "hours"
 															} ]
 												});
 								// scope.table.columns.adjust().draw();

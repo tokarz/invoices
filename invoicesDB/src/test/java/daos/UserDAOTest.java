@@ -13,7 +13,8 @@ public class UserDAOTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		sut = new UserDAO(new DbfService());
+		DbfService service = new DbfService();
+		sut = new UserDAO(service);
 	}
 	
 	@Test
