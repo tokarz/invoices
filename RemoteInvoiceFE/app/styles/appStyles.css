@@ -4,12 +4,14 @@ body {
 }
 
 #loginWrapper {
-	width: 80%;
-	height: 80%;
+	width: 100%;
+	height: 100%;
 	margin: auto;
 	background: none repeat scroll 0% 0% whitesmoke;
 	box-shadow: 1px 1px 19px 1px black;
-	padding-top: 76px;
+	font-size: 20px;
+	color: #3383bb;
+	font-weight: bold;
 }
 
 .loginPartForm {
@@ -20,18 +22,30 @@ body {
 }
 
 #loginButton {
-	float:left;
-	height: 150px;
-	text-align: center;
+	float: left;
 	width: 100%;
+	margin-top: 50px;
 }
 
-#loginWrapperHeader {
+#loginButton>button {
+	border: 1px solid #A2BCD8;
+}
+
+#loginWrapperContainer {
+	background-color: #A2BCD8;
 	border-radius: 6px;
-	box-shadow: 1px 1px 19px 1px black;
-	height: 6%;
-	margin: auto;
+	box-shadow: 1px 1px 16px 1px #A2BCD8;
+	height: 90%;
+	padding: 8px;
+	text-align: center;
+	width: 90%;
+}
+
+#loginWrapperFloatingContainer {
+	height: 80%;
 	width: 80%;
+	margin: auto;
+	padding-top: 130px;
 }
 
 #header {
@@ -49,25 +63,25 @@ body {
 #content {
 	height: 900px;
 	background-color: whitesmoke;
-	top:45px;
+	top: 45px;
 	bottom: 45px;
 	position: static;
 	overflow-y: scroll;
 }
 
 #pdfPrint {
-	background: #eee url("../../resources/images/icons/file_extension_pdf.png");
+	background: #eee
+		url("../../resources/images/icons/file_extension_pdf.png");
 	height: 32px;
 	width: 32px;
 	float: right;
 	margin-top: 8px;
 	margin-right: 10px;
 	background-repeat: no-repeat;
-	
 }
 
 #loginWrapperFooter {
-	height:17%;
+	height: 17%;
 	width: 80%;
 	margin: auto;
 	border-radius: 6px;
@@ -79,4 +93,5 @@ body {
 	border-radius: 5px;
 	height: 50px;
 	width: 50%;
+	text-align: center;
 }
