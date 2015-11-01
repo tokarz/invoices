@@ -1,33 +1,24 @@
 package pl.agropin.views;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SalaryView {
-	private String date;
-	private String hours;
-	private String moneyNetto;
-	private String moneyBrutto;
-	public String getDate() {
-		return date;
+	private String summaryTitle;
+	private List<Part> parts = new ArrayList<Part>();
+	public String getSummaryTitle() {
+		return summaryTitle;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setSummaryTitle(String summaryTitle) {
+		this.summaryTitle = summaryTitle;
 	}
-	public String getHours() {
-		return hours;
+	public List<Part> getParts() {
+		return parts;
 	}
-	public void setHours(String hours) {
-		this.hours = hours;
+	public void setParts(List<Part> parts) {
+		this.parts = parts;
 	}
-	public String getMoneyNetto() {
-		return moneyNetto;
-	}
-	public void setMoneyNetto(String moneyNetto) {
-		this.moneyNetto = moneyNetto;
-	}
-	public String getMoneyBrutto() {
-		return moneyBrutto;
-	}
-	public void setMoneyBrutto(String moneyBrutto) {
-		this.moneyBrutto = moneyBrutto;
-	}
+	
+	
 	
 }

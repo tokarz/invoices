@@ -7,6 +7,7 @@ app.controller('loginController', ['$rootScope', '$scope', 'dbService', 'loginSe
 		$scope.loginText = 'Witaj w FoxWeb v0.1';
 	});
 	
+	$scope.loginStatus = '';
 	$scope.username = 'Nazwa Uzytkownika';
 	$scope.password = 'Haslo';
 	$scope.logIn = 'Zaloguj';
@@ -15,7 +16,9 @@ app.controller('loginController', ['$rootScope', '$scope', 'dbService', 'loginSe
 	$scope.inputPassword = '';
 	
 	$scope.logInWithCredentials = function() {
+		$scope.loginStatus = 'pobieranie danych....';
 		loginService.authenticate($scope.inputUsername, $scope.inputPassword).then(function(isAuthenticated) {
+			$scope.loginStatus = 'ukonczono!';
 			if(isAuthenticated == true) {
 				$scope.loginError = false;
 				$rootScope.inputUsername = $scope.inputUsername;

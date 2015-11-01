@@ -52,10 +52,12 @@ public class Invoices {
 	private Double przelewror;
 	private String rorcrypt;
 	private Long lenror;
+	private Long lenror2;
 	private Double wyplatakasa;
 	private String kasacrypt;
 	private Long lenkasa;
 	private String wyslany;
+	private Double sumaktrl;
 
 	public Long getId() {
 		return id;
@@ -385,6 +387,25 @@ public class Invoices {
 		this.wyslany = wyslany;
 	}
 
+	public Long getLenror2() {
+		return lenror2;
+	}
+
+	public void setLenror2(Long lenror2) {
+		this.lenror2 = lenror2;
+	}
+
+	public Double getSumaktrl() {
+		return sumaktrl;
+	}
+
+	public void setSumaktrl(Double sumaktrl) {
+		this.sumaktrl = sumaktrl;
+	}
+	
+	
+
+	
 }
 
 /*

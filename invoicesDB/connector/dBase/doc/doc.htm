@@ -1,0 +1,2065 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML xmlns="http://www.w3.org/TR/REC-html40" xmlns:o = 
+"urn:schemas-microsoft-com:office:office" xmlns:w = 
+"urn:schemas-microsoft-com:office:word"><HEAD>
+<meta name="DESCRIPTION" content="StelsDBF - DBF JDBC driver for dBase, xBase, FoxPro files">
+<meta name="KEYWORDS" content="Java SQL DBF JDBC Driver Java xBase dBase FoxPro FoxBase Clipper">
+<TITLE>StelsDBF JDBC DBF Driver 
+Documentation</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1251"><LINK 
+href="file:///D:\JavaProjects\JBProjects\SQLAPI\jdbc%20project\doc\driverdoc.htm" 
+rel=Original-File>
+<META content=FrontPage.Editor.Document name=ProgId>
+<META content="Microsoft FrontPage 6.0" name=GENERATOR>
+<META content="Microsoft Word 10" name=Originator><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Unknown</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>serg</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>746</o:TotalTime>
+  <o:Created>2003-10-11T15:13:00Z</o:Created>
+  <o:LastSaved>2003-10-11T15:13:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>711</o:Words>
+  <o:Characters>4058</o:Characters>
+  <o:Company>ISG</o:Company>
+  <o:Lines>33</o:Lines>
+  <o:Paragraphs>9</o:Paragraphs>
+  <o:CharactersWithSpaces>4760</o:CharactersWithSpaces>
+  <o:Version>10.3501</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:HyphenationZone>0</w:HyphenationZone>
+  <w:DoNotHyphenateCaps/>
+  <w:DrawingGridHorizontalSpacing>6 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>6 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:DoNotShadeFormData/>
+  <w:Compatibility>
+   <w:BalanceSingleByteDoubleByteWidth/>
+   <w:DoNotLeaveBackslashAlone/>
+   <w:ULTrailSpace/>
+   <w:DoNotExpandShiftReturn/>
+   <w:UsePrinterMetrics/>
+   <w:WW6BorderRules/>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:AutoSpaceLikeWord95/>
+   <w:DoNotUseHTMLParagraphAutoSpacing/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+   <w:UseWord97LineBreakingRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<STYLE>@font-face {
+	font-family: Arial Unicode MS;
+}
+@font-face {
+	font-family: Verdana;
+}
+@page  {mso-endnote-position: end-of-section; mso-endnote-numbering-style: arabic; mso-endnote-numbering-start: 0; }
+@page Section1 {size: 612.0pt 792.0pt; margin: 72.0pt 89.85pt 72.0pt 104.9pt; mso-header-margin: 36.0pt; mso-footer-margin: 36.0pt; mso-paper-source: 0; }
+P.MsoNormal {
+	FONT-SIZE: 10pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-layout-grid-align: none; punctuation-wrap: simple; mso-fareast-font-family: "Times New Roman"; mso-ansi-language: EN-US; margin-left:0cm; margin-right:0cm; margin-top:0cm; margin-bottom:0pt
+}
+LI.MsoNormal {
+	FONT-SIZE: 10pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-layout-grid-align: none; punctuation-wrap: simple; mso-fareast-font-family: "Times New Roman"; mso-ansi-language: EN-US; margin-left:0cm; margin-right:0cm; margin-top:0cm; margin-bottom:0pt
+}
+DIV.MsoNormal {
+	FONT-SIZE: 10pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-layout-grid-align: none; punctuation-wrap: simple; mso-fareast-font-family: "Times New Roman"; mso-ansi-language: EN-US; margin-left:0cm; margin-right:0cm; margin-top:0cm; margin-bottom:0pt
+}
+H1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; MARGIN: 6pt 0cm 0pt 14.4pt; FONT-FAMILY: Arial; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-layout-grid-align: none; punctuation-wrap: simple; mso-ansi-language: EN-US; mso-style-next: Normal; mso-outline-level: 1; tab-stops: 14.4pt 28.8pt; mso-bidi-font-family: "Times New Roman"; mso-font-kerning: 0pt; mso-bidi-font-weight: normal
+}
+H2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; MARGIN: 6pt 0cm 0pt 14.4pt; FONT-FAMILY: Arial; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-layout-grid-align: none; punctuation-wrap: simple; mso-ansi-language: EN-US; mso-style-next: Normal; mso-outline-level: 2; tab-stops: 14.4pt 28.8pt; mso-bidi-font-family: "Times New Roman"; mso-bidi-font-weight: normal
+}
+H3 {
+	FONT-WEIGHT: bold; FONT-SIZE: 13.5pt; MARGIN: 5pt 0cm; FONT-FAMILY: "Arial Unicode MS"; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-layout-grid-align: none; punctuation-wrap: simple; mso-outline-level: 3; mso-bidi-font-weight: normal
+}
+H4 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; FONT-FAMILY: Arial; TEXT-ALIGN: justify; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-layout-grid-align: none; punctuation-wrap: simple; mso-ansi-language: EN-US; mso-style-next: Normal; mso-outline-level: 4; mso-bidi-font-family: "Times New Roman"; mso-bidi-font-weight: normal
+}
+P.MsoBodyText {
+	FONT-SIZE: 10pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: Arial; LETTER-SPACING: 1pt; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-layout-grid-align: none; punctuation-wrap: simple; mso-fareast-font-family: "Times New Roman"; mso-ansi-language: EN-US; mso-bidi-font-family: "Times New Roman"
+}
+LI.MsoBodyText {
+	FONT-SIZE: 10pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: Arial; LETTER-SPACING: 1pt; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-layout-grid-align: none; punctuation-wrap: simple; mso-fareast-font-family: "Times New Roman"; mso-ansi-language: EN-US; mso-bidi-font-family: "Times New Roman"
+}
+DIV.MsoBodyText {
+	FONT-SIZE: 10pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: Arial; LETTER-SPACING: 1pt; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-layout-grid-align: none; punctuation-wrap: simple; mso-fareast-font-family: "Times New Roman"; mso-ansi-language: EN-US; mso-bidi-font-family: "Times New Roman"
+}
+P.MsoBodyText2 {
+	FONT-SIZE: 10pt; MARGIN: 0cm 0cm 0pt 14.4pt; FONT-FAMILY: Arial; mso-pagination: widow-orphan; mso-layout-grid-align: none; punctuation-wrap: simple; mso-fareast-font-family: "Times New Roman"; mso-ansi-language: EN-US; tab-stops: 14.4pt 28.8pt; mso-bidi-font-family: "Times New Roman"
+}
+LI.MsoBodyText2 {
+	FONT-SIZE: 10pt; MARGIN: 0cm 0cm 0pt 14.4pt; FONT-FAMILY: Arial; mso-pagination: widow-orphan; mso-layout-grid-align: none; punctuation-wrap: simple; mso-fareast-font-family: "Times New Roman"; mso-ansi-language: EN-US; tab-stops: 14.4pt 28.8pt; mso-bidi-font-family: "Times New Roman"
+}
+DIV.MsoBodyText2 {
+	FONT-SIZE: 10pt; MARGIN: 0cm 0cm 0pt 14.4pt; FONT-FAMILY: Arial; mso-pagination: widow-orphan; mso-layout-grid-align: none; punctuation-wrap: simple; mso-fareast-font-family: "Times New Roman"; mso-ansi-language: EN-US; tab-stops: 14.4pt 28.8pt; mso-bidi-font-family: "Times New Roman"
+}
+A:link {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlink {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+A:visited {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlinkFollowed {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+P {
+	FONT-SIZE: 12pt; MARGIN: 5pt 0cm; FONT-FAMILY: "Arial Unicode MS"; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-layout-grid-align: none; punctuation-wrap: simple; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-family: "Times New Roman"
+}
+CODE {
+	FONT-FAMILY: "Arial Unicode MS"; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-family: "Times New Roman"; mso-ascii-font-family: "Arial Unicode MS"; mso-hansi-font-family: "Arial Unicode MS"
+}
+PRE {
+	FONT-SIZE: 10pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: "Arial Unicode MS"; mso-pagination: widow-orphan; mso-layout-grid-align: none; punctuation-wrap: simple; mso-fareast-font-family: "Times New Roman"; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; mso-bidi-font-family: "Times New Roman"
+}
+SPAN.SpellE {
+	mso-style-name: ""; mso-spl-e: yes
+}
+SPAN.GramE {
+	mso-style-name: ""; mso-gram-e: yes
+}
+DIV.Section1 {
+	mso-endnote-numbering-style: arabic; mso-endnote-numbering-start: 0; page: Section1
+}
+</STYLE>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman"}
+</style>
+<![endif]--></HEAD>
+<BODY lang=RU style="tab-interval: 36.0pt" vLink=purple link=blue>
+<DIV class=Section1 style="width: 899; height: 6725">
+<H1 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify"><SPAN 
+class=SpellE>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">StelsDBF</SPAN></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"> 
+JDBC Driver v5.2 Documentation</SPAN><o:p></o:p></H1>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify"><o:p>
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"><b>
+<a name="Contents"><span style="font-size: 11pt">Contents</span></a></b></SPAN><span style="font-size: 11pt; line-height: 150%; font-family: Verdana; mso-bidi-font-size: 10.0pt" lang="EN-US">&nbsp;</span></o:p></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 35; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<span lang="en-us"><font face="Verdana">
+<a href="#Installation">Installation</a></font></span></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 35; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<span lang="en-us"><font face="Verdana">
+<a href="#Driver Name">Driver Classes</a></font></span></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 35; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<span lang="en-us"><font face="Verdana">
+<a href="#URL Syntax">URL Syntax</a></font></span></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 35; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<span lang="en-us"><font face="Verdana">
+<a href="#Driver Properties">Driver Properties</a></font></span></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 35; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<span lang="en-us"><font face="Verdana">
+<a href="#Connection Example">Connection Example</a></font></span></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 35; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<span lang="en-us"><font face="Verdana"><a href="#Driver Modes">Driver Modes</a></font></span></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 35; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<span lang="en-us"><font face="Verdana">
+<a href="#Data types">Data type mapping</a></font></span></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 35; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<span lang="en-us"><font face="Verdana">
+<a href="#Supported SQL Syntax">Supported SQL Syntax</a></font></span></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 35; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<span lang="en-us"><font face="Verdana">
+<a href="#Unsupported features">Unsupported features </a></font></span></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 35; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<span lang="en-us"><font face="Verdana">
+<a href="#Hints">User-defined SQL functions</a></font></span></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 35; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<span lang="en-us"><font face="Verdana"><a href="#Hints">Performance and other 
+hints</a></font></span></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 35; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<span lang="en-us"><font face="Verdana"><a href="#Advanced topics">Advanced 
+topics</a></font></span></P>
+<H1 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">&nbsp;</H1>
+<H1 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">&nbsp;</H1>
+<H1 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify"><SPAN 
+lang=EN-US style="FONT-FAMILY: Verdana"><a name="Installation">
+<span style="font-size: 11pt">Installation</span></a></SPAN></H1>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">Add 
+the file <SPAN class=SpellE>dbfdriver.jar</SPAN> to your <SPAN 
+class=SpellE>classpath</SPAN> or extract the jar file in the directory of the 
+application.</SPAN><o:p></o:p></P>
+<H1 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">&nbsp;</H1>
+<H1 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:0cm; margin-top:0cm; margin-bottom:3pt"><SPAN 
+lang=EN-US style="FONT-FAMILY: Verdana"><a name="Driver Name">
+<font style="font-size: 11pt">Driver Classes</font></a></SPAN></H1>
+<table style="margin-left: 10" border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="810" id="AutoNumber14" height="125">
+  <tr>
+    <td width="441" bgcolor="#EEEEFF" height="26">
+    <p align="left" style="margin-left: 10; margin-top:2; margin-bottom:2"><b>
+    <font face="Verdana" size="2">Description</font></b></td>
+    <td width="368" bgcolor="#EEEEFF" height="26">
+    <p align="left" style="margin-left: 9; margin-top: 2; margin-bottom: 2"><b>
+    <font face="Verdana" size="2">Classes</font></b></td>
+  </tr>
+  <tr>
+    <td width="441" height="30">
+    <p align="left" style="margin-left: 10">
+    <SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+    Driver <span style="mso-bidi-font-weight: normal">class </span></SPAN>
+    <span style="font-family: Verdana; font-size: 10pt" lang="en-us">(JDBC API 
+    v1.0)</span></td>
+    <td width="368" height="30">
+    <p style="margin-left: 10">
+    <span style="mso-bidi-font-weight: normal; font-size:10pt; line-height:150%; font-family:Verdana; mso-bidi-font-size:10.0pt" lang="EN-US"> <SPAN 
+class=SpellE>jstels.jdbc.dbf.DBFDriver2</SPAN></span></td>
+  </tr>
+  <tr>
+    <td width="441" height="30">
+    <p style="margin-left: 10" align="left">
+    <span style="font-family: Verdana; font-size: 10pt" lang="en-us">Data Source 
+    class (JDBC API v2.0)</span></td>
+    <td width="368" height="30">
+    <p style="margin-left: 10">
+    <span style="mso-bidi-font-weight: normal; font-size:10pt; line-height:150%; font-family:Verdana; mso-bidi-font-size:10.0pt" lang="EN-US"> <SPAN 
+class=SpellE>jstels.jdbc.dbf.h2.DBFDataSource2</SPAN></span></td>
+  </tr>
+  </table>
+<H1 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">&nbsp;</H1>
+<H1 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify"><SPAN 
+lang=EN-US style="FONT-FAMILY: Verdana"><a name="URL Syntax">
+<font style="font-size: 11pt">URL Syntax</font></a></SPAN></H1>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">The 
+connection URL is <SPAN class=SpellE><B 
+style="mso-bidi-font-weight: normal">jdbc<SPAN 
+class=GramE>:jstels:dbf:dbfdir</SPAN></B></SPAN>, where <SPAN 
+class=SpellE>dbfdir</SPAN> may be the following:</SPAN></P>
+<ul>
+  <li>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+absolute or relative path to the local directory containing text files, e.g.:</SPAN><SPAN 
+class=SpellE><SPAN class=GramE><SPAN lang=EN-US 
+style="COLOR: #336600; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'"> </SPAN></SPAN></SPAN></P>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="92%" id="AutoNumber1">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15"><SPAN 
+class=SpellE><font color="#008000"><SPAN class=GramE>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">jdbc:</SPAN></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">jstels:dbf:<b>c:/mydir/dbffiles</b></SPAN></font></SPAN></div>
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15">
+    <SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">
+    <font color="#008000"> 
+<SPAN class=SpellE>jdbc:jstels:dbf:<b>dbffiles</b></SPAN></font></SPAN></div>
+    </td>
+  </tr>
+</table>
+  </li>
+  <li>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: left; margin-right:15; margin-top:3pt; margin-bottom:3pt">
+<span lang="en-us"><font face="Verdana">path to the resource directory within 
+the CLASSPATH, e.g.: </font></span></P>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="92%" id="AutoNumber20">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15"><SPAN 
+class=SpellE><font color="#008000"><SPAN class=GramE>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">
+    jdbc:</SPAN></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">jstels:dbf:<b>cache://classpath://resources</b></SPAN></font></SPAN></div>
+    </td>
+  </tr>
+</table>
+  </li>
+  <li>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15; margin-top:3pt">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<font size="2">path to the directory entry within the zip (jar) file, e.g.:
+</font> </SPAN></P>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="92%" id="AutoNumber22">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15">
+    <font color="#008000">
+    <SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; mso-bidi-font-size: 10.0pt">
+    <font face="Courier New" size="2">jdbc:jstels:dbf:</font></SPAN></font><span lang="en-us"><font color="#008000"><span style="font-family: Courier New; font-weight: 700"><SPAN 
+class=SpellE>cache:</SPAN></span></font></span><font color="#008000"><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; mso-bidi-font-size: 10.0pt"><font face="Courier New" size="2"><b>//zip://c:/mydir/dbffiles.zip</b></font></SPAN></font></div>
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15">
+    <font color="#008000">
+    <SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; mso-bidi-font-size: 10.0pt">
+    <font face="Courier New" size="2">jdbc:jstels:dbf:</font></SPAN></font><span lang="en-us"><font color="#008000"><span style="font-family: Courier New; font-weight: 700"><SPAN 
+class=SpellE>cache://</SPAN></span></font></span><font color="#008000"><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; mso-bidi-font-size: 10.0pt"><font face="Courier New" size="2"><b>zip://myApp.jar/dbffiles</b></font></SPAN></font></div>
+    </td>
+  </tr>
+</table>
+  </li>
+  <li>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: left; margin-right:15; margin-top:3pt; margin-bottom:3pt">
+<span lang="en-us"><font face="Verdana">FTP URL to the 
+FTP-server directory (syntax: ftp://user:password@hostname[:port]/[dirpath/]), 
+e.g.: </font></span></P>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="92%" id="AutoNumber15">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15"><SPAN 
+class=SpellE><font color="#008000"><SPAN class=GramE>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">
+    jdbc:</SPAN></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">jstels:dbf:<b>ftp://login:password@somesite.com:21/dbffiles</b></SPAN></font></SPAN></div>
+    </td>
+  </tr>
+</table>
+  </li>
+  <li>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: left; margin-right:15; margin-top:3pt; margin-bottom:3pt">
+<span lang="en-us"><font face="Verdana">FTP URL to a ZIP archive containing DBF 
+files (syntax: cache://zip://ftp://user:password@hostname[:port]/[dirpath/]zipfile), e.g.: </font></span></P>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="92%" id="AutoNumber19">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15"><SPAN 
+class=SpellE><font color="#008000"><SPAN class=GramE>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">
+    jdbc:</SPAN></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">jstels:dbf:<b>cache://zip://ftp://login:password@somesite.com:21/archives/</b></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'"><b>dbffiles.zip</b></SPAN></font></SPAN></div>
+    </td>
+  </tr>
+</table>
+  </li>
+  <li>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: left; margin-right:15; margin-top:3pt; margin-bottom:3pt">
+<span lang="en-us"><font face="Verdana">SFTP URL to the 
+SFTP-server directory (syntax: sftp://user:password@hostname[:port]/[dirpath/], 
+also required third-party libraries
+<a href="http://commons.apache.org/vfs/download_vfs.cgi">Commons VFS</a>,
+<a href="http://commons.apache.org/logging/download_logging.cgi">Commons Logging</a> and
+<a href="http://www.jcraft.com/jsch/">JSch</a> for this protocol), e.g.: </font></span></P>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="92%" id="AutoNumber23">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15"><SPAN 
+class=SpellE><font color="#008000"><SPAN class=GramE>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">
+    jdbc:</SPAN></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">jstels:dbf:<b>sftp://login:password@somesite.com:22/dbffiles</b></SPAN></font></SPAN></div>
+    </td>
+  </tr>
+</table>
+  </li>
+  <li>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: left; margin-right:15; margin-top:3pt">
+<span lang="en-us"><font face="Verdana">HTTP URL to the 
+web-server directory, e.g.: </font></span></P>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="92%" id="AutoNumber1">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15"><SPAN 
+class=SpellE><font color="#008000"><SPAN class=GramE>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">
+    jdbc:</SPAN></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">jstels:dbf:<b>http://www.somesite.com/dbffiles</b></SPAN></font></SPAN></div>
+    </td>
+  </tr>
+</table>
+  </li>
+  <li>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:0cm; margin-top:3pt; margin-bottom:0pt">
+<span lang="en-us"><font face="Verdana" style="font-size: 10pt">HTTP URL to the 
+dynamic server page (JSP, ASP, PHP, CGI, etc) which returns a DBF file as 
+output. For more information please see <a href="#useBigDecimal">useWebParam</a> 
+driver property. </font></span></p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="92%" id="AutoNumber16">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15"><SPAN 
+class=SpellE><font color="#008000"><SPAN class=GramE>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">
+    jdbc:</SPAN></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">jstels:dbf:<b>http://www.somesite.com/out.jsp</b></SPAN></font></SPAN></div>
+    </td>
+  </tr>
+</table>
+  </li>
+  <li>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: left; margin-right:15; margin-top:3pt; margin-bottom:3pt">
+<span lang="en-us"><font face="Verdana">SMB/CIFS URL to a directory located on a 
+SMB/CIFS server (e.g.: MS Windows share or Samba server, syntax: smb://[user:password@]hostname/share/[dirpath/]): </font></span></P>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="92%" id="table2">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15"><SPAN 
+class=SpellE><font color="#008000"><SPAN class=GramE>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">
+    jdbc:</SPAN></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">jstels:dbf:</SPAN></font><span lang="en-us"><font color="#008000"><span style="font-family: Courier New; font-weight: 700">cache://smb://your_server/your_share/your_folder</span></font></span></SPAN></div>
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15"><SPAN 
+class=SpellE><font color="#008000"><SPAN class=GramE>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">
+    jdbc:</SPAN></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">jstels:dbf:</SPAN></font><span lang="en-us"><font color="#008000"><span style="font-family: Courier New; font-weight: 700">cache://smb://</span></font></span><b><font color="#008000"><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">login:password@</SPAN></font></b><font color="#008000"><span lang="en-us" style="font-family: Courier New; font-weight: 700">your_server/your_share/your_folder</span></font></SPAN></div>
+	<div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15"><SPAN 
+class=SpellE><font color="#008000"><SPAN class=GramE>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">
+    jdbc:</SPAN></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">jstels:dbf:</SPAN></font><span lang="en-us"><font color="#008000"><span style="font-family: Courier New; font-weight: 700">cache://smb://</span></font></span><b><font color="#008000"><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">domain;login:password@</SPAN></font></b><span lang="en-us"><font color="#008000"><span style="font-family: Courier New; font-weight: 700">your_server/your_share/your_folder</span></font></span></SPAN></div>
+    </td>
+  </tr>
+</table>
+  </li>
+  <li>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: left; margin-right:15; margin-top:3pt; margin-bottom:3pt">
+<span lang="EN-US" style="font-family: Verdana,sans-serif">an RMI server can be 
+used as an alternative to FTP (SFTP, HTTP, etc) protocols for accessing remote 
+files.</span><span lang="en-us"><font face="Verdana"> For more information see 
+the topic </font></span><font face="Verdana"><span lang="EN-US">
+<a href="rmi.htm">using the driver as a client/server (JDBC type 3) via RMI</a></span></font></P>
+  </li>
+</ul>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:0cm; margin-top:22pt; margin-bottom:0pt">
+<font face="Verdana" size="2">Also, for Visual FoxPro files you can set a path to 
+a database container file (.dbc). DBC allows using column names with more than 
+10 characters: </font></p>
+<ul>
+  <li>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+absolute or relative path to .dbc file</SPAN><SPAN 
+class=SpellE><SPAN class=GramE><SPAN lang=EN-US 
+style="COLOR: #336600; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'"><font size="2">
+</font> </SPAN></SPAN></SPAN></P>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="92%" id="table1">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <div align="justify">
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15"><SPAN 
+class=SpellE><font color="#008000"><SPAN class=GramE>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">jdbc:</SPAN></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">jstels:dbf:<b>c:/mydir/database.dbc</b></SPAN></font></SPAN></div>
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15">
+    <SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">
+    <font color="#008000"> 
+<SPAN class=SpellE>jdbc:jstels:dbf:<b>dbffiles/database.dbc</b></SPAN></font></SPAN></div></div>
+    </td>
+  </tr>
+</table>
+  </li>
+</ul>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:0cm; margin-top:22pt; margin-bottom:0pt">
+<font face="Verdana" size="2">Additionally, a path to some particular DBF 
+file can be specified directly in a SQL query, e.g.: </font></p>
+<ul>
+  <li>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<font size="2">absolute file path to a file, e.g.:</font></SPAN><SPAN 
+class=SpellE><SPAN class=GramE><SPAN lang=EN-US 
+style="COLOR: #336600; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'"><font size="2">
+</font> </SPAN></SPAN></SPAN></P>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="92%" id="AutoNumber39">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15">
+    <span lang="en-us"><font color="#008000" size="2">
+    <span style="font-family: Courier New; ">SELECT * FROM &quot;<b>c:/dbffiles/test.dbf&quot;</b></span></font></span></div>
+    </td>
+  </tr>
+</table>
+  </li>
+  <li>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15; margin-top:3pt">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<font size="2">relative path to a file: </font> </SPAN></P>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="92%" id="AutoNumber40">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15; margin-top: 3pt">
+    <span lang="en-us"><font color="#008000" size="2">
+    <span style="font-family: Courier New; ">SELECT * FROM &quot;<b>subfolder/test.dbf&quot;</b></span></font></span></td>
+  </tr>
+</table>
+  </li>
+  <li>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15; margin-top:3pt">
+<span style="font-family: Verdana; " lang="en-us"><font size="2">other URL path</font></span><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"><font size="2">:
+</font> </SPAN></P>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="92%" id="AutoNumber41">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15">
+    <span lang="en-us"><font color="#008000" size="2">
+    <span style="font-family: Courier New; ">SELECT * FROM &quot;</span></font></span><SPAN 
+class=SpellE><font color="#008000" size="2"><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'"><b>http://www.somesite.com/dbffiles/test.dbf</b></SPAN></font></SPAN><span lang="en-us"><font color="#008000" size="2"><span style="font-family: Courier New; "><b>&quot;</b></span></font></span></div>
+    <div align="justify">
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15">
+    <span lang="en-us"><font color="#008000" size="2">
+    <span style="font-family: Courier New; ">SELECT * FROM &quot;<span class="SpellE"><b>cache://zip</b></span></span></font></span><SPAN 
+class=SpellE><font color="#008000" size="2"><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'"><b>://c:/dbffiles.zip/dir/test.dbf</b></SPAN></font></SPAN><span lang="en-us"><font color="#008000" size="2"><span style="font-family: Courier New; "><b>&quot;</b></span></font></span></div>
+    <div align="justify">
+    <div align="justify">
+    <p class="MsoNormal" style="line-height: 150%; text-align: justify; margin-left: 8.5pt; margin-right: 15">
+    <span lang="en-us"><font color="#008000" size="2">
+    <span style="font-family: Courier New; ">SELECT * FROM &quot;</span></font></span><SPAN 
+class=SpellE><font color="#008000" size="2"><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'"><b>ftp://login:password@somesite.com:21/dbffiles/test.dbf</b></SPAN></font></SPAN><span lang="en-us"><font color="#008000" size="2"><span style="font-family: Courier New; "><b>&quot;</b></span></font></span></div>
+    </div>
+    </div>
+    </td>
+  </tr>
+</table>
+  </li>
+</ul>
+<H1 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">&nbsp;</H1>
+<H1 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify"><SPAN 
+lang=EN-US style="FONT-FAMILY: Verdana"><a name="Driver Properties">
+<font style="font-size: 11pt">Driver Properties</font></a></SPAN></H1>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">The 
+driver supports a number of parameters that change default <SPAN 
+class=SpellE>behavior</SPAN> of the driver.</SPAN><o:p></o:p></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">These 
+properties are:</SPAN><o:p></o:p></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15"><SPAN 
+class=SpellE><SPAN class=GramE><B style="mso-bidi-font-weight: normal">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">charset</SPAN></B></SPAN></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"> is 
+used to specify an 
+encoding in a DBF/VFP file. Possible values are
+<a href="http://docs.oracle.com/javase/1.5.0/docs/guide/intl/encoding.doc.html">
+encodings supported in Java</a> (Default is&nbsp; <b>&quot;8859_1&quot;</b> <SPAN 
+class=SpellE>charset</SPAN>)&nbsp;</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15"><SPAN 
+class=SpellE><SPAN class=GramE><B style="mso-bidi-font-weight: normal">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<font size="2">dbInMemory</font></SPAN></B></SPAN></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"><b><font size="2">, 
+dbPath</font></b><font size="2"> are 
+used to set a driver mode. For more details see </font> </SPAN>
+<span lang="en-us"><font face="Verdana" size="2">
+<a href="#Driver Modes">driver modes</a>.</font></span></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<span style="font-family: Verdana; font-weight: 700" lang="en-us">extension</span><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"> is 
+used to specify a different file extension (Default is <B 
+style="mso-bidi-font-weight: normal">".dbf&quot;</B>) </SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<span style="font-family: Verdana; " lang="en-us">If extension 
+set to &quot;.dbf&quot; then both &quot;myTable.dbf&quot; and myTable are valid.</span></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<span style="font-family: Verdana; " lang="en-us"><i>Note</i>:  </span>
+<font face="Verdana">You should stick to one of these 
+table naming types in the SQL queries</font><span style="font-family: Verdana; " lang="en-us">, i.e. either 
+&quot;myTable.dbf&quot; or myTable.</span></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<span class="GramE"><b><font size="2">ignoreCase</font></b><font size="2">.</font></span><font size="2"> 
+The property sets the case sensitivity for string values. By default the driver are not case sensitive 
+(</font><span class="GramE"><font size="2"><b>ignoreCase = true</b>)</font></span><font size="2">, 
+i.e. SQL queries<i> SELECT * FROM test WHERE string_column = 'some_value'</i> 
+and </font></SPAN>
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<font size="2"> <i>SELECT * FROM test WHERE string_column = 'SOME_VALUE'</i> are 
+identical.</font></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<span style="font-weight: 700">format</span> is used to specify the DBF format 
+for new tables created by the &quot;CREATE TABLE&quot; operation. Possible values: </SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"> <B 
+style="mso-bidi-font-weight: normal">DBASEIII </B> 
+<span 
+style="mso-bidi-font-weight: normal">or</span></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"> </SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"> <B 
+style="mso-bidi-font-weight: normal">VFP&nbsp; </B> </SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">(Default is <B 
+style="mso-bidi-font-weight: normal">&quot;DBASEIII&quot;</B>) </SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<span class="GramE"><span lang="en-us"><b>
+<span style="font-family: Verdana"><font size="2">logPath</font></span></b></span></span><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"><font size="2">
+</font> 
+</SPAN></B>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<font size="2">is
+used to set a file path to the log file.</font></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15"><B 
+style="mso-bidi-font-weight: normal">
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<span class="GramE"><font size="2"><a name="watchFileModifications">
+watchFileModifications</a></font></span><font size="2"> </font> 
+</SPAN></B>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<font size="2">tells the driver to start an additional thread that checks 
+regularly (every second once by default) if the file was modified by<b> </b>some 
+external process. If the file was modified, the driver refreshes it in the 
+cache. (Default value is
+<b>false</b>). This property is recommended, if your files are modified by an 
+external program / process and you want the changes to be immediately available 
+to the driver. Also, use the property &quot;<b>checkPeriod</b>&quot; to set regularity of 
+the file check. By default it is <b>1000</b> (1000 ms)</font></SPAN>.
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<font size="2">Example: </font></SPAN>
+<font face="Courier New">
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; mso-bidi-font-size: 10.0pt"><font size="2">
+jdbc:jstels:dbf:c:/dbffiles?watchFileModifications=true&amp;checkPeriod=3600000</font></SPAN></font></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<i><font face="Verdana" style="font-size: 11pt; font-weight: 700">Advanced 
+Properties</font></i></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<span style="font-family: Verdana; font-weight: 700; " lang="en-us">
+<font size="2">emptyStringAsNull</font></span><span style="font-family: Verdana; " lang="en-us"><font size="2">.</font></span><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"><font size="2"> 
+If &quot;</font></SPAN><span style="font-family: Verdana; " lang="en-us"><font size="2">emptyStringAsNull</font></span><span style="font-family: Verdana" lang="en-us">&quot;</span><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"><font size="2"> 
+is set to 'true', </font> </SPAN>
+<span style="font-family: Verdana; " lang="en-us"><font size="2">empty strings 
+(i.e. &quot;&quot;) 
+are treated</font></span><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"><font size="2">
+as NULL values. (By default is <b>true</b>).</font></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<span class="GramE"><span lang="en-us"><b><span style="font-family: Verdana">
+<font size="2">lockFiles</font></span></b></span></span><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"><font size="2">
+</font> 
+</SPAN></B>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<font size="2">is
+used to set locking for Visual FoxPro files. If lockFiles = true the driver will 
+use an exclusive file lock during write SQL operations and a shared lock during 
+read SQL operations. It is supported for VFP files only. Default is <b>false</b>.</font></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<span style="font-family: Verdana; " lang="en-us"><font size="2">
+<span style="font-weight: 700">memoExtension</span></font></span><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"><font size="2"> </font></SPAN>
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+is used to specify a file extension for memo files</SPAN><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"><font size="2">. 
+(Default is <b>&quot;.dbt&quot;</b> for DBase III/IV files, <b>&quot;.fpt&quot;</b> for FoxPro and 
+Visual FoxPro files).</font></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<span style="font-family: Verdana; font-weight: 700; " lang="en-us">
+<font size="2">preSQL</font></span><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"><font size="2"> 
+is used </font></SPAN>
+<span lang="EN-US" style="line-height: 150%; font-family: Verdana">
+<font size="2">to specify a path to a SQL script that will be executed after 
+creating a driver connection, e.g. </font><font size="2"><b>c:/sql_script.txt</b>. 
+It may be useful for creating indexes and other preparations.</font></span></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<span style="font-family: Verdana; font-weight: 700; " lang="en-us">
+<font size="2"><a name="singletonConnection">singletonConnection</a></font></span><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"><font size="2">. 
+If &quot;singletonConnection&quot; is set to &quot;true&quot;, the driver creates only one 
+java.sql.Connection instance for each unique JDBC URL and reuses that 
+connection for all threads. It allows the driver to increase up performance and 
+reduce memory usage in multithreading environments like web/application servers 
+Tomcat, GlassFish, WebSphere, etc. For example JDBC URL </font></SPAN>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"><font size="2">
+with this property </font></SPAN>
+<font size="2">
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">may look like the following: </SPAN>
+<font face="Courier New">
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; mso-bidi-font-size: 10.0pt">jdbc:jstels:dbf:c:/mydir/dbffiles?property1=value1&amp;property2=value2&amp;<b>singletonConnection=true</b></SPAN></font><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">. 
+Also,</SPAN><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"> it 
+is recommended to execute the SQL command &quot;SHUTDOWN&quot; while closing (undeploying) 
+a web application. </SPAN>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">Default value is <b>false</b>. </SPAN></font></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15"><B 
+style="mso-bidi-font-weight: normal">
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<span class="GramE"><font size="2">trimBlanks</font></span></SPAN></B><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"><font size="2">. 
+If &quot;trimBlanks&quot; is set to 'true', the driver trims leading and trailing spaces 
+for string values when reading a DBF file. (By default is <b>true</b>).</font></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<B 
+style="mso-bidi-font-weight: normal">
+<span class="GramE"><a name="useBigDecimal">use</a></span></B></SPAN><font face="Verdana"><b>BigDecimalType</b>. 
+If </font>
+<span class="GramE">
+<span 
+style="mso-bidi-font-weight: normal; line-height:150%; font-family:Verdana; mso-bidi-font-size:10.0pt">
+'</span><span 
+style="mso-bidi-font-weight: normal; line-height:150%; font-family:Verdana; mso-bidi-font-size:10.0pt" lang="EN-US"><a name="useWebParam">use</a></span></span><font face="Verdana">BigDecimalType' 
+is set to 'true', the driver uses BIGDECIMAL type for all floating point columns 
+such as FLOAT, DOUBLE, CURRENCY, NUMERIC. BIGDECIMAL type is recommended for 
+storing currency values or other values that require arithmetical calculations 
+via SQL. </font>
+<font size="2">
+<SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">See 
+also </SPAN></font>
+<span lang="en-us"><font face="Verdana">
+<a href="#Data types">Data type mapping</a> </font></span><font size="2"><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">(By 
+default is <b>false</b>).</SPAN></font></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<B 
+style="mso-bidi-font-weight: normal">
+<span class="GramE"><a name="useWebParam">useWebParam</a></span> </B>
+</SPAN><font face="Verdana">is used to specify the name of 
+the web parameter that will be used to transfer a DBF file name in </font>
+<span 
+style="mso-bidi-font-weight: normal; line-height:150%; font-family:Verdana; mso-bidi-font-size:10.0pt" lang="EN-US">
+the dynamic server page. </span><font face="Verdana">For 
+instance, if you specify the following value: 'tablename', the driver will 
+access server page using the following HTTP URL:</font></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15"><SPAN 
+class=SpellE>
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">
+http://www.site.com/out.jsp?tablename=sometable </SPAN><font face="Verdana">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">
+(where 'sometable' is the table specified in the SQL query)</SPAN></font></SPAN><font face="Verdana"><br>
+<i>Note</i>: If you specify driver properties directly in the driver URL and 
+server page also has its own parameters, you should separate them with '<b>??</b>':</font><br>
+<SPAN 
+class=SpellE><SPAN class=GramE>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">
+    jdbc:</SPAN></SPAN><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">jstels:dbf:http://www.site.com/out.jsp?param1=value1<b>??useWebParam=tablename&amp;</b></SPAN></SPAN><span lang="en-us"><b><span style="font-family: Courier New">dbInMemory</span></b></span><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'"><b>=false</b></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-right:15">
+&nbsp;</P>
+<P 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:4">
+<font size="2">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">
+To set the driver properties, 
+you can use one of the following ways:</SPAN></font></P>
+<P 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:4">
+<span lang="en-us"><font size="2"><span style="font-family: Verdana">1) </span>
+</font></span>
+<font size="2">
+<SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">
+&nbsp;using Properties class:</SPAN></font></P>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">java.util.Properties <b>props</b> = new <SPAN class=SpellE><SPAN class=GramE>java.util.Properties</SPAN></SPAN><SPAN class=GramE>(</SPAN>);</SPAN></font><o:p></o:p></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'"><o:p>&nbsp;</o:p></SPAN></font></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'"><font color="#008000"><SPAN class=SpellE><SPAN class=GramE>props.put</SPAN></SPAN><SPAN class=GramE>(</SPAN>&quot;<b>extension</b>&quot;, &quot;.db&quot;);<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 	</SPAN></font><font color="#999999">// file extension is .db</font></SPAN><o:p></o:p></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'"><font color="#008000"><SPAN class=SpellE><SPAN class=GramE>props.put</SPAN></SPAN><SPAN class=GramE>(</SPAN>&quot;<b>charset</b>&quot;, &quot;ISO-8859-2&quot;);<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; &nbsp;&nbsp; </SPAN></font><font color="#999999">// file encoding is &quot;ISO-8859-2&quot;</font></SPAN><o:p></o:p></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'"><o:p>&nbsp;</o:p></SPAN></font></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">Connection <SPAN class=SpellE>conn</SPAN> = <SPAN class=SpellE><SPAN class=GramE>DriverManager.getConnection</SPAN></SPAN><SPAN class=GramE>(</SPAN>&quot;<SPAN class=SpellE>jdbc:jstels:dbf</SPAN>:c:/dbffiles&quot;, <b>props</b>);</SPAN></font><o:p></o:p></PRE>
+    </td>
+  </tr>
+</table>
+<PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%">&nbsp;</PRE>
+<PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:0cm; margin-top:0cm; margin-bottom:0pt"><font face="Verdana" size="2">2) using a data source class </font><B style="mso-bidi-font-weight: normal"><SPAN 
+class=SpellE><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt"><font size="2">jstels.jdbc.dbf.</font></SPAN></SPAN><font size="2"><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">DBF</SPAN></font></B><font face="Verdana" size="2"><b>DataSource2</b>:</font></PRE>
+<PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:0cm; margin-top:0cm; margin-bottom:0pt">&nbsp;</PRE>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber17">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000" size="2"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">DBFDataSource2 dbfDS = new <SPAN class=GramE>DBFDataSource2(</SPAN>);</SPAN></font><o:p></o:p></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000" size="2"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'"><o:p>&nbsp;</o:p></SPAN></font></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'"><font size="2" color="#008000">dbfDS<SPAN class=SpellE><SPAN class=GramE>.<b>set</b></SPAN></SPAN><SPAN class=GramE><b>Path</b>(</SPAN>&quot;c:/dbffiles&quot;);           </font><font size="2" color="#999999">// path to a DBF directory</font></SPAN></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'"><font size="2" color="#008000">dbfDS<SPAN class=SpellE><SPAN class=GramE>.<b>setFileExtension</b></SPAN></SPAN><SPAN class=GramE>(</SPAN>&quot;.db&quot;);          </font><font size="2" color="#999999">// file extension is .</font></SPAN><span lang="en-us"><font color="#999999" size="2"><span style="font-family: Courier New; ">db</span></font></span><o:p></o:p><o:p></o:p></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'"><font size="2">dbfDS</font><SPAN class=SpellE><font size="2"><SPAN class=GramE>.<b>set</b></SPAN><b>Charset</b>(</font></SPAN><font size="2">&quot;ISO-8859-2&quot;);</font><SPAN style="mso-spacerun: yes"><font size="2">&nbsp;&nbsp;       </font></SPAN></SPAN></font><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'"><font color="#999999" size="2">// </font></SPAN><font color="#999999" size="2"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">file encoding is &quot;ISO-8859-2&quot;</SPAN></font><o:p></o:p></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000" size="2"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'"><o:p>&nbsp;</o:p></SPAN></font></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000" size="2"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">Connection <SPAN class=SpellE>conn</SPAN> = <SPAN class=SpellE><SPAN class=GramE>dbfDS.getConnection</SPAN></SPAN><SPAN class=GramE>(</SPAN>);</SPAN></font><o:p></o:p></PRE>
+    </td>
+  </tr>
+</table>
+<PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%">&nbsp;</PRE>
+<PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%"><font face="Verdana">3) appending the properties to the URL </font><font face="Verdana" size="2">(multiple properties should be separated by <b>'&amp;'</b> or <b>'!'</b> character)</font><font face="Verdana">:</font></PRE>
+<PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%">&nbsp;</PRE>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">Connection <SPAN class=SpellE>conn</SPAN> = </SPAN></font></PRE>
+    <div align="justify">
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'"><SPAN class=SpellE><SPAN class=GramE>DriverManager.getConnection</SPAN></SPAN><SPAN class=GramE>(</SPAN>&quot;<SPAN class=SpellE>jdbc:jstels:dbf</SPAN>:</SPAN><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">c:/dbffiles<b>?charset=ISO-8859-2&amp;</b><SPAN class=SpellE><b>dbInMemory=false</b>&quot;);</SPAN></SPAN></font></PRE>
+    </div>
+    </td>
+  </tr>
+</table>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+&nbsp;</p>
+<PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%">&nbsp;</PRE>
+<PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%"><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US"><a name="Connection Example"><span style="font-size: 11pt">Connection Example</span></a></SPAN></B></PRE>
+<P style="MARGIN-LEFT: 8.5pt; margin-right:15">
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">This 
+example code shows how the driver is used. </SPAN>
+<SPAN 
+style="FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">
+<font size="2">You can see more examples at the </font><font size="2">
+<a href="http://csv-jdbc.com/stels_dbf.zip">driver package</a></font></SPAN><SPAN lang=EN-US 
+style="FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US"><font size="2">.</font></SPAN></P>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <div align="justify">
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font face="Courier New" color="#008000"><span lang="EN-US">import java.sql.*;</span></font></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">&nbsp;</PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font face="Courier New" color="#008000"><span lang="EN-US">public class DBFDriverTest {</span></font></PRE>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp; public static void main(String[] args) {</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp; try {</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#999999">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // load the driver into memory</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Class.forName(&quot;jstels.jdbc.dbf.DBFDriver2&quot;);</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">&nbsp;</p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#999999">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // create a connection. The first command line 
+    parameter is assumed to</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#999999">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // be the directory in which the .dbf files are 
+    held</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Connection conn = 
+    DriverManager.getConnection(&quot;jdbc:jstels:dbf:&quot; + args[0]);</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#999999">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // create a Statement object to execute the query 
+    with</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Statement stmt = conn.createStatement();</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">&nbsp;</p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#999999">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // execute a query</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResultSet rs = stmt.executeQuery(&quot;SELECT * FROM \&quot;test.dbf\&quot;&quot;);</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">&nbsp;</p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#999999">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // read the data and put it to the console</span></font></p>
+    <p class="MsoNormal" style="margin-left: 8,5pt; margin-right:15; line-height:150%">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (int j = 1; j &lt;= 
+    rs.getMetaData().getColumnCount(); j++) {</span></font></p>
+    <p class="MsoNormal" style="margin-left: 8,5pt; margin-right:15; line-height:150%">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.print(rs.getMetaData().getColumnName(j) 
+    + &quot;\t&quot;);</span></font></p>
+    <p class="MsoNormal" style="margin-left: 8,5pt; margin-right:15; line-height:150%">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}</font></p>
+    <p class="MsoNormal" style="margin-left: 8,5pt; margin-right:15; line-height:150%">
+    <font face="Courier New" color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    System.out.println();</font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">&nbsp;</p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while (rs.next()) {</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (int j = 1; j &lt;= 
+    rs.getMetaData().getColumnCount(); j++) {</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.print(rs.getObject(j) + &quot;\t&quot;);</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println();</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">&nbsp;</p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8">
+    <font color="#999999"><span lang="EN-US" style="font-family: Courier New">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // close the objects</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rs.close();</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stmt.close();</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conn.close();</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp; }</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp; catch (Exception e) {</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.printStackTrace();</span></font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">
+    <span lang="EN-US">&nbsp;&nbsp;&nbsp; </span>}</font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">&nbsp; }</font></p>
+    <p class="MsoNormal" style="line-height: 150%; margin-left: 8,5pt; margin-right: 15">
+    <font face="Courier New" color="#008000">}</font></p>
+    </div>
+    </td>
+  </tr>
+</table>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+&nbsp;</p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+&nbsp;</p>
+<H4 style="margin-right: 0"><SPAN lang=EN-US style="FONT-FAMILY: Verdana"><a name="Driver Modes">
+<font style="font-size: 11pt">Driver 
+Modes</font></a></SPAN></H4>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:0; margin-top:0cm; margin-bottom:0pt">
+<font face="Verdana" size="2">The driver works in the following way: it loads 
+data from files to an intermediate database (also referred to as “synchrobase”) 
+that is used for running SQL queries and synchronizing changes between this 
+database and external DBF files. </font></p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:30; margin-right:0; margin-top:2; margin-bottom:0pt">
+<font face="Verdana" size="2"> <br>
+<img border="0" src="synchrobase.gif" width="716" height="126"><br>
+&nbsp;</font></p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:0; margin-top:0cm; margin-bottom:0pt">
+<font face="Verdana" size="2">The driver can work in the following three modes: <br>
+<br>
+1) <b>With</b> <b>a</b> <b>temporary synchrobase in RAM</b>. The synchrobase is 
+created in RAM and is removed from it after the connection is closed. It is a 
+default mode.<br>
+<br>
+2) <b>With</b> <b>a</b> <b>temporary synchrobase on the hard drive</b>. The 
+synchrobase is created on the HDD every time a connection is opened and deleted 
+after it’s closed. To use this mode, set the driver property <b>dbInMemory</b> to
+<b>false</b>.</font></p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <p style="line-height: 150%; text-align: left; margin-left: 8.5pt; margin-right: 0; margin-top: 0cm; margin-bottom: 0pt">
+<font face="Courier New" size="2" color="#008000">Connection conn = 
+DriverManager.getConnection(&quot;jdbc:jstels:dbf:c:/dbffiles?<b>dbInMemory=false</b>&amp;tempPath=c:/tempfiles&quot;);</font></td>
+  </tr>
+</table>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:0; margin-top:0cm; margin-bottom:0pt">
+&nbsp;</p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:0; margin-top:0cm; margin-bottom:0pt">
+<font face="Verdana" size="2">3) <b>With</b> <b>a</b> </font><b>
+<font face="Verdana" size="2">persistent</font><font face="Verdana" style="font-size: 11pt"> </font>
+</b>
+<font face="Verdana" size="2"> <b>synchrobase</b> <b>on the hard drive</b>. 
+The synchrobase is created just once and is re-used afterwards. To use this mode 
+set the property <b>dbPath</b> to the file path where is synchrobase will be stored.</font></p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <p style="line-height: 150%; text-align: left; margin-left: 8.5pt; margin-right: 0; margin-top: 0cm; margin-bottom: 0pt">
+<font face="Courier New" size="2" color="#008000">Connection conn = 
+    DriverManager.getConnection(&quot;jdbc:jstels:dbf:c:/dbffiles?dbPath=<b>c:/synchrobases/syncro_db_name</b>&amp;tempPath=c:/tempfiles&quot;);</font></td>
+  </tr>
+</table>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:0; margin-top:0cm; margin-bottom:0pt">
+<font face="Verdana" size="2"><br>
+In the first mode, all synchrobase data are stored in the system RAM, which 
+ensures maximum performance. Keep in mind that Java Virtual Machine must have 
+enough free memory allotted for storing large tables (use -Xms and -Xmx JVM 
+options). You can also use the DROP TABLE &lt;table name&gt; FROM CACHE command to 
+force tables to be removed from the cache. <br>
+&nbsp;</font></p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:0; margin-top:0cm; margin-bottom:0pt">
+<font face="Verdana" size="2">In the second case, a temporary synchrobase is 
+created on the hard drive. This mode is used for processing large files, since 
+it uses a minimum of RAM. The synchrobase is deleted after the connection is 
+closed.<br>
+<br>
+In the third mode, the synchrobase is created once and is reused afterwards. 
+ 
+This mode requires additional files to store a synchrobase on the hard drive.<br>
+&nbsp;</font></p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:0; margin-top:0cm; margin-bottom:0pt">
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt">
+<font size="2">Note: if your files are modified by an external program / process 
+and you want the changes to be immediately available to the driver, consider 
+using <a href="#watchFileModifications">watchFileModifications</a> property.</font></SPAN><font face="Verdana" style="font-size: 11pt"><br>
+</font>
+<font face="Verdana" size="2">
+<br>
+There are also some properties for configuring these modes:<br>
+&nbsp;</font></p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<span style="font-family: Verdana"><b><font size="2">tempPath</font></b><font size="2"> - directory 
+where temporary files will be created (</font></span><span lang="EN-US" style="font-family: Verdana"><font size="2">by 
+default it is a OS temporary directory, specified by 
+JVM environment variable &quot;</font></span><span lang="EN-US" style="font-family: Verdana; color: black"><font size="2">java.io.tmpdir</font></span><span lang="EN-US" style="font-family: Verdana"><font size="2">&quot;). 
+It is recommended to set your own value. For example it can be a directory on a 
+fast SSD disk.</font></span></p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+&nbsp;</p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:5">
+<font face="Verdana" size="2">Example:</font></p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber11">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <PRE style="MARGIN-LEFT: 8; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0; margin-bottom:0"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">Properties props = new <SPAN class=SpellE><SPAN class=GramE>java.util.Properties</SPAN></SPAN><SPAN class=GramE>(</SPAN>);</SPAN></font><o:p></o:p></PRE>
+    <p style="line-height: 150%; margin-left: 8; margin-top:0; margin-bottom:0">
+    <font face="Courier New" color="#008000" size="2">props.setProperty(&quot;dbInMemory&quot;, 
+    &quot;false&quot;);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </font>
+    <font face="Courier New" color="#999999" size="2">// switch to the second mode 
+    (a temporary synchrobase on the hard drive)<br>
+    </font><font face="Courier New" color="#008000" size="2">props.setProperty(&quot;tempPath&quot;, &quot;c:/temp&quot;);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+    </font><font color="#008000" size="2"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">Connection <SPAN class=SpellE>conn</SPAN> = <SPAN class=SpellE><SPAN class=GramE>DriverManager.getConnection</SPAN></SPAN><SPAN class=GramE>(</SPAN>&quot;<SPAN class=SpellE>jdbc:jstels:dbf</SPAN>:c:/dbffiles&quot;, props);</SPAN></font><o:p></o:p></p>
+    </td>
+  </tr>
+</table>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+&nbsp;</p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+&nbsp;</p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<SPAN 
+lang=EN-US 
+style="FONT-SIZE: 11pt; LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; font-weight:700">
+<a name="Data types">Data type mapping</a></SPAN></p>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:3px; margin-bottom:8">
+<SPAN lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US"><o:p> 
+The table below demonstrates the mapping scheme between StelsDBF data types 
+and DBF/Visual FoxPro data types:</o:p></SPAN></H3>
+<table style="margin-left: 10" border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="866" id="AutoNumber9" height="171">
+  <tr>
+    <td width="364" bgcolor="#EEEEFF" height="15">
+    <p align="left" style="margin-left: 10; margin-top:2; margin-bottom:2"><b><font face="Verdana" size="2">
+    StelsDBF data type</font></b></td>
+    <td width="473" bgcolor="#EEEEFF" height="15">
+    <p align="center"><b><font face="Verdana" size="2">DBF data type</font></b></td>
+    <td width="230" bgcolor="#EEEEFF" height="15">
+    <p align="center"><b><font face="Verdana" size="2">&nbsp;JDBC returned type 
+    (java.sql.Types.*)</font></b></td>
+    <td width="364" bgcolor="#EEEEFF" height="15">
+    <p align="center" style="margin-top: 2pt; margin-bottom: 2pt"><b><font size="2" face="Verdana">Java 
+    class used in StelsDBF</font></b></td>
+  </tr>
+  <tr>
+    <td width="364" height="30">
+    <p align="left" style="margin-left: 10">
+    <span style="text-transform: uppercase"><b><font face="Verdana" size="2">Integer </font></b></span></td>
+    <td width="473" height="30">
+    <p align="left" style="margin-left: 10; margin-top: 2; margin-bottom: 2">
+    <font face="Verdana" size="2"><b>NUMERIC</b> ( length &lt;= 9, decimal count = 
+    0 ), <b>INTEGER</b></font></td>
+    <td width="230" height="30">
+    <p style="margin-left: 10; margin-top: 5; margin-bottom: 5">
+    <font face="Verdana" size="2">java.sql.Types.INTEGER</font></td>
+    <td width="364" height="30">
+    <p style="margin-left: 10" align="justify"><font face="Verdana" size="2">java.lang.Integer</font></td>
+  </tr>
+  <tr>
+    <td width="364" height="30">
+    <p style="margin-left: 10" align="left">
+    <span style="text-transform: uppercase"><b><font face="Verdana" size="2">
+    Bigint</font></b></span></td>
+    <td width="473" height="30">
+    <p align="left" style="margin-left: 10; margin-top: 2; margin-bottom: 2">
+    <font face="Verdana" size="2"><b>NUMERIC</b> ( length &gt; 9, decimal count = 0 
+    )</font></td>
+    <td width="230" height="30">
+    <p style="margin-left: 10; margin-top: 5; margin-bottom: 5">
+    <font face="Verdana" size="2">java.sql.Types.BIGINT</font></td>
+    <td width="364" height="30">
+    <p style="margin-left: 10"><font face="Verdana" size="2">java.lang.Long</font></td>
+  </tr>
+  <tr>
+    <td width="364" height="30">
+    <p style="margin-left: 10" align="left">
+    <span style="text-transform: uppercase"><b><font face="Verdana" size="2">
+    Double </font></b></span>
+    <p style="margin-left: 10" align="left">
+    <font face="Verdana" size="1">(<a href="#useBigDecimal">useBigDecimalType</a> 
+    = false, default)</font></td>
+    <td width="473" height="30">
+    <p style="margin-left: 10; margin-top: 2; margin-bottom: 2">
+    <font face="Verdana" size="2"><b>NUMERIC </b>(decimal count &gt; 0), <b>FLOAT, 
+    CURRENCY, DOUBLE</b></font></td>
+    <td width="230" height="30">
+    <p style="margin-left: 10; margin-top: 5; margin-bottom: 5">
+    <font face="Verdana" size="2">java.sql.Types.DOUBLE</font></td>
+    <td width="364" height="30">
+    <p style="margin-left: 10"><font face="Verdana" size="2">java.lang.Double</font></td>
+  </tr>
+  <tr>
+    <td width="364" height="30">
+    <p style="margin-left: 10" align="left">
+    <span style="text-transform: uppercase"><b><font face="Verdana" size="2">
+    BIGDECIMAl</font></b></span><p style="margin-left: 10" align="left">
+    <font face="Verdana" size="1">(<a href="#useBigDecimal">useBigDecimalType</a> 
+    = true)</font></td>
+    <td width="473" height="30">
+    <p style="margin-left: 10; margin-top: 2; margin-bottom: 2">
+    <font face="Verdana" size="2"><b>NUMERIC </b>(decimal count &gt; 0), <b>FLOAT, 
+    CURRENCY, DOUBLE</b></font></td>
+    <td width="230" height="30">
+    <p style="margin-left: 10; margin-top: 5; margin-bottom: 5">
+    <font face="Verdana" size="2">java.sql.Types.NUMERIC</font></td>
+    <td width="364" height="30">
+    <p style="margin-left: 10"><font face="Verdana" size="2">
+    java.math.BigDecimal</font></td>
+  </tr>
+  <tr>
+    <td width="364" height="30">
+    <p style="margin-left: 10"><span style="text-transform: uppercase"><b>
+    <font face="Verdana" size="2">VARCHAR</font></b></span></td>
+    <td width="473" height="30">
+    <p style="margin-left: 10; margin-top: 0; margin-bottom: 0"><b>
+    <font face="Verdana" size="2">CHARACTER</font></b></td>
+    <td width="230" height="30">
+    <p style="margin-left: 10; margin-top: 5; margin-bottom: 5">
+    <font face="Verdana" size="2">java.sql.Types.VARCHAR </font></td>
+    <td width="364" height="30">
+    <p style="margin-left: 10"><font face="Verdana" size="2">java.lang.String</font></td>
+  </tr>
+  <tr>
+    <td width="364" height="31">
+    <p style="margin-left: 10"><span style="text-transform: uppercase"><b><font face="Verdana" size="2">DateTIME, 
+	DATE</font></b></span></td>
+    <td width="473" height="31">
+    <p style="margin-left: 10; margin-top: 0; margin-bottom: 0">
+    <font face="Verdana" size="2"><b>
+    DATE </b>(for DBF III/IV files)<b>, DATETIME </b>(for VFP files)</font></td>
+    <td width="230" height="31">
+    <p style="margin-left: 10; margin-top: 5; margin-bottom: 5">
+    <font face="Verdana" size="2">java.sql.Types.TIMESTAMP</font></td>
+    <td width="364" height="31">
+    <p style="margin-left: 10"><font face="Verdana" size="2">java.util.Date</font></td>
+  </tr>
+  <tr>
+    <td width="364" height="30">
+    <p style="margin-left: 10"><span style="text-transform: uppercase"><b>
+    <font face="Verdana" size="2">BOOLEAN</font></b></span></td>
+    <td width="473" height="30">
+    <p style="margin-left: 10; margin-top: 0; margin-bottom: 0"><b>
+    <font face="Verdana" size="2">LOGICAL</font></b></td>
+    <td width="230" height="30">
+    <p style="margin-left: 10; margin-top: 5; margin-bottom: 5">
+    <font face="Verdana" size="2">java.sql.Types.BOOLEAN</font></td>
+    <td width="364" height="30">
+    <p style="margin-left: 10"><font face="Verdana" size="2">java.lang.Boolean</font></td>
+  </tr>
+  <tr>
+    <td width="364" height="30">
+    <p style="margin-left: 10"><span style="text-transform: uppercase"><b>
+    <font face="Verdana" size="2">MEMO</font></b></span></td>
+    <td width="473" height="30">
+    <p style="margin-left: 10; margin-top: 0; margin-bottom: 0"><b>
+    <font face="Verdana" size="2">MEMO, GENERAL, PICTURE</font></b></td>
+    <td width="230" height="30">
+    <p style="margin-left: 10; margin-top: 5; margin-bottom: 5">
+    <font face="Verdana" size="2">java.sql.Types.VARCHAR</font></td>
+    <td width="364" height="30">
+    <p style="margin-left: 10"><font face="Verdana" size="2">java.lang.String</font></td>
+  </tr>
+  <tr>
+    <td width="364" height="30">
+    <p style="margin-left: 10"><span style="text-transform: uppercase"><b>
+	<font face="Verdana" size="2">BLOB</font></b></span></td>
+    <td width="473" height="30">
+    <p style="margin-left: 10; margin-top: 0; margin-bottom: 0"><b>
+    <font face="Verdana" size="2">GENERAL, PICTURE</font></b></td>
+    <td width="230" height="30">
+    <p style="margin-left: 10; margin-top: 5; margin-bottom: 5">
+    <font face="Verdana" size="2">java.sql.Types.BLOB</font></td>
+    <td width="364" height="30">
+    <p style="margin-left: 10"><font face="Verdana" size="2">java.sql.Blob</font></td>
+  </tr>
+</table>
+<p 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">&nbsp;</p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:0cm; margin-top:10; margin-bottom:0pt">
+<font face="Verdana" style="font-size: 10pt"><i><b>Note</b></i>:  </font>
+</p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:0cm; margin-top:10; margin-bottom:0pt">
+<font face="Verdana" size="2">While creating Visual FoxPro files (driver 
+property 'format' = 'VFP'), INTEGER, 
+DOUBLE </font>
+<font face="Verdana" style="font-size: 10pt">and DATETIME data 
+types will be mapped to the native 
+Visual FoxPro types INTEGER, DOUBLE and DATETIME.</font></p>
+<p 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">&nbsp;</p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:0cm; margin-top:0cm; margin-bottom:5">
+<font face="Verdana" style="font-size: 10pt">Example of&nbsp; CREATE TABLE 
+statement:</font></p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">CREATE TABLE test(</SPAN></font></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">int_col INTEGER(5), </SPAN></font></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">long_col BIGINT(12), </SPAN></font></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">float_col NUMERIC(15,2),</SPAN></font></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">str_col VARCHAR(10),</SPAN></font></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">dat_col DATETIME,</SPAN></font></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">bool_col BOOLEAN</SPAN></font></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">)</SPAN></font></PRE>
+    </td>
+  </tr>
+</table>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:0cm; margin-top:7; margin-bottom:0pt">
+<font face="Verdana" style="font-size: 10pt">For more information about DBF/Visual 
+FoxPro data 
+types please see the corresponding DBase/XBase/Visual FoxPro documentation.</font></p>
+<H3 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">&nbsp;</H3>
+<H3 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">&nbsp;</H3>
+<H3 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<SPAN 
+lang=EN-US 
+style="FONT-SIZE: 11pt; LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">
+<a name="Supported SQL Syntax">Supported SQL Syntax</a></SPAN></H3>
+<H3 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<span style="font-family: Verdana; font-weight: 400" lang="en-us">
+<font size="2">
+StelsDBF version 5.x uses 
+<a href="http://www.h2database.com/html/main.html">H2 database</a>
+</font> </span>
+<span lang="en-us">
+<span style="font-family: Verdana; font-weight: 400"><font size="2">
+as an SQL engine and
+</font> </span>
+<span style="font-weight: 400"><font face="Verdana" size="2">
+supports</font></span></span><span style="font-weight: 400"><font face="Verdana" size="2"> 
+t<span lang="de">he
+</span>most<span lang="de"> part of</span> ANSI/ISO SQL grammar like </font></span>
+<font face="Verdana" size="2">SELECT<span style="font-weight: 400">,
+</span>INSERT<span style="font-weight: 400">, </span>UPDATE<span style="font-weight: 400">, 
+</span>DELETE<span style="font-weight: 400"> and </span>CREATE<span style="font-weight: 400"> statements.</span></font><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; font-weight:400"><font size="2">
+</font> </SPAN></H3>
+<p 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<font face="Verdana" style="font-size: 10pt">An SQL query must meet the 
+following conditions:</font></p>
+<ul>
+  <li>
+<p 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<font face="Verdana" style="font-size: 10pt">It must corespond to the SQL syntax 
+supported by the driver. </font>
+<SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; font-weight:400">
+For detailed information about supported SQL syntax please see the specification</SPAN><SPAN lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US"> <a href="SQLSyntax.htm">here</a>.</SPAN></li>
+<li>
+<p 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<font face="Verdana" style="font-size: 10pt">А column using an SQL reserved word 
+as a name or containing spaces and other delimiters must be quoted in double 
+quotes in a query. For example, </font>
+<font style="font-size: 10pt" face="Courier New">SELECT <i>&quot;Date&quot;, &quot;My 
+integer-column&quot;</i> 
+FROM &quot;test.dbf&quot;</font></li>
+<li>
+<p 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+<font face="Verdana" size="2">To use single quotes (') within a 
+string constant you should duplicate them, e.g.: </font>
+<i>
+<font face="Courier New" size="2">SELECT 'a''bcd''efgh'</font></i></li>
+</ul>
+<p 
+style="MARGIN: 0cm 0cm 0pt 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify">
+&nbsp;<H3 
+style="TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; ">
+<font size="2">
+<SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">
+Query examples: </SPAN></font> 
+<o:p></o:p></H3>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber5">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<SPAN lang=EN-US 
+style="FONT-WEIGHT: normal; COLOR: #B3ABA8; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">
+<font size="2">// ---- SELECT queries ---</font></SPAN></H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<SPAN lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; COLOR: blue; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">SELECT</SPAN><font size="2"><SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US"> 
+<SPAN class=GramE><SPAN style="COLOR: red">SUM</SPAN>(</SPAN>a) <SPAN 
+style="COLOR: gray">AS</SPAN> col1, <SPAN style="COLOR: red">MAX</SPAN>(b) / 
+<SPAN style="COLOR: red">MAX</SPAN>(c) <SPAN style="COLOR: gray">AS</SPAN> col2 
+<SPAN style="COLOR: blue">FROM</SPAN> &quot;test.dbf&quot; <SPAN style="COLOR: blue">GROUP 
+BY</SPAN> a<SPAN style="mso-spacerun: yes">&nbsp; </SPAN><SPAN 
+style="COLOR: blue">HAVING </SPAN><SPAN style="COLOR: red">AVG</SPAN>(a) &gt; 
+30</SPAN></font><o:p></o:p></H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US"><SPAN 
+style="COLOR: blue"><font size="2">SELECT</font></SPAN><font size="2"> name <SPAN style="COLOR: blue">FROM</SPAN> 
+&quot;salesreps.dbf&quot; <SPAN style="COLOR: blue">WHERE</SPAN> <SPAN class=GramE>( <SPAN 
+class=SpellE>rep</SPAN></SPAN><SPAN class=SpellE>_office</SPAN> <SPAN 
+style="COLOR: gray">IN</SPAN> ( 22, 11, 12 ) )<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN style="COLOR: gray">OR</SPAN> ( 
+manager <SPAN style="COLOR: gray">IS NULL AND</SPAN> <SPAN 
+class=SpellE>hire_date</SPAN> &gt;= <SPAN class=SpellE>to_date</SPAN> ( '01-05-2002','dd-MM-yyyy' ) <SPAN 
+style="COLOR: gray">OR</SPAN> ( sales &gt; quota <SPAN style="COLOR: gray">AND 
+NOT</SPAN> sales &gt; 600000.0 )</font></SPAN><o:p></o:p></H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US"><SPAN 
+style="COLOR: blue">SELECT</SPAN> city, target, sales <SPAN 
+style="COLOR: blue">FROM</SPAN> &quot;offices.dbf&quot; <SPAN 
+style="COLOR: blue">WHERE</SPAN> region = 'Eastern' <SPAN 
+style="COLOR: gray">AND</SPAN> sales &gt; target <SPAN 
+style="COLOR: blue">ORDER</SPAN> <SPAN style="COLOR: blue">BY</SPAN> city</SPAN></H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+</H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<SPAN lang=EN-US 
+style="FONT-WEIGHT: normal; COLOR: #B3ABA8; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">
+<font size="2">// ---- SELECT queries with joins ----</font></SPAN></H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<span style="font-weight: 400">
+<font face="Courier New" style="font-size: 10pt"><font color="#0000FF">SELECT</font> * 
+<font color="#0000FF">FROM</font> </font></span>
+<SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">
+&quot;</SPAN><span style="font-weight: 400"><font face="Courier New" style="font-size: 10pt">prices.</font><font face="Courier New" size="2">dbf</font></span><SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">&quot;</SPAN><span style="font-weight: 400"><font face="Courier New" style="font-size: 10pt"> ps
+<font color="#0000FF">JOIN</font> &quot;regions.dbf&quot; regs <font color="#0000FF">ON</font> ps.regionid = regs.id
+<font color="#0000FF">JOIN</font> </font></span>
+<SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">
+&quot;</SPAN><span style="font-weight: 400"><font face="Courier New" style="font-size: 10pt">products</font></span><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">.</SPAN><font size="2"><span style="font-family: Courier New; font-weight: 400">dbf</span></font><SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">&quot;</SPAN><span style="font-weight: 400"><font face="Courier New" style="font-size: 10pt"> prod
+<font color="#0000FF">ON</font> prod.prodid = 
+ps.prodid</font></span></H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<span style="font-weight: 400">
+<font face="Courier New" style="font-size: 10pt"><font color="#0000FF">SELECT</font> * 
+<font color="#0000FF">FROM</font> </font></span>
+<SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">
+&quot;</SPAN><span style="font-weight: 400"><font face="Courier New" style="font-size: 10pt">prices.</font><font face="Courier New" size="2">dbf</font></span><SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">&quot; 
+ps</SPAN><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">, </SPAN>
+<SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">
+&quot;</SPAN><span style="font-weight: 400"><font face="Courier New" style="font-size: 10pt">products</font></span><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">.</SPAN><font size="2"><span style="font-family: Courier New; font-weight: 400">dbf</span></font><SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">&quot; 
+prod</SPAN><span style="font-weight: 400"><font face="Courier New" style="font-size: 10pt">, 
+&quot;regions.dbf&quot; regs <font color="#0000FF">WHERE</font> ps.regionid = regs.id
+<font color="#0000FF">AND </font>prod.prodid = 
+ps.prodid</font></span></H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+&nbsp;</H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<SPAN lang=EN-US 
+style="FONT-WEIGHT: normal; COLOR: #B3ABA8; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">
+<font size="2">// ---- INSERT, UPDATE and DELETE commands ----</font></SPAN></H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US"><SPAN 
+style="COLOR: blue">INSERT INTO</SPAN> &quot;salesreps.dbf&quot; (name, age, empl_num, sales, title) <span style="color: #0000FF">
+VALUES</span> ('Henry Smith', 35, 111, <font color="#808080">NULL</font>, 'Sales 
+Mgr')</SPAN></H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US"><SPAN 
+style="COLOR: blue">DELETE FROM</SPAN> &quot;salesreps.dbf&quot; <span style="color: #0000FF">WHERE</span> NAME
+<font color="#808080">LIKE</font> 'Henry%'&nbsp; </SPAN></H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US"><SPAN 
+style="COLOR: blue">UPDATE </SPAN>&quot;customers.dbf&quot;<span style="color: #0000FF"> 
+SET</span> credit_limit = 50000.00 <font color="#0000FF">WHERE</font> company = 
+'Acme Mfg.'</SPAN></H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+&nbsp;</H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<SPAN lang=EN-US 
+style="FONT-WEIGHT: normal; COLOR: #B3ABA8; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">
+<font size="2">// ---- CREATE TABLE command ----</font></SPAN></H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US"><SPAN 
+style="COLOR: blue"><font size="2">CREATE TABLE </font> </SPAN><font size="2">&quot;new_table.dbf&quot; (int_col<SPAN 
+style="COLOR: blue"> INT</SPAN>,<SPAN 
+style="COLOR: blue"> </SPAN>long_col<SPAN 
+style="COLOR: blue"> LONG, </SPAN>float_col <font color="#0000FF">REAL</font>, 
+double_col <font color="#0000FF">DOUBLE</font>, str_col<SPAN 
+style="COLOR: blue"> VARCHAR(20)</SPAN>,<SPAN 
+style="COLOR: blue"> </SPAN>date_col<SPAN 
+style="COLOR: blue"> DATETIME</SPAN>,<SPAN 
+style="COLOR: blue"> </SPAN>bool_col<SPAN 
+style="COLOR: blue"> BOOLEAN</SPAN>,<SPAN 
+style="COLOR: blue"> </SPAN>num_col<SPAN 
+style="COLOR: blue"> DECIMAL(15,2)</SPAN>);</font><SPAN 
+style="COLOR: blue"><font size="2"><br>
+&nbsp;</font></SPAN></SPAN></H3>
+<H3 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<SPAN lang=EN-US 
+style="FONT-WEIGHT: normal; COLOR: #B3ABA8; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">
+<font size="2">// ---- CREATE INDEX command ----</font></SPAN></H3>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US"><SPAN 
+style="COLOR: blue"><font size="2">CREATE INDEX </font> </SPAN><font size="2">i_1<SPAN 
+style="COLOR: blue"> ON </SPAN>&quot;new_table.dbf&quot; (int_col);</font></SPAN><SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US"> </SPAN></p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+&nbsp;</p>
+    </td>
+  </tr>
+</table>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+&nbsp;</p>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<font face="Verdana" size="2">See also:</font></p>
+<ul>
+  <li>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<font face="Verdana" size="2"><a href="SQLSyntax.htm">StelsDBF - 
+SQL Syntax</a></font></p>
+  </li>
+  <li>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<font face="Verdana" size="2"><a href="http://www.h2database.com/html/grammar.html">H2 Database 
+- SQL Grammar</a></font></p>
+  </li>
+  <li>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<font face="Verdana" size="2">
+<a href="http://www.h2database.com/html/functions.html" name="function">H2 
+Database - SQL Functions</a></font></p>
+  </li>
+  <li>
+<p 
+style="LINE-HEIGHT: 150%; TEXT-ALIGN: justify; margin-left:8.5pt; margin-right:15; margin-top:0cm; margin-bottom:0pt">
+<font face="Verdana" size="2">
+<a href="http://www.h2database.com/h2.pdf">H2 Database - Full documentation (PDF)</a></font></p>
+  </li>
+</ul>
+<p style="line-height: 150%; text-align: justify; margin-left: 8; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt">
+&nbsp;</p>
+<p style="line-height: 150%; text-align: justify; margin-left: 8; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt">
+&nbsp;</p>
+<p style="line-height: 150%; text-align: justify; margin-left: 8; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt">
+<font style="font-size: 11pt">
+<span lang="EN-US" style="line-height: 150%; font-family: Verdana; font-weight:700">
+<a name="Unsupported features">Unsupported features</a></span></font></p>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt" align="justify">
+<font face="Verdana" style="font-size: 10pt"><span lang="EN-US">The driver does 
+not support CDX, IDX indices.</span></font></p>
+<p style="line-height: 150%; text-align: justify; margin-left: 8; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt">
+&nbsp;</p>
+<p style="line-height: 150%; text-align: justify; margin-left: 8; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt">
+&nbsp;</p>
+<h3 style="line-height: 150%; text-align: justify; margin-left: 8; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt">
+<font style="font-size: 11pt">
+<span lang="EN-US" style="line-height: 150%; font-family: Verdana">
+<a name="User-defined SQL functions">User-defined SQL functions</a></span></font></h3>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt" align="justify">
+<font face="Verdana" style="font-size: 10pt"><span lang="EN-US">You can use your 
+own SQL functions in the driver. To use this feature, you should do the 
+following:&nbsp;</span></font></p>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt" align="justify">
+<span lang="en-us"><font face="Verdana" style="font-size: 10pt">1) </font>
+</span><font face="Verdana" style="font-size: 10pt"><span lang="EN-US">Create a 
+static method that will act as an SQL function<br>
+&nbsp;&nbsp;&nbsp; Mind that:</span></font></p>
+<ul>
+  <li>
+  <p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt" align="justify">
+  <font face="Verdana" style="font-size: 10pt"><span lang="EN-US">The method 
+  must have the <b>public</b> modifier</span></font></li>
+  <li>
+  <p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt" align="justify">
+  <font face="Verdana" style="font-size: 10pt"><span lang="EN-US">The number of 
+  arguments in the method is arbitrary, but they must belong to one of the java 
+  classes specified in the <a href="#Data types">data types</a> table</span></font></li>
+  <li>
+  <p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt" align="justify">
+  <font face="Verdana" style="font-size: 10pt"><span lang="EN-US">It is 
+  advisable to process the <b>null</b> values for arguments in the method code</span></font></li>
+  <li>
+  <p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt" align="justify">
+  <span lang="en-us"><font face="Verdana" style="font-size: 10pt">T</font></span><font face="Verdana" style="font-size: 10pt"><span lang="EN-US">he 
+  method can return the <b>null</b> value as well</span></font></li>
+</ul>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt">
+<font face="Verdana" style="font-size: 10pt"><span lang="EN-US">For example:</span></font></p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber6">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<font color="#008000" style="font-size: 10pt" face="Courier New">package my_pack;</font></p>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<font color="#008000" style="font-size: 10pt" face="Courier New">public class 
+MyFuncs{</font></p>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<font color="#999999"><font face="Courier New" style="font-size: 10pt">&nbsp;&nbsp; 
+// user-defined SQL function that </font>
+<span lang="EN-US" style="font-size: 10pt; line-height: 150%; font-family: Courier New">
+formats the given argument into a date/time string with specified format</span></font></p>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<font color="#008000" face="Courier New" style="font-size: 10pt">&nbsp;&nbsp; 
+<b>public static String format_date(java.util.Date d, String format)</b> {<br>
+</font>
+<span style="font-size: 10pt">
+<font face="Courier New" color="#999999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // process the null values</font></span></p>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<font face="Courier New" style="font-size: 10pt" color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>
+<span style="font-size: 10pt">
+<font face="Courier New" color="#008000">if (d == 
+null || format == null)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return null;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; java.text.SimpleDateFormat sdf = new 
+java.text.SimpleDateFormat(format);<br>
+</font>
+<font face="Courier New" color="#999999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+</span>
+<font style="FONT-SIZE: 10pt" face="Courier New" color="#999999">// return a 
+function result with java.lang.String type</font></p>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<font face="Courier New" style="font-size: 10pt" color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>
+<font face="Courier New" color="#008000"><span style="font-size: 10pt">return 
+sdf.format(d);<br>
+&nbsp;&nbsp; }<br>
+</span><font size="2">}</font></font></p>
+    </td>
+  </tr>
+</table>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt">
+&nbsp;</p>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt">
+<font face="Verdana" style="font-size: 10pt"><span lang="EN-US">2)  </span></font>
+<font face="Verdana" size="2"><span lang="EN-US">Register the function by 
+executing <b>CREATE ALIAS ... FOR</b> command. Use an unique name for each 
+function.</span></font></p>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt">
+<font face="Verdana" size="2"><span lang="EN-US">For example:</span></font></p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7" bgcolor="#FFFFEF">
+  <tr>
+    <td width="100%">
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt">
+<span lang="EN-US">
+<font face="Courier New" color="#008000" size="2">
+CREATE ALIAS IF NOT EXISTS <b>format_date</b> FOR</font><font face="Courier New" style="font-size: 10pt" color="#008000">
+&quot;<b>my_pack.MyFuncs.format_date(java.util.Date, java.lang.String)</b>&quot;</font></span></p>
+    </td>
+  </tr>
+</table>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt">
+&nbsp;</p>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt">
+<font face="Verdana" style="font-size: 10pt"><span lang="EN-US">Also, you can 
+use the driver property <b>function:&lt;my_func&gt;</b>.</span></font></p>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt">
+<font face="Verdana" style="font-size: 10pt"><span lang="EN-US">For example:</span></font></p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber10" bgcolor="#FFFFEF">
+  <tr>
+    <td width="100%">
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">Properties props = new <SPAN class=SpellE><SPAN class=GramE>java.util.Properties</SPAN></SPAN><SPAN class=GramE>(</SPAN>);</SPAN></font><o:p></o:p></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'"><SPAN class=SpellE><SPAN class=GramE>props.put</SPAN></SPAN><SPAN class=GramE>(</SPAN>&quot;<b>function:formate_date</b>&quot;,&quot;</SPAN></font><b><span lang="EN-US"><font face="Courier New" color="#008000">my_pack.MyFuncs.format_date</font></span></b><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">&quot;);</SPAN></font></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">Connection <SPAN class=SpellE>conn</SPAN> = <SPAN class=SpellE><SPAN class=GramE>DriverManager.getConnection</SPAN></SPAN><SPAN class=GramE>(</SPAN>&quot;<SPAN class=SpellE>jdbc:jstels:dbf</SPAN>:c:/dbffiles&quot;, props);</SPAN></font></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><span lang="en-us"><font color="#999999"><span style="font-family: Courier New">// or append this property to the URL</span></font></span></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">Connection <SPAN class=SpellE>conn2</SPAN> = <SPAN class=SpellE><SPAN class=GramE>DriverManager.getConnection</SPAN></SPAN><SPAN class=GramE>(</SPAN>&quot;<SPAN class=SpellE>jdbc:jstels:dbf</SPAN>:c:/dbffiles</SPAN></font></PRE>
+    <PRE style="MARGIN-LEFT: 8.5pt; LINE-HEIGHT: 150%; font-size:10pt; font-family:Arial Unicode MS; punctuation-wrap:simple; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; margin-right:15; margin-top:0cm; margin-bottom:0pt"><font color="#008000"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'"><font size="2"> + &quot;?<b>function:formate_date=</b></font></SPAN></font><span lang="EN-US"><font face="Courier New" color="#008000" size="2"><b>my_pack.MyFuncs.format_date</b>&quot;</font></span><font color="#008000" size="2"><SPAN lang=EN-US style="LINE-HEIGHT: 150%; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">);</SPAN></font></PRE>
+    </td>
+  </tr>
+</table>
+<p style="margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt">
+&nbsp;</p>
+<p style="margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt">
+<font face="Verdana" style="font-size: 10pt"><span lang="EN-US">3) Call the 
+function in an SQL query</span></font></p>
+<p style="line-height: 150%; margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt">
+<font face="Verdana" style="font-size: 10pt"><span lang="EN-US">For example:</span></font></p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber8">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+<p style="margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt">
+<font face="Courier New" color="#008000" style="font-size: 10pt">Statement st = 
+connection.createStatement();</font></p>
+<p style="margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt">
+<span lang="en-us">
+<font face="Courier New" style="font-size: 10pt" color="#008000">
+st.execute( &quot;SELECT <b>format_date(</b></font></span><b><font face="Courier New" color="#008000"><span lang="EN-US" style="font-size: 10pt; line-height: 150%">date_column , '<span class="SpellE">yyyy-MM-dd</span>'</span></font></b><span lang="en-us"><font face="Courier New" style="font-size: 10pt" color="#008000"><b>)</b> FROM  </font></span>
+<SPAN lang=EN-US style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US; mso-bidi-font-family: 'Times New Roman'">
+<font color="#008000">\&quot;test.dbf\&quot;&quot;</font></SPAN><span lang="en-us"><font face="Courier New" style="font-size: 10pt" color="#008000"> );</font></span></p>
+    </td>
+  </tr>
+</table>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+&nbsp;</p>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+&nbsp;</p>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<b><span style="font-family: Verdana; font-size: 11pt" lang="en-us">
+<a name="Hints">Performance and other hint</a></span><font style="font-size: 11pt"><span lang="EN-US" style="line-height: 150%; font-family: Verdana"><a name="User-defined SQL functions">s</a></span></font></b></p>
+<ul>
+  <li>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<font size="2" face="Verdana">Wherever possible use the <b>
+java.sql.PreparedStatement</b> class for SELECT, INSERT, UPDATE and DELETE 
+operations</font></p>
+  </li>
+  <li>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 4; margin-bottom: 3px" align="left">
+<font face="Verdana" size="2">For bulk operations use
+<b>batching</b>, i.e.:</font></p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="table3">
+  <tr>
+    <td width="100%" bgcolor="#FFFFEF">
+<p style="margin-left: 8; margin-right: 15; margin-top: 0cm; margin-bottom: 2.25pt">
+<font face="Courier New" color="#008000" style="font-size: 10pt">// bulk 
+insertion<br>
+PreparedStatement pst = conn.prepareStatement(&quot;INSERT INTO test(id, str) VALUES(?,?)&quot;);<br>
+<br>
+for (int i = 0; i &lt; 10000; i++) {<br>
+&nbsp; pst.setInt(1, i);<br>
+&nbsp; pst.setString(2, &quot;string &quot; + i);<br>
+&nbsp; pst.addBatch();<br>
+}<br>
+<br>
+pst.executeBatch();</font></p>
+    </td>
+  </tr>
+</table>
+  </li>
+  <li>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 4; margin-bottom: 0pt" align="left">
+<font face="Verdana" size="2">Create indexes using <b>CREATE INDEX</b> ... 
+operation</font></p>
+  </li>
+  <li>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<font face="Verdana" size="2">Use the same connection (java.sql.Connection 
+instance) for multiple threads.</font></p>
+  </li>
+  <li>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<font face="Verdana" size="2">Set the property <a href="#singletonConnection">
+singletonConnection</a> to &quot;<b>true</b>&quot; for web/application servers like Tomcat, 
+GlassFish, WebSphere, etc.</font></p>
+  </li>
+  <li>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<font face="Verdana" size="2">If your tables are big (~&gt; 100 MB), use modes 
+with a syncrobase on the hard drive. For more information see <a href="#Driver Modes">
+Driver modes</a>.</font></p>
+  </li>
+	<li>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<font face="Verdana" size="2">Use <b>org.hibernate.dialect.H2Dialect </b>in 
+Hibernate.</font></p>
+  </li>
+  <li>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<font face="Verdana" size="2">Do not forget to close java.sql.ResultSet, 
+java.sql.Statement and java.sql.Connection instances.</font></p>
+  </li>
+  <li>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<font face="Verdana" size="2"><b>Use a</b> <b>modern JVM</b>. Using JDK 1.7 can 
+increase up the driver performance up to 50% as compared with JDK 1.5.</font></p>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+&nbsp;</p>
+  </li>
+</ul>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<b><span style="font-family: Verdana; font-size: 11pt" lang="en-us">
+<a name="Advanced topics">Advanced topics</a></span></b></p>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+<font face="Verdana" style="font-size: 10pt"><span lang="EN-US">
+<a href="rmi.htm">Using the driver as a client/server (JDBC type 3) via RMI</a></span></font></p>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+&nbsp;</p>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+&nbsp;</p>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+&nbsp;</p>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+&nbsp;</p>
+<p 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="left">
+&nbsp;</p>
+<H3 
+style="line-height: 150%; margin-left: 8.5pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt" align="center">
+<SPAN 
+lang=EN-US 
+style="FONT-WEIGHT: normal; LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-ansi-language: EN-US">
+<font size="2">[<a href="http://www.csv-jdbc.com">HOME</a>]&nbsp;&nbsp; [<a href="#Contents">TOP</a>]</font></SPAN></H3></DIV></BODY></HTML>

@@ -29,6 +29,7 @@ public class UserDAO {
 						if(dbfColumnValue.value.equals(password)) 
 						{
 							result = new User(name, "");
+							break;
 						}
 					}
 				}

@@ -16,22 +16,28 @@ import daos.InvoicesDAO;
 import database.DbfService;
 import entities.Invoices;
 import mappers.InvoicesMapper;
+import pl.agropin.mappers.PdfSectionsToJsonMapper;
 import pl.agropin.mappers.PrintViewMapper;
+import pl.agropin.views.Part;
+import pl.agropin.views.PdfSections;
 import pl.agropin.views.SalaryView;
 
 @Path("/tableData")
 public class DataTablesService {
 	private InvoicesDAO invoices;
 	private PrintViewMapper printViewMapper;
+	private PdfSectionsToJsonMapper pdfSectionsToJsonMapper;
 
 	public DataTablesService() {
 		this.invoices = new InvoicesDAO(new DbfService(), new InvoicesMapper());
 		this.printViewMapper = new PrintViewMapper();
+		this.pdfSectionsToJsonMapper = new PdfSectionsToJsonMapper();
 	}
 
-	public DataTablesService(InvoicesDAO invoices, PrintViewMapper printViewMapper) {
+	public DataTablesService(InvoicesDAO invoices, PrintViewMapper printViewMapper, PdfSectionsToJsonMapper mapper) {
 		this.invoices = invoices;
 		this.printViewMapper = printViewMapper;
+		pdfSectionsToJsonMapper = mapper;
 	}
 
 	@GET
@@ -40,26 +46,33 @@ public class DataTablesService {
 			throws IOException, JDBFException {
 
 		List<Invoices> currentInvoices = invoices.getInvoicesByName(userName);
-		Map<String, SalaryView> salaryPerDate = printViewMapper.mapInvoicesToPrintViews(currentInvoices);
+		
+		PdfSections pdfSections = printViewMapper.mapInvoicesToPrintViews(currentInvoices);
+	
+		String jsonResult = pdfSectionsToJsonMapper.map(pdfSections);
+		
+//
+//		int currentLoopIndex = 0;
+//		String jsonBig = "{\"data\": [";
+//		for (String currentDate : salaryPerDate.keySet()) {
+//			SalaryView currentSalaryRow = salaryPerDate.get(currentDate);
+//			List<Part> parts = currentSalaryRow.getParts();
+//			
+//			
+//			String currentRow = "{\"date\": \"" + currentDate
+//					+ "\"," + "\"title\": \"" + currentSalaryRow.getSummaryTitle() + "\"," + "\"brutto\": \""
+//					+ "someBrutto" + "\"," + "\"hours\": \"" + "some houts" + "\"}";
+//			if (currentLoopIndex != salaryPerDate.size() - 1) {
+//				currentRow += ",";
+//			}
+//			jsonBig += currentRow;
+//			currentLoopIndex++;
+//
+//		}
 
-		int currentLoopIndex = 0;
-		String jsonBig = "{\"data\": [";
-		for (String currentDate : salaryPerDate.keySet()) {
-			SalaryView currentSalaryRow = salaryPerDate.get(currentDate);
-			String currentRow = "{\"select\": \"" + "false" + "\"," + "\"date\": \"" + currentSalaryRow.getDate()
-					+ "\"," + "\"netto\": \"" + currentSalaryRow.getMoneyNetto() + "\"," + "\"brutto\": \""
-					+ currentSalaryRow.getMoneyBrutto() + "\"," + "\"hours\": \"" + currentSalaryRow.getHours() + "\"}";
-			if (currentLoopIndex != salaryPerDate.size() - 1) {
-				currentRow += ",";
-			}
-			jsonBig += currentRow;
-			currentLoopIndex++;
+//		jsonBig += "]}";
 
-		}
-
-		jsonBig += "]}";
-
-		return jsonBig;
+		return jsonResult;
 	}
 
 }

@@ -29,5 +29,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="connector/dBase/dbfdriver/dbfdriver.jar"/>
+	<classpathentry kind="lib" path="connector/dBase/dbfdriver/commons_logging.jar"/>
+	<classpathentry kind="lib" path="connector/dBase/dbfdriver/log4j.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

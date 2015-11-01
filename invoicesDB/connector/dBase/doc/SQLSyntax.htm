@@ -1,0 +1,750 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML xmlns="http://www.w3.org/TR/REC-html40" xmlns:o = 
+"urn:schemas-microsoft-com:office:office" xmlns:w = 
+"urn:schemas-microsoft-com:office:word"><HEAD>
+<meta name="KEYWORDS" content="DBF JDBC driver, JDBC DBF Driver, xBase JDBC driver, JDBC xBase driver, dBase JDBC driver, FoxPro JDBC driver, Visual FoxPro JDBC driver, JDBC FoxPro Driver, FoxBase JDBC driver, JDBC FoxBase driver, Clipper JDBC driver, Java DBF read write, DBF SQL">
+
+<TITLE>StelsDBF JDBC DBF Driver SQL Syntax</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1251"><LINK 
+href="file:///D:\JavaProjects\JBProjects\SQLAPI\jdbc%20project\doc\sqlsyntax.doc" 
+rel=Original-File>
+<META content=FrontPage.Editor.Document name=ProgId>
+<META content="Microsoft FrontPage 6.0" name=GENERATOR>
+<META content="Microsoft Word 10" name=Originator><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>skutsygin</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>skutsygin</o:LastAuthor>
+  <o:Revision>246</o:Revision>
+  <o:TotalTime>197</o:TotalTime>
+  <o:Created>2003-09-02T11:40:00Z</o:Created>
+  <o:LastSaved>2003-09-08T09:06:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>697</o:Words>
+  <o:Characters>3979</o:Characters>
+  <o:Company>Diasoft</o:Company>
+  <o:Lines>33</o:Lines>
+  <o:Paragraphs>9</o:Paragraphs>
+  <o:CharactersWithSpaces>4667</o:CharactersWithSpaces>
+  <o:Version>10.3501</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>BestFit</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<STYLE>
+@font-face {
+	font-family: Verdana;
+}
+@page Section1 {size: 595.3pt 841.9pt; margin: 2.0cm 42.5pt 2.0cm 3.0cm; mso-header-margin: 35.4pt; mso-footer-margin: 35.4pt; mso-paper-source: 0; }
+P.MsoNormal {
+	FONT-SIZE: 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; margin-left:0cm; margin-right:0cm; margin-top:0cm; margin-bottom:0pt
+}
+LI.MsoNormal {
+	FONT-SIZE: 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; margin-left:0cm; margin-right:0cm; margin-top:0cm; margin-bottom:0pt
+}
+DIV.MsoNormal {
+	FONT-SIZE: 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; margin-left:0cm; margin-right:0cm; margin-top:0cm; margin-bottom:0pt
+}
+A:link {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlink {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+A:visited {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlinkFollowed {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+P {
+	FONT-SIZE: 12pt; MARGIN-LEFT: 0cm; MARGIN-RIGHT: 0cm; FONT-FAMILY: "Arial Unicode MS"; mso-bidi-font-family: "Arial Unicode MS"; mso-pagination: widow-orphan; mso-fareast-font-family: "Arial Unicode MS"; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto
+}
+CODE {
+	FONT-FAMILY: "Arial Unicode MS"; mso-bidi-font-family: "Arial Unicode MS"; mso-fareast-font-family: "Arial Unicode MS"; mso-ascii-font-family: "Arial Unicode MS"; mso-hansi-font-family: "Arial Unicode MS"
+}
+SPAN.SpellE {
+	mso-style-name: ""; mso-spl-e: yes
+}
+SPAN.GramE {
+	mso-style-name: ""; mso-gram-e: yes
+}
+DIV.Section1 {
+	page: Section1
+}
+</STYLE>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman"}
+</style>
+<![endif]--></HEAD>
+<BODY lang=RU style="tab-interval: 35.4pt" vLink=#800080 link=#800080>
+<DIV class=Section1>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%"><b>
+<font face="Verdana" style="font-size: 14pt">StelsDBF SQL Syntax</font></b></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%"><SPAN 
+class=SpellE><B>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Arial; mso-ansi-language: EN-US">
+<a name="StelsCSV"><font size="2">StelsDBF</font></a></SPAN></B></SPAN><font size="2"><SPAN 
+lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"><B> 
+JDBC driver</B> </SPAN></font>
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Arial; mso-ansi-language: EN-US">
+<font face="Verdana" size="2">supports 
+the following SQL statements and syntax</font><font face="Verdana">:</font></SPAN><o:p></o:p></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%"><span lang="en-us">
+<font style="font-size: 11pt"><span style="font-family: Courier New">
+<a href="#SELECT command">SELECT</a></span></font></span></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"><o:p>
+<font style="font-size: 11pt"><a href="#INSERT command">INSERT</a></font></o:p></SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%"><span lang="en-us">
+<font style="font-size: 11pt"><span style="font-family: Courier New">
+<a href="#UPDATE command">UPDATE</a></span></font></span></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%"><span lang="en-us">
+<font style="font-size: 11pt"><span style="font-family: Courier New">
+<a href="#DELETE command">DELETE</a></span></font></span><SPAN lang=EN-US 
+style="FONT-SIZE: 11pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"><o:p>&nbsp;</o:p></SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" style="font-size: 11pt">
+<a href="#CREATE TABLE command">CREATE TABLE</a></font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" style="font-size: 11pt">
+<a href="#CREATE VIEW command">CREATE </a></font><a href="#CREATE VIEW command">
+<font face="Courier New" style="font-size: 11pt">VIEW</font></a></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" style="font-size: 11pt">
+<a href="#CREATE INDEX command">CREATE INDEX</a></font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" style="font-size: 11pt">
+<a href="#DROP TABLE command">DROP TABLE</a></font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" style="font-size: 11pt"><a href="#DROP VIEW command">DROP </a></font>
+<font face="Courier New" style="font-size: 11pt"><a href="#DROP VIEW command">
+VIEW</a></font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" style="font-size: 11pt"><a href="#DROP INDEX command">DROP INDEX</a></font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+&nbsp;</P>
+<table border="0" bordercolor="#CCCCCC" cellpadding="0" cellspacing="0"  style="border-collapse: collapse" width="100%" height="12">
+              <tr>
+                <td width="100%" height="12" bgcolor="#CCCCFF">
+            <p style="margin-top: 0; margin-bottom: 0; margin-left:11pt">
+            <font face="Courier New"><b><a name="SELECT command">SELECT</a></b></font></td>
+              </tr>
+            </table>
+<P style="LINE-HEIGHT: 150%; margin-left:11.35pt; margin-right:0cm; margin-top:7; margin-bottom:0pt" align="justify">
+<font face="Verdana" size="2">Selects data from a table or multiple tables. 
+GROUP BY groups the the result by the given expression(s). HAVING filter rows 
+after grouping. ORDER BY sorts the result by the given column(s) or 
+expression(s). UNION combines the result of this query with the results of 
+another query.</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%" align="justify">
+<font face="Verdana" size="2">LIMIT limits the number of rows returned by the 
+query, OFFSET specified how many rows to skip. SAMPLE_SIZE limits the number of 
+rows read for aggregate queries. Multiple set operators (UNION / INTERSECT / MINUS/ EXPECT) 
+are evaluated from left to right.</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="select">select</a>:</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<span lang="en-us"><font face="Courier New" size="2"><b>SELECT</b> [ <b>TOP</b>
+<a href="#term">term</a> ] [ <b>DISTINCT</b> | <b>ALL</b> ]
+<a href="#selectExpression:">selectExpression</a> [,...]<br>
+<b>FROM</b> <a href="#tableExpression:">tableExpression</a> [,...] </font>
+</span></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<span lang="en-us"><font face="Courier New" size="2">[ <b>WHERE</b>
+<a href="#expression:">expression</a> ]<br>
+[ <b>GROUP BY</b> <a href="#expression:">expression</a> [,...] ] </font></span></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<span lang="en-us"><font face="Courier New" size="2">[ <b>HAVING</b>
+<a href="#expression:">expression</a> ]<br>
+[ { <b>UNION</b> [ <b>ALL</b> ] | <b>MINUS</b> | <b>EXCEPT</b> | <b>INTERSECT</b> 
+} <a href="#select">select</a> ] </font></span></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<span lang="en-us"><font face="Courier New" size="2">[ <b>ORDER BY</b>
+<a href="#order">order</a> [,...] ]<br>
+[ <b>LIMIT</b> <a href="#expression:">expression</a> [ <b>OFFSET</b>
+<a href="#expression:">expression</a> ] </font></span></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<span lang="en-us"><font face="Courier New" size="2">[ <b>SAMPLE_SIZE</b>
+<a href="#int:">rowCountInt</a> ] ]<br>
+[ <b>FOR UPDATE</b> ]</font></span></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<a name="selectExpression:"><span lang="en-us">
+<font face="Courier New" size="2">selectExpression</font></span><span class="SpellE"><SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US">:</SPAN></span></a></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%" align="left">
+<font face="Courier New" size="2">* | <a href="#expression:">expression</a> [ [
+<b>AS</b> ] <a href="#alias:">columnAlias</a> ] | <a href="#alias:">tableAlias</a>.*</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%"><span lang="en-us">
+<font face="Courier New" size="2"><a name="tableExpression:">tableExpression:</a>
+</font></span></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2">{ [ <a href="#name:">schemaName</a>. ] <a href="#name:">tableName</a> 
+| ( <a href="#select">select</a> ) } [ [ <b>AS</b> ] <a href="#alias:">newTableAlias</a> ]<br>
+[ { { <b>LEFT</b> | <b>RIGHT</b> } [ <b>OUTER</b> ] | [ <b>INNER</b> ] | <b>
+CROSS</b> | <b>NATURAL</b> }<br>
+<b>JOIN</b> <a href="#tableExpression:">tableExpression</a> [ <b>ON</b>
+<a href="#expression:">expression</a> ] ]</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%"><a name="expression:"><SPAN class=SpellE>
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US; mso-bookmark:selectExpression">
+expression</SPAN></SPAN><SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US">: </SPAN>
+</a><SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"> 
+<BR><a href="#andCondition:">andCondition</a> [ { <b>OR</b>
+<a href="#andCondition:">andCondition</a> } [...] ]</SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"> 
+<a name="andCondition:">andCondition:</a> </SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"> 
+<a href="#condition:">condition</a> [ { <b>AND</b> <a href="#condition:">
+condition</a> } [...] ]</SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"> 
+<a name="condition:">condition:</a> </SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"> 
+<a href="#operand:">operand</a> [ <a href="#conditionRightHandSide:">
+conditionRightHandSide</a> ] | <b>NOT</b> <a href="#condition:">condition</a> |
+<b>EXISTS</b> ( <a href="#select">select</a> )</SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"> 
+<a name="conditionRightHandSide:">conditionRightHandSide: </a></SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"> 
+<a href="#compare:">compare</a> { { { <b>ALL</b> | <b>ANY</b> | <b>SOME</b> } (
+<a href="#select">select</a> ) } | <a href="#operand:">operand</a> }<br>
+| <b>IS</b> [ <b>NOT</b> ] <b>NULL</b><br>
+| <b>BETWEEN</b> <a href="#operand:">operand</a> <b>AND</b> <a href="#operand:">
+operand</a><br>
+| <b>IN</b> ( { <a href="#select">select</a> | <a href="#expression:">expression</a> 
+[,...] } )<br>
+| [ <b>NOT</b> ] <b>LIKE</b> <a href="#operand:">operand</a> [ <b>ESCAPE</b>
+<a href="#string:">string</a> ]<br>
+| [ <b>NOT</b> ] <b>REGEXP</b> <a href="#operand:">operand</a></SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"> 
+<a name="compare:">compare: </a></SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"> 
+&lt;&gt; | &lt;= | &gt;= | = | &lt; | &gt; | !=</SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"> 
+<a name="operand:">operand:</a> </SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"> 
+<a href="#summand:">summand</a> [ { || <a href="#summand:">summand</a> } [...] ]</SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"> 
+<a name="summand:">summand:</a> <br>
+<a href="#factor:">factor</a> [ { { + | - } <a href="#factor:">factor</a> } 
+[...] ]</SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"> 
+<a name="factor:">factor:</a></SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<span lang="en-us"><font face="Courier New" size="2"><a href="#term:">term</a> [ 
+{ { * | / } <a href="#term:">term</a> } [...] ]</font></span></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<a name="order">
+<SPAN class=SpellE><SPAN class=GramE>
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US; mso-bookmark:orderExpression">
+order</SPAN></SPAN></SPAN><SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"><font face="Courier New">:</font></SPAN></a><SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"><font face="Courier New"> </font> </SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"><font face="Courier New">
+{ <a href="#int:">int</a> | <a href="#expression:">expression</a> } [ <b>ASC</b> | <b>DESC</b> ] [
+<b>NULLS</b> { <b>FIRST</b> | <b>LAST</b> } ]</font></SPAN></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="term:">term: </a></font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a href="#value:">value</a><br>
+| <a href="#name:">columnName</a><br>
+| ?[ <a href="#int:">int</a> ]<br>
+| <b>NEXT VALUE FOR</b> <a href="#name:">sequenceName</a><br>
+| <a href="#function">function</a><br>
+| { - | + } <a href="#term:">term</a><br>
+| ( <a href="#expression:">expression</a> )<br>
+| <a href="#select">select</a><br>
+| <a href="#case:">case</a><br>
+| <a href="#caseWhen:">caseWhen</a><br>
+| <a href="#alias:">tableAlias</a>.<a href="#name:">columnName</a></font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%"><span lang="EN-US" style="FONT-FAMILY: Courier New; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; mso-bidi-font-family: Arial; mso-ansi-language: EN-US">
+<a name="name:">
+<span class="SpellE">name</span>: </a> </span></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%"><span lang="en-us">
+<font size="2"><span style="font-family: Courier New">{ { A-Z|_ } [ { A-Z|_|0-9 
+} [...] ] } | <a href="#quotedName:">quotedName</a></span></font></span></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%"><span lang="en-us">
+<font size="2"><span style="font-family: Courier New"><a name="quotedName:">
+quotedName:</a> &quot;anything&quot;</span></font></span></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">&nbsp;</P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%"><span lang="EN-US" style="FONT-FAMILY: Courier New; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; mso-bidi-font-family: Arial; mso-ansi-language: EN-US">
+<a name="alias:">
+<span class="GramE">alias</span>:</a>
+<a href="#name:">name</a><br>
+&nbsp;</span></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="case:">case:</a> </font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><b>CASE</b> <a href="#expression:">expression</a> 
+{ <b>WHEN</b> <a href="#expression:">expression</a> <b>THEN</b>
+<a href="#expression:">expression</a> } [...]<br>
+[ <b>ELSE</b> <a href="#expression:">expression</a> ] <b>END</b><br>
+&nbsp;</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="caseWhen:">caseWhen:</a></font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><b>CASE</b> { <b>WHEN</b>
+<a href="#expression:">expression</a> <b>THEN</b> <a href="#expression:">
+expression</a>} [...]<br>
+[ <b>ELSE</b> <a href="#expression:">expression</a> ] <b>END</b><br>
+&nbsp;</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%"><a name="value:"><SPAN class=GramE>
+<SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US; mso-bookmark:value">value</SPAN></SPAN><SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Courier New; mso-bidi-font-family: Arial; mso-ansi-language: EN-US">:</SPAN>
+</a></P>
+<p style="line-height: 150%; margin-left: 11.35pt; margin-right: 0cm; margin-top: 0cm; margin-bottom: 0pt">
+<font face="Courier New" size="2"><a href="#string:">string</a> |
+<a href="#dollarQuotedString:">dollarQuotedString</a> | <a href="#hexNumber:">
+hexNumber</a> | <a href="#int:">int</a> | <a href="#long:">long</a> |
+<a href="#decimal:">decimal</a> | <a href="#double:">double</a><br>
+| <a href="#date:">date</a> | <a href="#time:">time</a> | <a href="#timestamp:">
+timestamp</a> | <a href="#boolean:">boolean</a> | <a href="#bytes:">bytes</a> |
+<a href="#array:">array</a> | <a href="#null:">null</a></font></p>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New">
+<SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; mso-bidi-font-family: Arial; mso-ansi-language: EN-US">&nbsp; </SPAN>
+</font> 
+<o:p></o:p></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="string:">string:</a> 'anything'</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="dollarQuotedString:">
+dollarQuotedString:</a> $$anything$$</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="hexNumber:">hexNumber:</a> [ + | - ] 
+0x<a href="#hex:">hex</a></font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%"><span lang="EN-US" style="FONT-FAMILY: Courier New; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; mso-bidi-font-family: Arial; mso-ansi-language: EN-US">
+<a name="int:"><span class="GramE">int</span>:</a> </span><span lang="en-us">
+<font size="2"><span style="font-family: Courier New">-2147483647 to 2147483647</span></font></span></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%"><span lang="en-us">
+<font size="2"><span style="font-family: Courier New"><a name="long:">long:</a> 
+-9223372036854775808 to 9223372036854775807</span></font></span></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="decimal:">decimal:</a> [ + | - ]
+<a href="#time:">number</a> [ . <a href="#time:">number</a> ]</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="double:">double:</a> $$anything$$</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="date:">date:</a> <b>DATE</b> 'yyyy-MM-dd'</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="time:">time:</a> <b>TIME</b> 'hh:mm:ss'</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="timestamp:">timestamp:</a> <b>
+TIMESTAMP</b> 'yyyy-MM-dd hh:mm:ss[.nnnnnnnnn]'</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="boolean:">boolean:</a> <b>TRUE</b> |
+<b>FALSE</b></font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="bytes:">bytes:</a> X'<a href="#hex:">hex</a>'</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="array:">array:</a> (
+<a href="#expression:">expression</a> [,...] )</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="null:">null:</a> <b>NULL</b></font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="number:">number:</a>
+<a href="#digit:">digit</a>[...]</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="hex:">hex:</a> { { <a href="#digit:">
+digit</a> | a-f | A-F } { <a href="#digit:">digit</a> | a-f | A-F } } [...]</font></P>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+<font face="Courier New" size="2"><a name="digit:">digit:</a> 0-9</font></P>
+<font face="Arial, Helvetica" size="2">
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">Example:</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">SELECT SUM(a) AS col1, MAX(b) / MAX(c) AS col2 
+FROM test GROUP BY a HAVING AVG(a) &gt; 30;<br>
+SELECT name FROM salesreps WHERE (rep_office IN ( 22, 11, 12 )) OR (manager 
+IS NULL AND hire_date &gt;= PARSEDATETIME('01-05-2002','dd-MM-yyyy') OR (sales &gt; 
+quota AND NOT sales &gt; 600000.0);<br>
+SELECT city, target, sales FROM offices WHERE region = 'Eastern' AND sales 
+&gt; target ORDER BY city;<br>
+SELECT * FROM prices ps JOIN regions regs ON ps.regionid = regs.id JOIN products prod ON prod.prodid = ps.prodid;<br>
+SELECT * FROM prices ps, products prod WHERE prod.prodid = ps.prodid;</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+</font>
+<P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%">
+&nbsp;</P>
+<table border="0" bordercolor="#CCCCCC" cellpadding="0" cellspacing="0"  style="border-collapse: collapse" width="100%" height="12">
+              <tr>
+                <td width="100%" height="12" bgcolor="#CCCCFF">
+            <p style="margin-top: 0; margin-bottom: 0; margin-left:11pt">
+            <b><font face="Courier New"><a name="INSERT command">INSERT</a></font></b></td>
+              </tr>
+            </table>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Verdana" size="2">Inserts a new row / new rows into a table.</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2"><b>INSERT</b> <b>INTO</b> <a href="#name:">tableName</a> [ ( 
+<a href="#name:">columnName</a> [,...] ) ]<br>
+{ <b>VALUES</b> { ( { <b>DEFAULT</b> | <a href="#expression:">expression</a> } [,...] ) } [,...] | 
+<a href="#select">select</a> }</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">Example:</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">INSERT INTO salesreps (name, age, empl_num, 
+sales, title, hiredate) VALUES ('Henry Smith', 35, 111, NULL, 'Sales Mgr', 
+PARSEDATETIME('01:12:2002','dd:MM:yyyy'));</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">INSERT INTO test SELECT * FROM test2;</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<font face="Courier New" size="2">
+<table border="0" bordercolor="#CCCCCC" cellpadding="0" cellspacing="0"  style="border-collapse: collapse" width="100%" height="12">
+              <tr>
+                <td width="100%" height="12" bgcolor="#CCCCFF">
+            <p style="margin-top: 0; margin-bottom: 0; margin-left:11pt">
+            <b><font face="Courier New"><a name="UPDATE command">UPDATE</a></font></b></td>
+              </tr>
+            </table>
+</font>
+<font face="Arial, Helvetica" size="2">
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Verdana" size="2">Updates data in a table.</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">
+<b>UPDATE</b> <a href="#name:">tableName</a> [ [ <b>AS</b> ] <a href="#alias:">
+newTableAlias</a> ] <b>SET</b> { <a href="#name:">columnName</a> = { <b>DEFAULT</b> 
+| <a href="#expression:">expression</a> } } [,...]<br>
+[ <b>WHERE</b> <a href="#expression:">expression</a> ]</font></font><font size="2"><font face="Arial, Helvetica" size="2"><font face="Arial, Helvetica" size="2"><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">Example:</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">UPDATE test SET a=1 WHERE id=2;</font></p>
+</font>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<font face="Courier New" size="2">
+<table border="0" bordercolor="#CCCCCC" cellpadding="0" cellspacing="0"  style="border-collapse: collapse" width="100%" height="12">
+              <tr>
+                <td width="100%" height="12" bgcolor="#CCCCFF">
+            <p style="margin-top: 0; margin-bottom: 0; margin-left:11pt">
+            <b><font face="Courier New"><a name="DELETE command">DELETE</a></font></b></td>
+              </tr>
+            </table>
+</font>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Verdana" size="2">Deletes rows form a table.</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">
+<b>DELETE FROM </b><a href="#name:">tableName</a> [ <b>WHERE </b>
+<a href="#expression:">expression</a> ]</font><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">Example:</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">DELETE FROM test WHERE a=1 OR b=3;</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<font face="Courier New" size="2">
+<table border="0" bordercolor="#CCCCCC" cellpadding="0" cellspacing="0"  style="border-collapse: collapse" width="100%" height="12">
+              <tr>
+                <td width="100%" height="12" bgcolor="#CCCCFF">
+            <p style="margin-top: 0; margin-bottom: 0; margin-left:11pt">
+            <b><font face="Courier New"><a name="CREATE TABLE command">CREATE 
+            TABLE</a></font></b></td>
+              </tr>
+            </table>
+</font>
+</font>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Verdana" size="2">
+Creates a new table.</p>
+</font>
+<font face="Arial, Helvetica" size="2">
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</font><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2"><b>CREATE TABLE</b>
+<font size="2" face="Courier New"> <a href="#name:">tableName</a> </font>( <a href="#columnDefinition:">
+columnDefinition</a> [,...] ) <p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font size="2"><a name="columnDefinition:">columnDefinition:</a></font><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font size="2"><a href="#name:">columnName</a> <a href="doc.htm#Data types">dataType</a></font><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Arial, Helvetica" size="2">
+<font face="Courier New" size="2">Example:</font></font><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Arial, Helvetica" size="2">
+<font face="Courier New" size="2">CREATE TABLE new_table (int_col INT, long_col 
+LONG, float_col REAL, double_col DOUBLE, str_col VARCHAR(20), date_col DATETIME, 
+bool_col BOOLEAN, num_col DECIMAL(15,2));</font></font><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<font face="Arial, Helvetica" size="2"><font size="2"><font face="Arial, Helvetica" size="2"><font size="2"><font face="Courier New" size="2"><table border="0" bordercolor="#CCCCCC" cellpadding="0" cellspacing="0"  style="border-collapse: collapse" width="100%" height="12">
+              <tr>
+                <td width="100%" height="12" bgcolor="#CCCCFF">
+            <p style="margin-top: 0; margin-bottom: 0; margin-left:11pt">
+            <b><font face="Courier New"><a name="CREATE TABLE command">CREATE </a></font>
+            <font face="Courier New"><a name="CREATE VIEW command">VIEW</a></font></b></td>
+              </tr>
+            </table>
+</font>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Verdana" size="2">
+Creates a new view.</p>
+</font>
+<font face="Arial, Helvetica" size="2">
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</font><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2"><b>CREATE VIEW</b> <b>[IF NOT EXISTS]</b> <a href="#name:">viewName</a>
+<b>AS</b> <a href="#select">select</a><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">Example:</font><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">CREATE VIEW v1 AS SELECT * FROM test;</font><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</font></font><font face="Courier New" size="2"><table border="0" bordercolor="#CCCCCC" cellpadding="0" cellspacing="0"  style="border-collapse: collapse" width="100%" height="12">
+              <tr>
+                <td width="100%" height="12" bgcolor="#CCCCFF">
+            <p style="margin-top: 0; margin-bottom: 0; margin-left:11pt">
+            <b><font face="Courier New"><a name="CREATE INDEX command">CREATE 
+            INDEX</a></font></b></td>
+              </tr>
+            </table>
+</font>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+</font>
+<font face="Verdana" size="2">
+Creates a new index.</font></p>
+</font>
+</font>
+<font size="2">
+<font face="Verdana" size="2">
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+</font>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font size="2" face="Courier New"><b>CREATE</b> <b>INDEX</b> <b>[IF NOT EXISTS]
+</b><a href="#name:">newIndexName</a>
+<b>ON</b> <a href="#name:">tableName</a> ( <a href="#indexColumn:">indexColumn</a> 
+[,...] )</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font size="2" face="Courier New"><a name="indexColumn:">indexColumn:</a><br>
+<a href="#name:">columnName</a> [ <b>ASC</b> | <b>DESC</b> ] [ <b>NULLS</b> { <b>
+FIRST</b> | <b>LAST</b> } ]</font></font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">Example:</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Arial, Helvetica" size="2">
+<font face="Courier New" size="2">CREATE INDEX index_1 ON test(int_col); </font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<font face="Courier New" size="2">
+<table border="0" bordercolor="#CCCCCC" cellpadding="0" cellspacing="0"  style="border-collapse: collapse" width="100%" height="12">
+              <tr>
+                <td width="100%" height="12" bgcolor="#CCCCFF">
+            <p style="margin-top: 0; margin-bottom: 0; margin-left:11pt">
+            <b><font face="Courier New"><a name="DROP TABLE command">DROP TABLE</a></font></b></td>
+              </tr>
+            </table>
+</font>
+</font>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Verdana" size="2">
+Drops an existing table.</font><font face="Arial, Helvetica" size="2">
+
+</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<font size="2">
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<b><font face="Courier New" size="2">DROP</font></b><font face="Courier New" size="2"><b> TABLE</b> <a href="#name:">tableName</a> <p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</font></font><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">
+<font face="Courier New" size="2">Example:</font></font><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Arial, Helvetica" size="2"><font face="Courier New" size="2"><font face="Arial, Helvetica" size="2">
+<font face="Courier New" size="2">DROP TABLE test; </font>
+</font>
+</font>
+</font>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<table border="0" bordercolor="#CCCCCC" cellpadding="0" cellspacing="0"  style="border-collapse: collapse" width="100%" height="12">
+              <tr>
+                <td width="100%" height="12" bgcolor="#CCCCFF">
+            <p style="margin-top: 0; margin-bottom: 0; margin-left:11pt">
+            <b><font face="Courier New"><a name="DROP VIEW command">DROP </a></font></b>
+            <a name="DROP TABLE command"><b><font face="Courier New">VIEW</font></b></a></td>
+              </tr>
+            </table>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Verdana" size="2">
+Drops an existing view.</font><font face="Arial, Helvetica" size="2">
+
+</font></p>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</p>
+<font size="2">
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<b><font face="Courier New" size="2">DROP</font></b><font face="Courier New" size="2"><b> 
+TABLE</b>
+<a href="#name:">viewName</a> </font></font>
+<font face="Arial, Helvetica" size="2"><font face="Courier New" size="2">
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font size="2" face="Courier New">Example:</font>&nbsp;<font face="Courier New" size="2"><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">
+<font face="Courier New" size="2">DROP VIEW v1; </font>
+</font></font>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+</font>
+</font>
+<table border="0" bordercolor="#CCCCCC" cellpadding="0" cellspacing="0"  style="border-collapse: collapse" width="100%" height="12">
+              <tr>
+                <td width="100%" height="12" bgcolor="#CCCCFF">
+            <p style="margin-top: 0; margin-bottom: 0; margin-left:11pt">
+            <b><font face="Courier New"><a name="DROP INDEX command">DROP INDEX</a></font></b></td>
+              </tr>
+            </table>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Verdana" size="2">
+Drops an existing index.</p>
+</font>
+<font face="Arial, Helvetica" size="2">
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</font><font face="Courier New" size="2"><font size="2"><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<b><font face="Courier New" size="2">DROP</font></b><font face="Courier New" size="2"><b> 
+INDEX</b> <a href="#name:">indexName</a> <p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</font></font></font><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Courier New" size="2">Example:</font><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Arial, Helvetica" size="2">
+<font face="Courier New" size="2">DROP INDEX index_1; </font>
+</font>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</font><font face="Verdana" size="2"><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<b><font face="Verdana"><font size="2">Related Documents</font></font><font size="2">:</font></b><font size="2">&nbsp;</font><ul>
+  <li><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Verdana" size="2">
+<font size="2"><a href="doc.htm">StelsDBF JDBC driver documentation</a></font></font></li>
+  <li><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Verdana" size="2">
+<font size="2"><a href="http://www.h2database.com/html/grammar.html">H2 Database 
+- SQL Grammar</a></font></font></li>
+  <li><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Verdana" size="2">
+<font size="2">
+<a href="http://www.h2database.com/html/functions.html" name="function">H2 
+Database - SQL Functions</a></font></font></li>
+  <li><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+<font face="Verdana" size="2"><font size="2">
+<a href="http://www.h2database.com/h2.pdf">H2 Database - Full documentation (PDF)</a></font></font></li>
+</ul>
+<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+</font><font face="Courier New" size="2"><p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;<p style="margin-top: 0; margin-bottom: 0; line-height:150%; margin-left:11">
+&nbsp;</font></font><P style="MARGIN: 0cm 0cm 0pt 11.35pt; LINE-HEIGHT: 150%" align="center"><SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: Verdana; mso-bidi-font-family: Arial; mso-ansi-language: EN-US"><o:p>&nbsp;[<a href="http://csv-jdbc.com">HOME</a>]&nbsp;&nbsp; 
+[<a href="#StelsCSV">TOP</a>]</o:p></SPAN></P></DIV></BODY></HTML>
