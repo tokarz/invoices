@@ -18,59 +18,78 @@ import entities.Invoices;
 import mappers.InvoicesMapper;
 import pl.agropin.mappers.PdfSectionsToJsonMapper;
 import pl.agropin.mappers.PrintViewMapper;
+import pl.agropin.mappers.SalaryViewMapper;
 import pl.agropin.views.Part;
 import pl.agropin.views.PdfSections;
 import pl.agropin.views.SalaryView;
+import pl.agropin.views.TableRowView;
 
 @Path("/tableData")
 public class DataTablesService {
 	private InvoicesDAO invoices;
 	private PrintViewMapper printViewMapper;
 	private PdfSectionsToJsonMapper pdfSectionsToJsonMapper;
+	private SalaryViewMapper salaryViewMapper;
 
 	public DataTablesService() {
 		this.invoices = new InvoicesDAO(new DbfService(), new InvoicesMapper());
 		this.printViewMapper = new PrintViewMapper();
 		this.pdfSectionsToJsonMapper = new PdfSectionsToJsonMapper();
+		this.salaryViewMapper = new SalaryViewMapper();
 	}
 
-	public DataTablesService(InvoicesDAO invoices, PrintViewMapper printViewMapper, PdfSectionsToJsonMapper mapper) {
+	public DataTablesService(InvoicesDAO invoices, PrintViewMapper printViewMapper, PdfSectionsToJsonMapper mapper, SalaryViewMapper salaryMapper) {
 		this.invoices = invoices;
 		this.printViewMapper = printViewMapper;
 		pdfSectionsToJsonMapper = mapper;
+		salaryViewMapper = salaryMapper;
 	}
 
+	@Path("/tableContents")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getTableData(@QueryParam("sessionId") String sessionId, @QueryParam("username") String userName)
 			throws IOException, JDBFException {
+	
+		List<Invoices> currentInvoices = invoices.getInvoicesByName(userName);
+		Map<String, TableRowView> salaryPerDate = salaryViewMapper.mapInvoicesToSalaryView(currentInvoices);
+		
+		int currentLoopIndex = 0;
+		String jsonBig = "{\"data\": [";
+		for (String currentDate : salaryPerDate.keySet()) {
+			TableRowView currentTableRow = salaryPerDate.get(currentDate);
+			
+			String currentRow = 
+					"{\"date\": \"" + currentTableRow.getDate()
+					+ "\"," + "\"brutto\": \""+ currentTableRow.getBrutto()
+					+ "\"," + "\"netto\": \""+ currentTableRow.getNetto()
+					+ "\"," + "\"hours\": \"" + currentTableRow.getHours() + "\"}";
+			if (currentLoopIndex != salaryPerDate.size() - 1) {
+				currentRow += ",";
+			}
+			jsonBig += currentRow;
+			currentLoopIndex++;
+		}
+
+		jsonBig += "]}";
+		
+		return jsonBig;
+	}
+	
+	
+	@Path("/pdfContents")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getPdfContents(@QueryParam("sessionId") String sessionId, @QueryParam("username") String userName)
+			throws IOException, JDBFException {
 
 		List<Invoices> currentInvoices = invoices.getInvoicesByName(userName);
 		
-		PdfSections pdfSections = printViewMapper.mapInvoicesToPrintViews(currentInvoices);
+		PdfSections pdfSections = printViewMapper.mapInvoicesToPdfSections(currentInvoices);
 	
 		String jsonResult = pdfSectionsToJsonMapper.map(pdfSections);
 		
-//
-//		int currentLoopIndex = 0;
-//		String jsonBig = "{\"data\": [";
-//		for (String currentDate : salaryPerDate.keySet()) {
-//			SalaryView currentSalaryRow = salaryPerDate.get(currentDate);
-//			List<Part> parts = currentSalaryRow.getParts();
-//			
-//			
-//			String currentRow = "{\"date\": \"" + currentDate
-//					+ "\"," + "\"title\": \"" + currentSalaryRow.getSummaryTitle() + "\"," + "\"brutto\": \""
-//					+ "someBrutto" + "\"," + "\"hours\": \"" + "some houts" + "\"}";
-//			if (currentLoopIndex != salaryPerDate.size() - 1) {
-//				currentRow += ",";
-//			}
-//			jsonBig += currentRow;
-//			currentLoopIndex++;
-//
-//		}
 
-//		jsonBig += "]}";
 
 		return jsonResult;
 	}

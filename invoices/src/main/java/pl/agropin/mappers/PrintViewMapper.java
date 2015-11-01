@@ -27,7 +27,7 @@ public class PrintViewMapper {
 		this.pdfFooterMapper = new PdfFooterMapper();
 	}
 
-	public PdfSections mapInvoicesToPrintViews(List<Invoices> currentInvoices) {
+	public PdfSections mapInvoicesToPdfSections(List<Invoices> currentInvoices) {
 		PdfHeader pdfHeader = pdfHeaderMapper.mapPdfHeaders(currentInvoices);
 		List<PdfSection> pdfSections = pdfSectionsMapper.mapPdfHeaders(currentInvoices);
 		PdfFooter pdfFooter = pdfFooterMapper.mapPdfFooter(currentInvoices);

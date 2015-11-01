@@ -8,8 +8,8 @@ app.controller('loginController', ['$rootScope', '$scope', 'dbService', 'loginSe
 	});
 	
 	$scope.loginStatus = '';
-	$scope.username = 'Nazwa Uzytkownika';
-	$scope.password = 'Haslo';
+	$scope.username = 'Nazwa Użytkownika';
+	$scope.password = 'Hasło';
 	$scope.logIn = 'Zaloguj';
 	
 	$scope.inputUsername = '';
@@ -18,7 +18,7 @@ app.controller('loginController', ['$rootScope', '$scope', 'dbService', 'loginSe
 	$scope.logInWithCredentials = function() {
 		$scope.loginStatus = 'pobieranie danych....';
 		loginService.authenticate($scope.inputUsername, $scope.inputPassword).then(function(isAuthenticated) {
-			$scope.loginStatus = 'ukonczono!';
+			$scope.loginStatus = 'ukończono!';
 			if(isAuthenticated == true) {
 				$scope.loginError = false;
 				$rootScope.inputUsername = $scope.inputUsername;

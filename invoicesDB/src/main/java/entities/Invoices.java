@@ -23,7 +23,7 @@ public class Invoices {
 	private String imieprac;
 	private Double angazplaca;
 	private String angazcrypt;
-	private Double lenangaz;
+	private Long lenangaz;
 	private String skladnik;
 	private String kl3_sk;
 	private String symb_sk;
@@ -147,11 +147,11 @@ public class Invoices {
 		this.angazcrypt = angazcrypt;
 	}
 
-	public Double getLenangaz() {
+	public Long getLenangaz() {
 		return lenangaz;
 	}
 
-	public void setLenangaz(Double lenangaz) {
+	public void setLenangaz(Long lenangaz) {
 		this.lenangaz = lenangaz;
 	}
 

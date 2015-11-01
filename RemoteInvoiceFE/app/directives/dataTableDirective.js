@@ -12,7 +12,7 @@ app
 										.DataTable(
 												{
 													"ajax" : {
-														"url" : "rest/tableData",
+														"url" : "rest/tableData/tableContents",
 														"type" : "GET",
 														"data" : {
 															"sessionId" : "toBedefined",
@@ -44,7 +44,7 @@ app
 															},
 															{
 																"data" : "hours"
-															} ]
+															}]
 												});
 								// scope.table.columns.adjust().draw();
 

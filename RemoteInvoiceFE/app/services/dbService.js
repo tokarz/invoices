@@ -2,7 +2,6 @@
 app.factory('dbService', [ '$rootScope', '$q', '$http',
 		function($rootScope, $q, $http) {
 			return {
-
 				getDatabaseVersion : function() {
 					var deferred = $q.defer();
 
@@ -20,7 +19,7 @@ app.factory('dbService', [ '$rootScope', '$q', '$http',
 				getDataForUser : function() {
 					var deferred = $q.defer();
 
-					$http.get('rest/tableData', {
+					$http.get('rest/tableData/pdfContents', {
 						params : {
 							sessionId : "toBedefined",
 							username : $rootScope.inputUsername

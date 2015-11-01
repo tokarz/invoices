@@ -3,17 +3,18 @@
 		<div id="loginWrapper">
 			<div id="loginWrapperFloatingContainer">
 				<div class="loginPartForm">
-					<label for="username" style="float: left; width: 100%">{{username}}</label>
+					<label style="width: 100%; float: left" for="password">{{username}}</label>
 					<input class="loginInput" id="username" type="text"
-						placeholder="Nazwa Uzytkownika" ng-model='inputUsername' />
+						placeholder="..." ng-model='inputUsername' />
 				</div>
 				<div class="loginPartForm">
 					<label style="width: 100%; float: left" for="password">{{password}}</label>
 					<input class="loginInput" id="password" type="password"
-						placeholder="Haslo" ng-model='inputPassword' />
+						placeholder="..." ng-model='inputPassword' />
 				</div>
 				<div id="loginButton">
-					<button ng-click='logInWithCredentials()'>{{logIn}}</button>
+					<button ng-click='logInWithCredentials()'
+						class="btn btn-success btn-lg custom-color">{{logIn}}</button>
 				</div>
 				{{loginStatus}}
 				<div class='loginPartForm' ng-if='loginError'>Error while
@@ -23,5 +24,5 @@
 		</div>
 
 	</div>
-	
+
 </div>
