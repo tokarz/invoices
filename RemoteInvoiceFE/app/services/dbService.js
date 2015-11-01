@@ -16,13 +16,14 @@ app.factory('dbService', [ '$rootScope', '$q', '$http',
 
 				},
 
-				getDataForUser : function() {
+				getDataForUser : function(date) {
 					var deferred = $q.defer();
 
 					$http.get('rest/tableData/pdfContents', {
 						params : {
 							sessionId : "toBedefined",
-							username : $rootScope.inputUsername
+							username : $rootScope.inputUsername,
+							date: date
 						}
 					}).success(function(data) {
 						deferred.resolve(data);

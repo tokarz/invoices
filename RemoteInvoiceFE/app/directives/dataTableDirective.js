@@ -2,7 +2,7 @@
 app
 		.directive(
 				'salaryTable',
-				function($timeout, $rootScope) {
+				function($timeout, $rootScope, $compile) {
 					return {
 						restrict : 'AC',
 						link : function(scope, element, attribute) {
@@ -19,39 +19,43 @@ app
 															"username" : $rootScope.inputUsername
 														}
 													},
-													"columns" : [
-															{
-																"data" : "select",
-																render : function(
-																		data,
-																		type,
-																		row) {
-																	if (type === 'display') {
-																		return '<input type="checkbox" class="editor-active">';
-																	}
-																	return data;
-																},
-																className : "dt-body-center"
-															},
-															{
-																"data" : "date"
-															},
-															{
-																"data" : "netto"
-															},
-															{
-																"data" : "brutto"
-															},
-															{
-																"data" : "hours"
-															}]
+													"columns" : [ {
+														"data" : "date"
+													}, {
+														"data" : "netto"
+													}, {
+														"data" : "brutto"
+													}, {
+														"data" : "hours"
+													}, {
+														"data" : "pdf"
+													} ],
+													"columnDefs" : [ {
+														"targets" : 4,
+														"createdCell" : function(
+																td, cellData,
+																rowData, row,
+																col) {
+															var selectedData = rowData.date;
+															var htmlToCompile = "<span class='pdfPrint' ng-click='generatePdfForRow(" +selectedData + ")' title='wygeneruj raport'></span>";
+															console.log(htmlToCompile);
+															var compiledHtml = $compile(htmlToCompile)(scope);
+															$(td).html(compiledHtml);
+														}
+													} ]
 												});
-								// scope.table.columns.adjust().draw();
 
 							});
 
+						},
+						controller: function($scope, dbService) {
+							$scope.generatePdfForRow = function(arg) {
+								dbService.getDataForUser(arg).then(function(data) {
+									pdfMake.createPdf(data).open();
+								});
+							}
+							
 						}
-
 					}
 
 				});

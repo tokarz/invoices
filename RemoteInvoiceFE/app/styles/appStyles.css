@@ -31,11 +31,11 @@ body {
 	background: #A2BCD8 !important;
 	opacity: 0.8;
 }
+
 .custom-color:hover {
-	border:1px solid #A2BCD8;
+	border: 1px solid #A2BCD8;
 	opacity: 1;
 }
-
 
 #loginButton>button {
 	border: 1px solid #A2BCD8;
@@ -80,15 +80,14 @@ body {
 	position: static;
 }
 
-#pdfPrint {
-	background: #eee
+.pdfPrint {
+	background: white
 		url("../../resources/images/icons/file_extension_pdf.png");
 	height: 32px;
 	width: 32px;
-	float: right;
-	margin-top: 8px;
-	margin-right: 10px;
 	background-repeat: no-repeat;
+	float: left;
+	cursor: pointer;
 }
 
 #loginWrapperFooter {
@@ -108,7 +107,7 @@ body {
 }
 
 #padlockIcon {
-	width:60px;
+	width: 60px;
 	height: 60px;
 	background: #eee url('../../resources/images/icons/padlock60b.png');
 	margin: auto;

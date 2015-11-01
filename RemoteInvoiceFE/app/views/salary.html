@@ -13,9 +13,10 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">Pulpit</a></li>
-					<li><a href="#">Profil Uzytkownika</a></li>
-					<li><a href="#">Pomoc</a></li>
+					<li><a href="#">{{topmenu.desktop}}</a></li>
+					<li><a href="#">{{topmenu.userProfile}}</a></li>
+					<li><a href="#">{{topmenu.help}}</a></li>
+					<li><a href="#">{{topmenu.logout}}</a></li>
 				</ul>
 			</div>
 		</div>
@@ -42,11 +43,11 @@
 					<table salary-table style='width: 100%'>
 						<thead>
 							<tr>
-								<th>{{headers.select}}</th>
 								<th>{{headers.date}}</th>
 								<th>{{headers.netto}}</th>
 								<th>{{headers.brutto}}</th>
 								<th>{{headers.hours}}</th>
+								<th>{{headers.pdf}}</th>
 							</tr>
 						</thead>
 
@@ -56,9 +57,4 @@
 
 		</div>
 	</div>
-	<footer class="footer">
-		<div class="container">
-			<p class="text-muted">Agropin(R)</p>
-		</div>
-	</footer>
 </div>

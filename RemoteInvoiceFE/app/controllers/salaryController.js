@@ -13,8 +13,16 @@ app.controller('salaryController', function($scope, dbService) {
 		date : 'Data',
 		netto : 'Netto',
 		brutto : 'Brutto',
-		hours : 'Ilść godzin'
+		hours : 'Ilość godzin',
+		pdf: 'Raport pdf'
 	};
+
+	$scope.topmenu = {
+		desktop : 'Pulpit',
+		userProfile : 'Profil Użytkownika',
+		help : 'Pomoc',
+		logout : 'Wyloguj'
+	}
 
 	$scope.docDefinitionPattern = {
 		content : [ 'Test Testowicza 00004', {
@@ -26,20 +34,6 @@ app.controller('salaryController', function($scope, dbService) {
 		} ]
 	};
 
-	dbService.getDataForUser().then(function(data) {
-		$.each(data, function(i, element) {
-			var row = {
-				// auto-sized columns have their widths based on their content
-				width : 'auto',
-				text : element[0].lname
-			};
-			$scope.docDefinitionPattern.content[1].columns.push(row);
-		});
-		$scope.docDefinition = $scope.docDefinitionPattern;
-	});
-
-	$scope.exportPdf = function() {
-		pdfMake.createPdf($scope.docDefinition).open();
-	};
+	
 
 });
