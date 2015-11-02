@@ -17,7 +17,7 @@ public class UserDAO {
 	public User getUserByNameAndPassword(String name, String password)
 	{
 		User result = null;
-		DbfData dbfData = service.getDbfDataByNameCloseStream("paskicrypt.dbf", "NRPRAC", name);
+		DbfData dbfData = service.getDbfDataByNameCloseStream("dbfile", "NRPRAC", name);
 		if (dbfData != null) {
 			List<List<DbfColumnValue>> userData= dbfData.getValues();
 			if(userData.size() > 0) 

@@ -75,7 +75,7 @@ app
 						controller: function($scope, dbService) {
 							$scope.generatePdfForRow = function(arg) {
 								dbService.getDataForUser(arg).then(function(data) {
-									pdfMake.createPdf(data).open();
+									pdfMake.createPdf(data).download('ps.pdf');
 								});
 							}
 							

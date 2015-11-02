@@ -22,7 +22,7 @@ public class InvoicesDAO {
 
 	public List<Invoices> getInvoicesByName(String name) throws IOException, JDBFException {
 		List<Invoices> result = new ArrayList<Invoices>();
-		DbfData messagesByName = service.getDbfDataByNameCloseStream("paskicrypt.dbf", "NRPRAC",name);
+		DbfData messagesByName = service.getDbfDataByNameCloseStream("dbfile", "NRPRAC",name);
 		
 		result = invoicesMapper.mapDbfData(messagesByName);
 		

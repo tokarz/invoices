@@ -14,12 +14,13 @@ import entities.DbfData;
 
 public class DbfService {
 
-	public DbfData getDbfDataByNameCloseStream(String fileName,String columnName, String value) {
+	public DbfData getDbfDataByNameCloseStream(String dbKey,String columnName, String value) {
 		DbfData result = new DbfData();
 
 		InputStream file = null;
 		try {
 			DbFileInfo dbPath = DbfConfiguration.getDbPath();
+			String fileName = DbfConfiguration.getDbPropValue(dbKey);
 			file = new FileInputStream(dbPath.folderPath + fileName);
 			DBFReader dbfreader = new DBFReader(file);
 			int i;
@@ -33,8 +34,8 @@ public class DbfService {
 				if (currentField.getName().equals(columnName)) {
 					indexOfColumn = i;
 				}
-
 			}
+			
 			List<List<DbfColumnValue>> records = new ArrayList<List<DbfColumnValue>>();
 			if (indexOfColumn != -1) {
 				Charset charset = dbPath.charset;
@@ -55,7 +56,6 @@ public class DbfService {
 						records.add(row);
 					}
 				}
-
 			}
 
 			result.setColumns(headers);
@@ -72,7 +72,5 @@ public class DbfService {
 		}
 
 		return result;
-
 	}
-
 }

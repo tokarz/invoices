@@ -1,4 +1,4 @@
-
+ {
 	content: [
 				{
 						style: 'tableExample',
@@ -65,21 +65,110 @@
 					{ text: '502 Skl.chor.P\t', style: 'row' },
 					{ text: '2,45\t', fontSize: 10 },
 					{ text: '- 56,40\n', fontSize: 10 },
-					{ text: '\n501 Skl.emer.P\t', style: 'row' },
-					{ text: '9,76\t', fontSize: 10 },
-					{ text: '- 224,67\n', fontSize: 10 },
-					{ text: '\n501 Skl.emer.P\t', style: 'row' },
-					{ text: '9,76\t', fontSize: 10 },
-					{ text: '- 224,67\n', fontSize: 10 },
-					{ text: '\n501 Skl.emer.P\t', style: 'row' },
-					{ text: '9,76\t', fontSize: 10 },
-					{ text: '- 224,67\n', fontSize: 10 },
-					{ text: '\n501 Skl.emer.P\t', style: 'row' },
-					{ text: '9,76\t', fontSize: 10 },
-					{ text: '- 224,67\n', fontSize: 10 },
-					
+					{ text: '903 PKZP poż.\t', style: 'row' },
+					{ text: '\t', fontSize: 10 },
+					{ text: '- 165,00\n', fontSize: 10 },
+					{ text: '905 PKZP skł.\t', style: 'row' },
+					{ text: '\t', fontSize: 10 },
+					{ text: '- 10,00\n', fontSize: 10 },
+					{ text: '915 Ubezp.\t', style: 'row' },
+					{ text: '0,00\t', fontSize: 10 },
+					{ text: '- 49,00\n', fontSize: 10 },
+					{ text: '962 Pod.wyn.\t', style: 'row' },
+					{ text: '18,00\t', fontSize: 10 },
+					{ text: '- 132,00\n', fontSize: 10 },
+					{ text: '980 ROR\t', style: 'row' },
+					{ text: '\t', fontSize: 10 },
+					{ text: '- 1 451,61\n\n', fontSize: 10 }
 					
 				]
+				},
+				{
+				    table: {
+						    widths: [ 500 ],
+								body: [
+										
+										[
+										    { text: [
+				                                { text: 'POTRĄCENIA.\t', style: 'row' },
+				                                { text: '- 2 301,98', style: 'rowLeft' }
+				                                ]
+										    }
+										    
+										    ]
+								]
+						}
+				    
+				},
+				{ text: [
+				    { text: '\n510 Skl.emer.Z\t', style: 'row' },
+					{ text: '9,76\t', fontSize: 10 },
+					{ text: '224,67\n', fontSize: 10 },
+					{ text: '511 Skl.rent.Z\t', style: 'row' },
+					{ text: '4,50\t', fontSize: 10 },
+					{ text: '103,59\n', fontSize: 10 },
+					{ text: '513 Skl.wypd.Z\t', style: 'row' },
+					{ text: '3,54\t', fontSize: 10 },
+					{ text: '81,49\n', fontSize: 10 },
+					{ text: '560 Zmniej.pod\t', style: 'row' },
+					{ text: '7,75\t', fontSize: 10 },
+					{ text: '153,94\n', fontSize: 10 },
+					{ text: '800 ULGA POD.\t', style: 'row' },
+					{ text: '\t', fontSize: 10 },
+					{ text: '46,33\n', fontSize: 10 },
+					{ text: '810 KOSZTY UZ.\t', style: 'row' },
+					{ text: '\t', fontSize: 10 },
+					{ text: '- 139,06\n', fontSize: 10 },
+					{ text: '810 Ulga zast.\t', style: 'row' },
+					{ text: '\t', fontSize: 10 },
+					{ text: '46,33\n', fontSize: 10 },
+					{ text: '811 Koszt zast.\t', style: 'row' },
+					{ text: '\t', fontSize: 10 },
+					{ text: '- 139,06\n\n', fontSize: 10 },
+					{ text: '960 Pod.nal\t', style: 'row' },
+					{ text: '18,00\t', fontSize: 10 },
+					{ text: '- 285,94\n\n', fontSize: 10 }
+					
+				]
+				},
+				{
+				    table: {
+						    widths: [ 300 ],
+								body: [
+										
+										[
+										    { text: [
+				                                { text: 'Do wypłaty.\t', style: 'row' },
+				                                { text: '0,00', style: 'rowLeft' }
+				                                ]
+										    }
+										    
+										    ]
+								]
+						}
+				    
+				},
+				{
+				    text:'\n'
+				},
+				{
+				    table: {
+						    widths: [ 300 ],
+								body: [
+										
+										[
+										    { text: [
+				                                { text: 'Stan wkładów PKZP\t', style: 'row' },
+				                                { text: '540,00\n', style: 'rowLeft' },
+				                                { text: 'Zadłużenie PKZP1\t', style: 'row' },
+				                                { text: '   350,00', style: 'rowLeft' }
+				                                ]
+										    }
+										    
+										    ]
+								]
+						}
+				    
 				}
 				
 				

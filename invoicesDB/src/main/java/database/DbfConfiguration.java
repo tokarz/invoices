@@ -11,14 +11,22 @@ public class DbfConfiguration {
 
 		ClassLoader cl = Thread.currentThread().getContextClassLoader();
 		dbInfo.load(cl.getResourceAsStream("db.properties"));
-		
+
 		String folder = (String) dbInfo.get("dbfolder");
 		String charset = (String) dbInfo.get("charset");
-		
+
 		DbFileInfo result = new DbFileInfo(folder + "/", Charset.forName(charset));
-		
-		
+
 		return result;
-	} 
-	
+	}
+
+	public static String getDbPropValue(String key) throws IOException {
+		Properties dbInfo = new Properties();
+		ClassLoader cl = Thread.currentThread().getContextClassLoader();
+		dbInfo.load(cl.getResourceAsStream("db.properties"));
+
+		String value = (String) dbInfo.get(key);
+		return value;
+	}
+
 }

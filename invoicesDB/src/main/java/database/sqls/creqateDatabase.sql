@@ -1,4 +1,4 @@
-CREATE TABLE lcZbiorCel (rokobr VARCHAR(4),mcobr VARCHAR(2), 
+CREATE TABLE paskicrypt (rokobr VARCHAR(4),mcobr VARCHAR(2), 
 
 rokpod VARCHAR(4), mcpod VARCHAR(2), termin VARCHAR(1), nrprac VARCHAR(5), 
 
