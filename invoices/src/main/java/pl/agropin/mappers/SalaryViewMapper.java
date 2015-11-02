@@ -20,7 +20,7 @@ public class SalaryViewMapper {
 				if (sk.equals("001")) {
 					String hours = invoice.getIlo_godz().toString();
 					tableRowView.setHours(hours);
-				} else if (sk.equals("{A1")) {
+				} else if (sk.contains("A1")) {
 					String brutto = invoice.getKwota().toString();
 					tableRowView.setBrutto(brutto);
 					tableRowView.setNetto("Some netto!");
@@ -34,7 +34,7 @@ public class SalaryViewMapper {
 				if (sk.equals("001")) {
 					String hours = invoice.getIlo_godz().toString();
 					tableRowView.setHours(hours);
-				} else if (sk.equals("{A1")) {
+				} else if (sk.contains("A1")) {
 					String brutto = invoice.getKwota().toString();
 					tableRowView.setBrutto(brutto);
 					tableRowView.setNetto("Some netto!");

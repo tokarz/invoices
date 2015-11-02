@@ -1,0 +1,123 @@
+
+	content: [
+				{
+						style: 'tableExample',
+						table: {
+						    widths: [ 500 ],
+								body: [
+										
+										[
+										    { text: [
+														{ text: 'TEST SP Z O O\n', fontSize: 10 },
+														{ text: 'NIP 7775554433\n', fontSize: 10 },
+														{ text: 'Okres rozliczneniowy :2011.08\n', fontSize: 10 },
+														{ text: 'Pesel 80010101257\n', fontSize: 10 },
+														{ text: '15R WIELKOPOLSKA RKCH W POZNANIU\n', fontSize: 10 },
+														{ text: 'Stawka/płaca\t\t\t1 980, 00\n\n\n', fontSize: 10 },
+														{ text: 'R6 08 00004\n', fontSize: 10 },
+														{ text: 'Testowicz 00004 Imie 00004\n', fontSize: 10 }
+														
+														
+														]
+											}
+										    
+										    ]
+								]
+						}
+				},
+				{ text: [
+				    { text: '001 PŁ.ZASADN.\t', style: 'row' },
+					{ text: '176.0\t', fontSize: 10 },
+					{ text: '1 980,00\n', fontSize: 10 },
+					{ text: '109 D.SZKOD10%\t', fontSize: 10 },
+					{ text: '66\t', fontSize: 10 },
+					{ text: '51,98\n', fontSize: 10 },
+					{ text: '128 NDG.1000KR\t', fontSize: 10 },
+					{ text: '12,0\t', fontSize: 10 },
+					{ text: '270\n\n', fontSize: 10 }
+				]
+				},
+				{
+				    table: {
+						    widths: [ 500 ],
+								body: [
+										
+										[
+										    { text: [
+				                                { text: 'BRUTTO.\t', style: 'row' },
+				                                { text: '2 301,98', style: 'rowLeft' }
+				                                ]
+										    }
+										    
+										    ]
+								]
+						}
+				    
+				},
+				
+				{ text: [
+				    { text: '\n500 Skl.emer.P\t', style: 'row' },
+					{ text: '9,76\t', fontSize: 10 },
+					{ text: '- 224,67\n', fontSize: 10 },
+					{ text: '501 Skl.rent.P\t', style: 'row' },
+					{ text: '1,50\t', fontSize: 10 },
+					{ text: '- 34,53\n', fontSize: 10 },
+					{ text: '502 Skl.chor.P\t', style: 'row' },
+					{ text: '2,45\t', fontSize: 10 },
+					{ text: '- 56,40\n', fontSize: 10 },
+					{ text: '\n501 Skl.emer.P\t', style: 'row' },
+					{ text: '9,76\t', fontSize: 10 },
+					{ text: '- 224,67\n', fontSize: 10 },
+					{ text: '\n501 Skl.emer.P\t', style: 'row' },
+					{ text: '9,76\t', fontSize: 10 },
+					{ text: '- 224,67\n', fontSize: 10 },
+					{ text: '\n501 Skl.emer.P\t', style: 'row' },
+					{ text: '9,76\t', fontSize: 10 },
+					{ text: '- 224,67\n', fontSize: 10 },
+					{ text: '\n501 Skl.emer.P\t', style: 'row' },
+					{ text: '9,76\t', fontSize: 10 },
+					{ text: '- 224,67\n', fontSize: 10 },
+					
+					
+				]
+				}
+				
+				
+				
+	],
+	styles: {
+		header: {
+			fontSize: 16,
+			bold: true,
+			margin: [0, 0, 0, 10]
+		},
+		subheader: {
+			fontSize: 14,
+			bold: true,
+			margin: [0, 10, 0, 5]
+		},
+		tableExample: {
+			margin: [0, 5, 0, 15]
+		},
+		tableHeader: {
+			bold: true,
+			fontSize: 11,
+			color: 'black'
+		},
+		row: {
+		    margin: [0,0,0,10],
+		    fontSize: 10
+		    
+		},
+		rowLeft: {
+		    fontSize: 10,
+		    alignment: 'right'
+		    
+		    
+		}
+	},
+	defaultStyle: {
+		// alignment: 'justify'
+	}
+	
+}

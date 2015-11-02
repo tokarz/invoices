@@ -73,11 +73,7 @@ body {
 }
 
 #content {
-	height: 900px;
-	background-color: whitesmoke;
-	top: 45px;
-	bottom: 45px;
-	position: static;
+	height: 100%;
 }
 
 .pdfPrint {
@@ -111,4 +107,9 @@ body {
 	height: 60px;
 	background: #eee url('../../resources/images/icons/padlock60b.png');
 	margin: auto;
+}
+
+#dataTableWrapper {
+	padding-bottom: 15px; 
+	
 }

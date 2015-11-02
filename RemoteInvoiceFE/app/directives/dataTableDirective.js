@@ -19,6 +19,30 @@ app
 															"username" : $rootScope.inputUsername
 														}
 													},
+													"language": {
+														"sProcessing":    "Wyszukiwanie...",
+												        "lengthMenu": "Widoczne _MENU_ elementów na stronę",
+												        "zeroRecords": "Brak danych do wyświetlenia",
+												        "sEmptyTable":    "Brak elementów do wyświetlenia",
+												        "info": "Strona _PAGE_ z _PAGES_",
+												        "infoEmpty": "Brak danych do wyświetlenia",
+												        "infoFiltered": "(odfiltrowano z _MAX_ elementów)",
+												        "sSearch":        "Wyszukaj",
+												        "sUrl":           "",
+												        "sInfoThousands":  ",",
+												        "sLoadingRecords": "Ładowanie...",
+												        "oPaginate": {
+												            "sFirst":    "Pierwsza",
+												            "sLast":    "Ostatnia",
+												            "sNext":    "Następna",
+												            "sPrevious": "Poprzednia"
+												        },
+												        "oAria": {
+												            "sSortAscending":  ": Posortuj rosnąco",
+												            "sSortDescending": ": Posortuj malejąco"
+												        }
+												        
+												    },
 													"columns" : [ {
 														"data" : "date"
 													}, {
@@ -27,11 +51,11 @@ app
 														"data" : "brutto"
 													}, {
 														"data" : "hours"
-													}, {
-														"data" : "pdf"
-													} ],
+													}  ],
 													"columnDefs" : [ {
 														"targets" : 4,
+														"searchable": false,
+														'defaultContent': '',
 														"createdCell" : function(
 																td, cellData,
 																rowData, row,
@@ -42,7 +66,7 @@ app
 															var compiledHtml = $compile(htmlToCompile)(scope);
 															$(td).html(compiledHtml);
 														}
-													} ]
+													}, ]
 												});
 
 							});
