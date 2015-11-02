@@ -14,7 +14,7 @@ public class DatabaseService {
 		try {
 			Configuration configuration = new Configuration();
 			configuration.configure();
-			configuration.addAnnotatedClass(Invoices.class);
+//			configuration.addAnnotatedClass(Invoices.class);
 //			configuration.addAnnotatedClass(DatabaseVersion.class);
 //			configuration.addAnnotatedClass(User.class);
 

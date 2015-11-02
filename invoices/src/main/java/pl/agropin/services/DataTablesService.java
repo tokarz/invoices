@@ -18,6 +18,7 @@ import org.codehaus.jettison.json.JSONObject;
 import com.hexiong.jdbf.JDBFException;
 
 import daos.InvoicesDAO;
+import database.DatabaseService;
 import database.DbfService;
 import entities.Invoices;
 import mappers.InvoicesMapper;
@@ -35,7 +36,7 @@ public class DataTablesService {
 	private SalaryViewMapper salaryViewMapper;
 
 	public DataTablesService() {
-		this.invoices = new InvoicesDAO(new DbfService(), new InvoicesMapper());
+		this.invoices = new InvoicesDAO(new DatabaseService());
 		this.printViewMapper = new PrintViewMapper();
 		this.pdfSectionsToJsonMapper = new PdfSectionsToJsonMapper();
 		this.salaryViewMapper = new SalaryViewMapper();

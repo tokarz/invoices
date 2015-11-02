@@ -7,7 +7,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import daos.UserDAO;
-import database.DbfService;
+import database.DatabaseService;
 import entities.User;
 
 @Path("/authenticate")
@@ -15,12 +15,10 @@ public class AuthenticationService {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public boolean authenticate(@QueryParam("username") String username, @QueryParam("password") String password)
-	{
-		UserDAO user = new UserDAO(new DbfService());
+	public boolean authenticate(@QueryParam("username") String username, @QueryParam("password") String password) {
+		UserDAO user = new UserDAO(new DatabaseService());
 		User userByNameAndPassword = user.getUserByNameAndPassword(username, password);
-		
+		//store user to session
 		return userByNameAndPassword != null;
 	}
-	
 }

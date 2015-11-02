@@ -37,7 +37,7 @@ public class InvoicesDAO {
 
 				result = ((List<Invoices>) session
 						.createSQLQuery("SELECT  * FROM  paskicrypt WHERE nrprac ='" + name + "'")
-						.addEntity(DatabaseVersion.class).list());
+						.addEntity(Invoices.class).list());
 
 			} catch (HibernateException e) {
 				e.printStackTrace();
