@@ -1,11 +1,5 @@
 package database;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.Charset;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -36,6 +30,12 @@ public class DbfServiceTest {
 		Assert.assertEquals(44, result.getColumns().size());
 		Assert.assertEquals(0, result.getValues().size());
 
+	}
+	
+	@Test
+	public void thisIsNoTestFool()
+	{
+		sut.convertDbfToMysql("dbfile");
 	}
 
 }

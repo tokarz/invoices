@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "lcZbiorCel")
+@Table(name = "paskicrypt")
 public class Invoices {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

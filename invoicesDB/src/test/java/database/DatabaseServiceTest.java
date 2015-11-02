@@ -13,6 +13,12 @@ import junit.framework.Assert;
 public class DatabaseServiceTest {
 
 	@Test
+	public void testSessionFactory() 
+	{
+		new DatabaseService().createSessionFactory();
+	}
+	
+	@Test
 	public void testJdbc() {
 		try {
 			Class.forName("jstels.jdbc.dbf.DBFDriver2");

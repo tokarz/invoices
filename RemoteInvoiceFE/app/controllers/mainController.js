@@ -12,4 +12,8 @@ app.controller('mainController', ['$scope', 'testService', function($scope, test
 		
 	});
 	
+	$scope.$on('logOut', function() {
+		$scope.isLoggedIn = false;
+	});
+	
 }]);
